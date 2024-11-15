@@ -3,10 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Class;
+import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 /**
  *
@@ -25,9 +26,21 @@ public class AdmistratorInterface extends javax.swing.JFrame {
         //panel trasparente 
         Panel.setBackground(new Color(255, 255, 255, 100)); // Blanco con 100 de opacidad 
         Panel.setOpaque(true); 
+        
+     
+       
     }
         
     }
+    //metodo para poder mostrar las clases dentro del panel
+   public void ShowPanel(javax.swing.JPanel p) {
+    p.setSize(709, 640); 
+    p.setLocation(0, 0);
+    Content.removeAll();
+    Content.add(p, BorderLayout.CENTER);
+    Content.revalidate();
+    Content.repaint();
+}
 private void configureLabels() {
     Color originalColor = new Color(255, 255, 255, 10);
     
@@ -70,14 +83,14 @@ private void configureLabels() {
     private void initComponents() {
 
         Panel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        Content = new javax.swing.JPanel();
         RegisterPeople = new javax.swing.JLabel();
         ManageStaff = new javax.swing.JLabel();
         ManageCourses = new javax.swing.JLabel();
         ManageRegistrations = new javax.swing.JLabel();
         Exit = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        ManageRegistrations1 = new javax.swing.JLabel();
+        NameUser = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,16 +98,16 @@ private void configureLabels() {
 
         Panel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        Content.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 748, Short.MAX_VALUE)
+        javax.swing.GroupLayout ContentLayout = new javax.swing.GroupLayout(Content);
+        Content.setLayout(ContentLayout);
+        ContentLayout.setHorizontalGroup(
+            ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 709, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ContentLayout.setVerticalGroup(
+            ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -107,6 +120,11 @@ private void configureLabels() {
         ManageStaff.setForeground(new java.awt.Color(87, 73, 98));
         ManageStaff.setText(" Gestionar Personal");
         ManageStaff.setToolTipText("");
+        ManageStaff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ManageStaffMouseClicked(evt);
+            }
+        });
 
         ManageCourses.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         ManageCourses.setForeground(new java.awt.Color(87, 73, 98));
@@ -131,42 +149,41 @@ private void configureLabels() {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-user-48 (1).png"))); // NOI18N
 
-        ManageRegistrations1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        ManageRegistrations1.setForeground(new java.awt.Color(87, 73, 98));
-        ManageRegistrations1.setText("  Nombre Usuario");
-        ManageRegistrations1.setToolTipText("");
+        NameUser.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        NameUser.setForeground(new java.awt.Color(87, 73, 98));
+        NameUser.setText("  Nombre Usuario");
+        NameUser.setToolTipText("");
 
         javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
         Panel.setLayout(PanelLayout);
         PanelLayout.setHorizontalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ManageStaff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ManageCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ManageRegistrations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(RegisterPeople, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ManageRegistrations1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                            .addComponent(NameUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(12, 12, 12))
+                    .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(ManageRegistrations, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                        .addComponent(ManageCourses, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ManageStaff, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelLayout.createSequentialGroup()
+                            .addGap(46, 46, 46)
+                            .addComponent(jLabel1))
+                        .addComponent(RegisterPeople, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(Content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         PanelLayout.setVerticalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(PanelLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ManageRegistrations1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NameUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(94, 94, 94)
                 .addComponent(RegisterPeople, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -178,6 +195,7 @@ private void configureLabels() {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                 .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
+            .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 880, 640));
@@ -191,6 +209,11 @@ private void configureLabels() {
     private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_ExitMouseClicked
+
+    private void ManageStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageStaffMouseClicked
+        ManageStaff manage = new ManageStaff ();
+        ShowPanel(manage);
+    }//GEN-LAST:event_ManageStaffMouseClicked
 
     /**
      * @param args the command line arguments
@@ -228,15 +251,15 @@ private void configureLabels() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Content;
     private javax.swing.JLabel Exit;
     private javax.swing.JLabel ManageCourses;
     private javax.swing.JLabel ManageRegistrations;
-    private javax.swing.JLabel ManageRegistrations1;
     private javax.swing.JLabel ManageStaff;
+    private javax.swing.JLabel NameUser;
     private javax.swing.JPanel Panel;
     private javax.swing.JLabel RegisterPeople;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
