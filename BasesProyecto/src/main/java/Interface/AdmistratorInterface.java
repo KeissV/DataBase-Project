@@ -84,11 +84,21 @@ public class AdmistratorInterface extends javax.swing.JFrame {
         ManageRegistrations.setForeground(new java.awt.Color(87, 73, 98));
         ManageRegistrations.setText(" Gestionar Incripciones");
         ManageRegistrations.setToolTipText("");
+        ManageRegistrations.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ManageRegistrationsMouseClicked(evt);
+            }
+        });
 
         ManageCourses.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         ManageCourses.setForeground(new java.awt.Color(87, 73, 98));
         ManageCourses.setText(" Gestionar Cursos");
         ManageCourses.setToolTipText("");
+        ManageCourses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ManageCoursesMouseClicked(evt);
+            }
+        });
 
         ManageStaff.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         ManageStaff.setForeground(new java.awt.Color(87, 73, 98));
@@ -230,6 +240,16 @@ public class AdmistratorInterface extends javax.swing.JFrame {
     private void RegisterPeopleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPeopleMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_RegisterPeopleMouseClicked
+
+    private void ManageCoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageCoursesMouseClicked
+        ManageCourse mc = new ManageCourse();
+        ShowPanel(mc);
+    }//GEN-LAST:event_ManageCoursesMouseClicked
+
+    private void ManageRegistrationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageRegistrationsMouseClicked
+        ManageInscriptions mi = new ManageInscriptions();
+        ShowPanel(mi);
+    }//GEN-LAST:event_ManageRegistrationsMouseClicked
 
     /**
      * @param args the command line arguments

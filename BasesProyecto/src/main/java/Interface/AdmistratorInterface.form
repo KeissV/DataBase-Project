@@ -124,6 +124,9 @@
             <Property name="text" type="java.lang.String" value=" Gestionar Incripciones"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ManageRegistrationsMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="ManageCourses">
           <Properties>
@@ -136,6 +139,9 @@
             <Property name="text" type="java.lang.String" value=" Gestionar Cursos"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ManageCoursesMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="ManageStaff">
           <Properties>
