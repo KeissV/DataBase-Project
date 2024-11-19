@@ -8,7 +8,6 @@ import java.awt.Color;
 import java.awt.Component;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
-import javax.swing.UIManager;
 
 /**
  *
@@ -22,74 +21,52 @@ public class ViewHistory extends javax.swing.JPanel {
     public ViewHistory() {
         initComponents();
     
-       // renderizador personalizado para el combo
-        jComboBox1.setRenderer(new CustomComboBoxRenderer());
-        jComboBox2.setRenderer(new CustomComboBoxRenderer());
+      jComboBox1.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+    @Override
+    public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent e) {
+        TableView.getParent().repaint(); // Redibuja todo el contenedor
+    }
 
-      
-     
+    @Override
+    public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent e) {
+        TableView.getParent().repaint();
+    }
+
+    @Override
+    public void popupMenuCanceled(javax.swing.event.PopupMenuEvent e) {
+        TableView.getParent().repaint();
+    }
+});
+
+jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+    @Override
+    public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent e) {
+        TableView.getParent().repaint();
+    }
+
+    @Override
+    public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent e) {
+        TableView.getParent().repaint();
+    }
+
+    @Override
+    public void popupMenuCanceled(javax.swing.event.PopupMenuEvent e) {
+        TableView.getParent().repaint();
+    }
+});
+
         // Asegurarse de que los paneles se mantengan transparentes
         if (TableView != null) {
             TableView.setBackground(new Color(195, 152, 242, 47));
             TableView.setOpaque(true);
         }
     
-        
-    //  PopupMenuListener para repintar TableView
-    jComboBox1.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-        @Override
-        public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent e) {
-            // No es necesario hacer nada aquí al abrirse.
-        }
+     
 
-        @Override
-        public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent e) {
-            // Forzar la actualización del panel cuando el JComboBox se cierra
-            TableView.repaint();
-        }
-
-        @Override
-        public void popupMenuCanceled(javax.swing.event.PopupMenuEvent e) {
-            // Repintar en caso de que  el menú se cierra de forma inesperada
-            TableView.repaint();
-        }
-    });
-
-    //  JComboBox 2 li mismo que arriba
-    jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-        @Override
-        public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent e) {
-            
-        }
-
-        @Override
-        public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent e) {
-           
-            TableView.repaint();
-        }
-
-        @Override
-        public void popupMenuCanceled(javax.swing.event.PopupMenuEvent e) {
-           
-            TableView.repaint();
-        }
-    });
+    
     }
     
-    private static class CustomComboBoxRenderer extends DefaultListCellRenderer {
-        @Override
-        public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-            Component c = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-
-            if (isSelected) {
-                c.setBackground(new Color(234,203,234)); 
-                c.setForeground(new Color(87,73,98)); 
-            } else {
-                c.setBackground(new Color(195, 152, 242, 47)); 
-                c.setForeground(new Color(87,73,98)); 
-            }
-            return c;
-        } }
+    
     
     
 
@@ -142,6 +119,11 @@ public class ViewHistory extends javax.swing.JPanel {
         jComboBox2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(87, 73, 98));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
         TableView.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 230, -1));
 
         jComboBox1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
@@ -150,13 +132,13 @@ public class ViewHistory extends javax.swing.JPanel {
         TableView.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 220, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
-        TableView.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, -1, -1));
+        TableView.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, -1));
 
         Search2.setBackground(new java.awt.Color(255, 255, 255));
         Search2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         Search2.setForeground(new java.awt.Color(87, 73, 98));
         Search2.setBorder(null);
-        TableView.add(Search2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 570, 40));
+        TableView.add(Search2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 540, 40));
 
         Table1.add(TableView, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 670, 600));
 
@@ -177,6 +159,10 @@ public class ViewHistory extends javax.swing.JPanel {
                 .addGap(18, 18, 18))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     
     

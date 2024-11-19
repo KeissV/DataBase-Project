@@ -8,7 +8,6 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 /**
  *
@@ -16,14 +15,41 @@ import javax.swing.JLabel;
  */
 public class AdmistratorInterface extends javax.swing.JFrame {
 
-   
+    private JLabel selectedLabel = null;
     /**
      * Creates new form AdmistratorInterface
      */
     public AdmistratorInterface() {
         initComponents();
          
+         ArrayList<JLabel> labels = new ArrayList<>();
+        labels.add(Courses);
+        labels.add(History);
+        labels.add(Staff);
+        labels.add(Inscriptions);
+        labels.add(People);
         
+        // Añadir un MouseListener a cada JLabel
+        for (JLabel label : labels) {
+            label.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    
+                    if (selectedLabel != null) {
+                        selectedLabel.setBackground(null); // Color original (por defecto)
+                        selectedLabel.setOpaque(false);
+                    }
+                    
+                  
+                    selectedLabel = label;
+                    selectedLabel.setBackground(new Color(255, 255, 255)); 
+                    selectedLabel.setOpaque(true);
+                    
+                    // Repintar la interfaz
+                    repaint();
+                }
+            });
+        }
         if (Panel != null) {
         //panel trasparente 
         Panel.setBackground(new Color(255, 255, 255, 100)); // Blanco con 100 de opacidad 
@@ -32,7 +58,8 @@ public class AdmistratorInterface extends javax.swing.JFrame {
        
     }   
     }
-    
+
+     
     //metodo para poder mostrar las clases dentro del panel
    public void ShowPanel(javax.swing.JPanel p) {
     p.setSize(709, 640); 
@@ -53,16 +80,16 @@ public class AdmistratorInterface extends javax.swing.JFrame {
     private void initComponents() {
 
         Panel = new javax.swing.JPanel();
-        RegisterPeople = new javax.swing.JLabel();
-        ManageRegistrations = new javax.swing.JLabel();
-        ManageCourses = new javax.swing.JLabel();
-        ManageStaff = new javax.swing.JLabel();
-        HistoryStudents = new javax.swing.JLabel();
         Content = new javax.swing.JPanel();
         Exit = new javax.swing.JLabel();
         PerfilUser = new javax.swing.JLabel();
         NameUser = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        History = new javax.swing.JLabel();
+        Courses = new javax.swing.JLabel();
+        Staff = new javax.swing.JLabel();
+        Inscriptions = new javax.swing.JLabel();
+        People = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,67 +97,17 @@ public class AdmistratorInterface extends javax.swing.JFrame {
 
         Panel.setBackground(new java.awt.Color(255, 255, 255));
 
-        RegisterPeople.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        RegisterPeople.setForeground(new java.awt.Color(87, 73, 98));
-        RegisterPeople.setText(" Registrar Personas");
-        RegisterPeople.setToolTipText("");
-        RegisterPeople.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RegisterPeopleMouseClicked(evt);
-            }
-        });
-
-        ManageRegistrations.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        ManageRegistrations.setForeground(new java.awt.Color(87, 73, 98));
-        ManageRegistrations.setText(" Gestionar Incripciones");
-        ManageRegistrations.setToolTipText("");
-        ManageRegistrations.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ManageRegistrationsMouseClicked(evt);
-            }
-        });
-
-        ManageCourses.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        ManageCourses.setForeground(new java.awt.Color(87, 73, 98));
-        ManageCourses.setText(" Gestionar Cursos");
-        ManageCourses.setToolTipText("");
-        ManageCourses.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ManageCoursesMouseClicked(evt);
-            }
-        });
-
-        ManageStaff.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        ManageStaff.setForeground(new java.awt.Color(87, 73, 98));
-        ManageStaff.setText(" Gestionar Personal");
-        ManageStaff.setToolTipText("");
-        ManageStaff.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ManageStaffMouseClicked(evt);
-            }
-        });
-
-        HistoryStudents.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        HistoryStudents.setForeground(new java.awt.Color(87, 73, 98));
-        HistoryStudents.setText("Historial Estudiantes");
-        HistoryStudents.setToolTipText("");
-        HistoryStudents.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                HistoryStudentsMouseClicked(evt);
-            }
-        });
-
         Content.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout ContentLayout = new javax.swing.GroupLayout(Content);
         Content.setLayout(ContentLayout);
         ContentLayout.setHorizontalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 709, Short.MAX_VALUE)
+            .addGap(0, 713, Short.MAX_VALUE)
         );
         ContentLayout.setVerticalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         Exit.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
@@ -158,30 +135,76 @@ public class AdmistratorInterface extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/LOGOOO.png"))); // NOI18N
 
+        History.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        History.setForeground(new java.awt.Color(87, 73, 98));
+        History.setText(" Historial Estudiantes");
+        History.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HistoryMouseClicked(evt);
+            }
+        });
+
+        Courses.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        Courses.setForeground(new java.awt.Color(87, 73, 98));
+        Courses.setText(" Gestionar Cursos");
+        Courses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CoursesMouseClicked(evt);
+            }
+        });
+
+        Staff.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        Staff.setForeground(new java.awt.Color(87, 73, 98));
+        Staff.setText(" GestionarPersonal");
+        Staff.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                StaffMouseClicked(evt);
+            }
+        });
+
+        Inscriptions.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        Inscriptions.setForeground(new java.awt.Color(87, 73, 98));
+        Inscriptions.setText(" Gestionar Inscripciones");
+        Inscriptions.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                InscriptionsMouseClicked(evt);
+            }
+        });
+
+        People.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        People.setForeground(new java.awt.Color(87, 73, 98));
+        People.setText(" Registrar Personas");
+        People.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PeopleMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
         Panel.setLayout(PanelLayout);
         PanelLayout.setHorizontalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(ManageCourses, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(RegisterPeople, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(HistoryStudents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ManageRegistrations, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))
-                    .addComponent(NameUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ManageStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(History, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Staff, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel1))
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(PerfilUser))
-                    .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(NameUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(PanelLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel1))
+                            .addGroup(PanelLayout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(PerfilUser))
+                            .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(Courses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(People, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Inscriptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(14, 14, 14))
         );
         PanelLayout.setVerticalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,21 +216,19 @@ public class AdmistratorInterface extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NameUser)
                 .addGap(50, 50, 50)
-                .addComponent(HistoryStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(History, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RegisterPeople, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Courses, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ManageStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Staff, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ManageCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Inscriptions, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ManageRegistrations, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(People, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addComponent(Content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 880, 640));
@@ -222,34 +243,33 @@ public class AdmistratorInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ExitMouseClicked
 
-    private void ManageStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageStaffMouseClicked
-        ManageStaff manage = new ManageStaff ();
-        ShowPanel(manage);
-    }//GEN-LAST:event_ManageStaffMouseClicked
-
     private void PerfilUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PerfilUserMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_PerfilUserMouseClicked
 
-    private void HistoryStudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HistoryStudentsMouseClicked
-        ViewHistory his = new ViewHistory ();
-        ShowPanel(his);
-                           
-    }//GEN-LAST:event_HistoryStudentsMouseClicked
+    private void HistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HistoryMouseClicked
+    ViewHistory vie = new ViewHistory();
+    ShowPanel(vie);
+    }//GEN-LAST:event_HistoryMouseClicked
 
-    private void RegisterPeopleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisterPeopleMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RegisterPeopleMouseClicked
-
-    private void ManageCoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageCoursesMouseClicked
+    private void CoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CoursesMouseClicked
         ManageCourse mc = new ManageCourse();
         ShowPanel(mc);
-    }//GEN-LAST:event_ManageCoursesMouseClicked
+    }//GEN-LAST:event_CoursesMouseClicked
 
-    private void ManageRegistrationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageRegistrationsMouseClicked
+    private void StaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StaffMouseClicked
+        ManageStaff mana = new ManageStaff();
+        ShowPanel(mana);
+    }//GEN-LAST:event_StaffMouseClicked
+
+    private void InscriptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InscriptionsMouseClicked
         ManageInscriptions mi = new ManageInscriptions();
         ShowPanel(mi);
-    }//GEN-LAST:event_ManageRegistrationsMouseClicked
+    }//GEN-LAST:event_InscriptionsMouseClicked
+
+    private void PeopleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PeopleMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PeopleMouseClicked
 
     /**
      * @param args the command line arguments
@@ -277,6 +297,13 @@ public class AdmistratorInterface extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(AdmistratorInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -288,15 +315,15 @@ public class AdmistratorInterface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Content;
+    private javax.swing.JLabel Courses;
     private javax.swing.JLabel Exit;
-    private javax.swing.JLabel HistoryStudents;
-    private javax.swing.JLabel ManageCourses;
-    private javax.swing.JLabel ManageRegistrations;
-    private javax.swing.JLabel ManageStaff;
+    private javax.swing.JLabel History;
+    private javax.swing.JLabel Inscriptions;
     private javax.swing.JLabel NameUser;
     private javax.swing.JPanel Panel;
+    private javax.swing.JLabel People;
     private javax.swing.JLabel PerfilUser;
-    private javax.swing.JLabel RegisterPeople;
+    private javax.swing.JLabel Staff;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

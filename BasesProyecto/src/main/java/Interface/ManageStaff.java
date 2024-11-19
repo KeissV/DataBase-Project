@@ -70,7 +70,7 @@ public class ManageStaff extends javax.swing.JPanel {
                 jTextField1ActionPerformed(evt);
             }
         });
-        PanelMS.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 610, 40));
+        PanelMS.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 560, 40));
 
         jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N

@@ -4,6 +4,8 @@
  */
 package Interface;
 
+import java.awt.Color;
+
 /**
  *
  * @author wendy_6rrub
@@ -15,6 +17,29 @@ public class ManageCourse extends javax.swing.JPanel {
      */
     public ManageCourse() {
         initComponents();
+        
+          if (panelCourses != null) {
+            panelCourses.setBackground(new Color(234,203,234, 75));
+            panelCourses.setOpaque(true);
+        }
+          
+                 
+comboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+    @Override
+    public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent e) {
+        panelCourses.getParent().repaint();
+    }
+
+    @Override
+    public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent e) {
+        panelCourses.getParent().repaint();
+    }
+
+    @Override
+    public void popupMenuCanceled(javax.swing.event.PopupMenuEvent e) {
+        panelCourses.getParent().repaint();
+    }
+});
     }
 
     /**
@@ -43,16 +68,18 @@ public class ManageCourse extends javax.swing.JPanel {
         panelCourses.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
-        panelCourses.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, -1, -1));
+        panelCourses.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, -1, -1));
 
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        panelCourses.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 589, 40));
+        panelCourses.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 560, 40));
 
+        jTable1.setForeground(new java.awt.Color(87, 73, 98));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -64,6 +91,8 @@ public class ManageCourse extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setSelectionBackground(new java.awt.Color(234, 203, 234));
+        jTable1.setSelectionForeground(new java.awt.Color(87, 73, 98));
         jScrollPane1.setViewportView(jTable1);
 
         panelCourses.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 590, 390));

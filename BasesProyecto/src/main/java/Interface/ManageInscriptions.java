@@ -5,6 +5,8 @@
 
 package Interface;
 
+import java.awt.Color;
+
 /**
  *
  * @author wendy_6rrub
@@ -14,6 +16,29 @@ public class ManageInscriptions extends javax.swing.JPanel {
     /** Creates new form ManageInscriptions */
     public ManageInscriptions() {
         initComponents();
+        
+        if (TableView != null) {
+            TableView.setBackground(new Color(234,203,234, 75));
+            TableView.setOpaque(true);
+        }
+        
+        
+jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+    @Override
+    public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent e) {
+        TableView.getParent().repaint();
+    }
+
+    @Override
+    public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent e) {
+        TableView.getParent().repaint();
+    }
+
+    @Override
+    public void popupMenuCanceled(javax.swing.event.PopupMenuEvent e) {
+        TableView.getParent().repaint();
+    }
+});
     }
 
     /** This method is called from within the constructor to
@@ -69,13 +94,13 @@ public class ManageInscriptions extends javax.swing.JPanel {
         TableView.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 150, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
-        TableView.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, -1, -1));
+        TableView.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, -1, -1));
 
         Search2.setBackground(new java.awt.Color(255, 255, 255));
         Search2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         Search2.setForeground(new java.awt.Color(87, 73, 98));
         Search2.setBorder(null);
-        TableView.add(Search2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 420, 40));
+        TableView.add(Search2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 370, 40));
 
         btnDeleteIns.setText("Eliminar");
         TableView.add(btnDeleteIns, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 140, 50));
