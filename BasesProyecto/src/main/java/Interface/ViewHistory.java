@@ -108,8 +108,8 @@ public class ViewHistory extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        Search2 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        Search = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -137,26 +137,31 @@ public class ViewHistory extends javax.swing.JPanel {
         jTable1.setSelectionForeground(new java.awt.Color(87, 73, 98));
         jScrollPane1.setViewportView(jTable1);
 
-        TableView.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 570, 380));
+        TableView.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 600, 380));
 
         jComboBox2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(87, 73, 98));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        TableView.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 230, -1));
+        TableView.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 230, -1));
 
         jComboBox1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(87, 73, 98));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        TableView.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 220, -1));
+        TableView.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 100, 220, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
-        TableView.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, -1, -1));
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(87, 73, 98));
+        jTextField1.setBorder(null);
+        TableView.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 560, 40));
 
-        Search2.setBackground(new java.awt.Color(255, 255, 255));
-        Search2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        Search2.setForeground(new java.awt.Color(87, 73, 98));
-        Search2.setBorder(null);
-        TableView.add(Search2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 570, 40));
+        Search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
+        Search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SearchMouseClicked(evt);
+            }
+        });
+        TableView.add(Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, -1, -1));
 
         Table1.add(TableView, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 670, 600));
 
@@ -173,22 +178,26 @@ public class ViewHistory extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Table1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+                .addComponent(Table1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(25, 25, 25))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchMouseClicked
 
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Search2;
+    private javax.swing.JLabel Search;
     private javax.swing.JPanel Table1;
     private javax.swing.JPanel TableView;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,14 +36,14 @@ public class ManageStaff extends javax.swing.JPanel {
 
         PanelM = new javax.swing.JPanel();
         PanelMS = new javax.swing.JPanel();
-        Search = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Erase = new javax.swing.JLabel();
         Modify = new javax.swing.JLabel();
         Teachers = new javax.swing.JLabel();
         Students = new javax.swing.JLabel();
+        search = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -52,25 +52,6 @@ public class ManageStaff extends javax.swing.JPanel {
 
         PanelMS.setBackground(new java.awt.Color(195, 152, 242));
         PanelMS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
-        Search.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SearchMouseClicked(evt);
-            }
-        });
-        PanelMS.add(Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 30, -1));
-
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(87, 73, 98));
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        PanelMS.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 610, 40));
 
         jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
@@ -90,7 +71,7 @@ public class ManageStaff extends javax.swing.JPanel {
         jTable1.setSelectionForeground(new java.awt.Color(87, 73, 98));
         jScrollPane1.setViewportView(jTable1);
 
-        PanelMS.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 111, 570, 440));
+        PanelMS.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 570, 440));
 
         Erase.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         Erase.setForeground(new java.awt.Color(87, 73, 98));
@@ -130,20 +111,26 @@ public class ManageStaff extends javax.swing.JPanel {
                 StudentsMouseClicked(evt);
             }
         });
-        PanelMS.add(Students, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, 20));
+        PanelMS.add(Students, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, -1, 20));
+
+        search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
+        search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchMouseClicked(evt);
+            }
+        });
+        PanelMS.add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, 20));
+
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(87, 73, 98));
+        jTextField2.setBorder(null);
+        PanelMS.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 540, 40));
 
         PanelM.add(PanelMS, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 670, 600));
 
         add(PanelM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 640));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void SearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SearchMouseClicked
 
     private void ModifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModifyMouseClicked
         // TODO add your handling code here:
@@ -161,17 +148,21 @@ public class ManageStaff extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_StudentsMouseClicked
 
+    private void searchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Erase;
     private javax.swing.JLabel Modify;
     private javax.swing.JPanel PanelM;
     private javax.swing.JPanel PanelMS;
-    private javax.swing.JLabel Search;
     private javax.swing.JLabel Students;
     private javax.swing.JLabel Teachers;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel search;
     // End of variables declaration//GEN-END:variables
 }
