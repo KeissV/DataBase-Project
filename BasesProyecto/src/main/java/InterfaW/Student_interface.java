@@ -1,9 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package InterfaW;
 
+import Controller.controller;
 import java.awt.event.ActionEvent;
 
 /**
@@ -19,6 +17,7 @@ public class Student_interface extends javax.swing.JFrame{
         
         setLocationRelativeTo(null); 
         ShowPanel(cc);
+        controller controller = new controller(cc);
     }
 
     // Método para alternar entre paneles
