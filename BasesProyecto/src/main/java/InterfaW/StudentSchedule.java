@@ -4,6 +4,8 @@
  */
 package InterfaW;
 
+import javax.swing.SwingConstants;
+
 /**
  *
  * @author wendy_6rrub
@@ -15,6 +17,9 @@ public class StudentSchedule extends javax.swing.JPanel {
      */
     public StudentSchedule() {
         initComponents();
+        
+        txtMonday8_9.setText("<html>Nombre largo del curso que se ajustará a varias líneas si es necesario</html>");
+        txtMonday8_9.setVerticalAlignment(SwingConstants.TOP); 
     }
 
     /**
@@ -42,56 +47,56 @@ public class StudentSchedule extends javax.swing.JPanel {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField51 = new javax.swing.JTextField();
-        jTextField52 = new javax.swing.JTextField();
-        jTextField53 = new javax.swing.JTextField();
-        jTextField54 = new javax.swing.JTextField();
-        jTextField55 = new javax.swing.JTextField();
-        jTextField56 = new javax.swing.JTextField();
-        jTextField57 = new javax.swing.JTextField();
-        jTextField58 = new javax.swing.JTextField();
-        jTextField59 = new javax.swing.JTextField();
-        jTextField60 = new javax.swing.JTextField();
-        jTextField61 = new javax.swing.JTextField();
-        jTextField62 = new javax.swing.JTextField();
-        jTextField63 = new javax.swing.JTextField();
-        jTextField64 = new javax.swing.JTextField();
-        jTextField65 = new javax.swing.JTextField();
-        jTextField66 = new javax.swing.JTextField();
-        jTextField67 = new javax.swing.JTextField();
-        jTextField68 = new javax.swing.JTextField();
-        jTextField69 = new javax.swing.JTextField();
-        jTextField70 = new javax.swing.JTextField();
-        jTextField71 = new javax.swing.JTextField();
-        jTextField72 = new javax.swing.JTextField();
-        jTextField73 = new javax.swing.JTextField();
-        jTextField74 = new javax.swing.JTextField();
-        jTextField75 = new javax.swing.JTextField();
-        jTextField76 = new javax.swing.JTextField();
-        jTextField77 = new javax.swing.JTextField();
-        jTextField78 = new javax.swing.JTextField();
-        jTextField79 = new javax.swing.JTextField();
-        jTextField80 = new javax.swing.JTextField();
-        jTextField81 = new javax.swing.JTextField();
-        jTextField82 = new javax.swing.JTextField();
-        jTextField83 = new javax.swing.JTextField();
-        jTextField84 = new javax.swing.JTextField();
-        jTextField85 = new javax.swing.JTextField();
-        jTextField86 = new javax.swing.JTextField();
-        jTextField87 = new javax.swing.JTextField();
-        jTextField88 = new javax.swing.JTextField();
-        jTextField89 = new javax.swing.JTextField();
-        jTextField90 = new javax.swing.JTextField();
-        jTextField91 = new javax.swing.JTextField();
-        jTextField92 = new javax.swing.JTextField();
-        jTextField93 = new javax.swing.JTextField();
-        jTextField94 = new javax.swing.JTextField();
-        jTextField95 = new javax.swing.JTextField();
-        jTextField96 = new javax.swing.JTextField();
-        jTextField97 = new javax.swing.JTextField();
-        jTextField98 = new javax.swing.JTextField();
-        jTextField99 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        txtMonday8_9 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
 
         panelSchedule.setBackground(new java.awt.Color(255, 255, 255));
         panelSchedule.setForeground(new java.awt.Color(51, 102, 0));
@@ -172,315 +177,295 @@ public class StudentSchedule extends javax.swing.JPanel {
         jLabel15.setText("04:00 pm");
         panelSchedule.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField2.setText("jTextField1");
-        jTextField2.setBorder(null);
-        panelSchedule.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 110, 40));
+        jLabel16.setText("jLabel16");
+        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 110, 40));
 
-        jTextField51.setEditable(false);
-        jTextField51.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField51.setText("jTextField1");
-        jTextField51.setBorder(null);
-        panelSchedule.add(jTextField51, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 110, 40));
+        jLabel17.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel17.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel17.setText("jLabel16");
+        jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 110, 40));
 
-        jTextField52.setEditable(false);
-        jTextField52.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField52.setText("jTextField1");
-        jTextField52.setBorder(null);
-        panelSchedule.add(jTextField52, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 110, 40));
+        txtMonday8_9.setText("jLabel16");
+        txtMonday8_9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(txtMonday8_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 110, 40));
 
-        jTextField53.setEditable(false);
-        jTextField53.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField53.setText("jTextField1");
-        jTextField53.setBorder(null);
-        panelSchedule.add(jTextField53, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 110, 40));
+        jLabel19.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel19.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel19.setText("jLabel16");
+        jLabel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 110, 40));
 
-        jTextField54.setEditable(false);
-        jTextField54.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField54.setText("jTextField1");
-        jTextField54.setBorder(null);
-        panelSchedule.add(jTextField54, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 110, 40));
+        jLabel20.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel20.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel20.setText("jLabel16");
+        jLabel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 110, 40));
 
-        jTextField55.setEditable(false);
-        jTextField55.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField55.setText("jTextField1");
-        jTextField55.setBorder(null);
-        panelSchedule.add(jTextField55, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 110, 40));
+        jLabel21.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel21.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel21.setText("jLabel16");
+        jLabel21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 110, 40));
 
-        jTextField56.setEditable(false);
-        jTextField56.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField56.setText("jTextField1");
-        jTextField56.setBorder(null);
-        panelSchedule.add(jTextField56, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 110, 40));
+        jLabel22.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel22.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel22.setText("jLabel16");
+        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 110, 40));
 
-        jTextField57.setEditable(false);
-        jTextField57.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField57.setText("jTextField1");
-        jTextField57.setBorder(null);
-        panelSchedule.add(jTextField57, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 110, 40));
+        jLabel23.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel23.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel23.setText("jLabel16");
+        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 110, 40));
 
-        jTextField58.setEditable(false);
-        jTextField58.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField58.setText("jTextField1");
-        jTextField58.setBorder(null);
-        panelSchedule.add(jTextField58, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 110, 40));
+        jLabel24.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel24.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel24.setText("jLabel16");
+        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 110, 40));
 
-        jTextField59.setEditable(false);
-        jTextField59.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField59.setText("jTextField1");
-        jTextField59.setBorder(null);
-        panelSchedule.add(jTextField59, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 110, 40));
+        jLabel25.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel25.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel25.setText("jLabel16");
+        jLabel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 110, 40));
 
-        jTextField60.setEditable(false);
-        jTextField60.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField60.setText("jTextField1");
-        jTextField60.setBorder(null);
-        panelSchedule.add(jTextField60, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 110, 40));
+        jLabel26.setText("jLabel16");
+        jLabel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 110, 40));
 
-        jTextField61.setEditable(false);
-        jTextField61.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField61.setText("jTextField1");
-        jTextField61.setBorder(null);
-        panelSchedule.add(jTextField61, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 110, 40));
+        jLabel27.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel27.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel27.setText("jLabel16");
+        jLabel27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 110, 40));
 
-        jTextField62.setEditable(false);
-        jTextField62.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField62.setText("jTextField1");
-        jTextField62.setBorder(null);
-        panelSchedule.add(jTextField62, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 110, 40));
+        jLabel28.setText("jLabel16");
+        jLabel28.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 110, 40));
 
-        jTextField63.setEditable(false);
-        jTextField63.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField63.setText("jTextField1");
-        jTextField63.setBorder(null);
-        panelSchedule.add(jTextField63, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 110, 40));
+        jLabel29.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel29.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel29.setText("jLabel16");
+        jLabel29.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 110, 40));
 
-        jTextField64.setEditable(false);
-        jTextField64.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField64.setText("jTextField1");
-        jTextField64.setBorder(null);
-        panelSchedule.add(jTextField64, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 110, 40));
+        jLabel30.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel30.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel30.setText("jLabel16");
+        jLabel30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 110, 40));
 
-        jTextField65.setEditable(false);
-        jTextField65.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField65.setText("jTextField1");
-        jTextField65.setBorder(null);
-        panelSchedule.add(jTextField65, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 110, 40));
+        jLabel31.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel31.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel31.setText("jLabel16");
+        jLabel31.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 110, 40));
 
-        jTextField66.setEditable(false);
-        jTextField66.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField66.setText("jTextField1");
-        jTextField66.setBorder(null);
-        panelSchedule.add(jTextField66, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 110, 40));
+        jLabel32.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel32.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel32.setText("jLabel16");
+        jLabel32.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 110, 40));
 
-        jTextField67.setEditable(false);
-        jTextField67.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField67.setText("jTextField1");
-        jTextField67.setBorder(null);
-        panelSchedule.add(jTextField67, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 110, 40));
+        jLabel33.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel33.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel33.setText("jLabel16");
+        jLabel33.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 110, 40));
 
-        jTextField68.setEditable(false);
-        jTextField68.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField68.setText("jTextField1");
-        jTextField68.setBorder(null);
-        panelSchedule.add(jTextField68, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 110, 40));
+        jLabel34.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel34.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel34.setText("jLabel16");
+        jLabel34.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 110, 40));
 
-        jTextField69.setEditable(false);
-        jTextField69.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField69.setText("jTextField1");
-        jTextField69.setBorder(null);
-        panelSchedule.add(jTextField69, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 110, 40));
+        jLabel35.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel35.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel35.setText("jLabel16");
+        jLabel35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 110, 40));
 
-        jTextField70.setEditable(false);
-        jTextField70.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField70.setText("jTextField1");
-        jTextField70.setBorder(null);
-        panelSchedule.add(jTextField70, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 110, 40));
+        jLabel36.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel36.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel36.setText("jLabel16");
+        jLabel36.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 110, 40));
 
-        jTextField71.setEditable(false);
-        jTextField71.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField71.setText("jTextField1");
-        jTextField71.setBorder(null);
-        panelSchedule.add(jTextField71, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 110, 40));
+        jLabel37.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel37.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel37.setText("jLabel16");
+        jLabel37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 110, 40));
 
-        jTextField72.setEditable(false);
-        jTextField72.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField72.setText("jTextField1");
-        jTextField72.setBorder(null);
-        panelSchedule.add(jTextField72, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 110, 40));
+        jLabel38.setText("jLabel16");
+        jLabel38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 110, 40));
 
-        jTextField73.setEditable(false);
-        jTextField73.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField73.setText("jTextField1");
-        jTextField73.setBorder(null);
-        panelSchedule.add(jTextField73, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 110, 40));
+        jLabel39.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel39.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel39.setText("jLabel16");
+        jLabel39.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 110, 40));
 
-        jTextField74.setEditable(false);
-        jTextField74.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField74.setText("jTextField1");
-        jTextField74.setBorder(null);
-        panelSchedule.add(jTextField74, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 110, 40));
+        jLabel40.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel40.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel40.setText("jLabel16");
+        jLabel40.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 110, 40));
 
-        jTextField75.setEditable(false);
-        jTextField75.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField75.setText("jTextField1");
-        jTextField75.setBorder(null);
-        panelSchedule.add(jTextField75, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 110, 40));
+        jLabel41.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel41.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel41.setText("jLabel16");
+        jLabel41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 110, 40));
 
-        jTextField76.setEditable(false);
-        jTextField76.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField76.setText("jTextField1");
-        jTextField76.setBorder(null);
-        panelSchedule.add(jTextField76, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 110, 40));
+        jLabel42.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel42.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel42.setText("jLabel16");
+        jLabel42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 110, 40));
 
-        jTextField77.setEditable(false);
-        jTextField77.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField77.setText("jTextField1");
-        jTextField77.setBorder(null);
-        panelSchedule.add(jTextField77, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 110, 40));
+        jLabel43.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel43.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel43.setText("jLabel16");
+        jLabel43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 110, 40));
 
-        jTextField78.setEditable(false);
-        jTextField78.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField78.setText("jTextField1");
-        jTextField78.setBorder(null);
-        panelSchedule.add(jTextField78, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 110, 40));
+        jLabel44.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel44.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel44.setText("jLabel16");
+        jLabel44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, 110, 40));
 
-        jTextField79.setEditable(false);
-        jTextField79.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField79.setText("jTextField1");
-        jTextField79.setBorder(null);
-        panelSchedule.add(jTextField79, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, 110, 40));
+        jLabel45.setText("jLabel16");
+        jLabel45.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 110, 40));
 
-        jTextField80.setEditable(false);
-        jTextField80.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField80.setText("jTextField1");
-        jTextField80.setBorder(null);
-        panelSchedule.add(jTextField80, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 110, 40));
+        jLabel46.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel46.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel46.setText("jLabel16");
+        jLabel46.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 110, 40));
 
-        jTextField81.setEditable(false);
-        jTextField81.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField81.setText("jTextField1");
-        jTextField81.setBorder(null);
-        panelSchedule.add(jTextField81, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 110, 40));
+        jLabel47.setText("jLabel16");
+        jLabel47.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 110, 40));
 
-        jTextField82.setEditable(false);
-        jTextField82.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField82.setText("jTextField1");
-        jTextField82.setBorder(null);
-        panelSchedule.add(jTextField82, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 110, 40));
+        jLabel48.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel48.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel48.setText("jLabel16");
+        jLabel48.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 110, 40));
 
-        jTextField83.setEditable(false);
-        jTextField83.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField83.setText("jTextField1");
-        jTextField83.setBorder(null);
-        panelSchedule.add(jTextField83, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 110, 40));
+        jLabel49.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel49.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel49.setText("jLabel16");
+        jLabel49.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 110, 40));
 
-        jTextField84.setEditable(false);
-        jTextField84.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField84.setText("jTextField1");
-        jTextField84.setBorder(null);
-        panelSchedule.add(jTextField84, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 110, 40));
+        jLabel50.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel50.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel50.setText("jLabel16");
+        jLabel50.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 110, 40));
 
-        jTextField85.setEditable(false);
-        jTextField85.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField85.setText("jTextField1");
-        jTextField85.setBorder(null);
-        panelSchedule.add(jTextField85, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 110, 40));
+        jLabel51.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel51.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel51.setText("jLabel16");
+        jLabel51.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 110, 40));
 
-        jTextField86.setEditable(false);
-        jTextField86.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField86.setText("jTextField1");
-        jTextField86.setBorder(null);
-        panelSchedule.add(jTextField86, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 110, 40));
+        jLabel52.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel52.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel52.setText("jLabel16");
+        jLabel52.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 110, 40));
 
-        jTextField87.setEditable(false);
-        jTextField87.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField87.setText("jTextField1");
-        jTextField87.setBorder(null);
-        panelSchedule.add(jTextField87, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 110, 40));
+        jLabel53.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel53.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel53.setText("jLabel16");
+        jLabel53.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 110, 40));
 
-        jTextField88.setEditable(false);
-        jTextField88.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField88.setText("jTextField1");
-        jTextField88.setBorder(null);
-        panelSchedule.add(jTextField88, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 110, 40));
+        jLabel54.setText("jLabel16");
+        jLabel54.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 110, 40));
 
-        jTextField89.setEditable(false);
-        jTextField89.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField89.setText("jTextField1");
-        jTextField89.setBorder(null);
-        panelSchedule.add(jTextField89, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 110, 40));
+        jLabel55.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel55.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel55.setText("jLabel16");
+        jLabel55.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 110, 40));
 
-        jTextField90.setEditable(false);
-        jTextField90.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField90.setText("jTextField1");
-        jTextField90.setBorder(null);
-        panelSchedule.add(jTextField90, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 110, 40));
+        jLabel56.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel56.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel56.setText("jLabel16");
+        jLabel56.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 110, 40));
 
-        jTextField91.setEditable(false);
-        jTextField91.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField91.setText("jTextField1");
-        jTextField91.setBorder(null);
-        panelSchedule.add(jTextField91, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 110, 40));
+        jLabel57.setText("jLabel16");
+        jLabel57.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 110, 40));
 
-        jTextField92.setEditable(false);
-        jTextField92.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField92.setText("jTextField1");
-        jTextField92.setBorder(null);
-        panelSchedule.add(jTextField92, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 110, 40));
+        jLabel58.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel58.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel58.setText("jLabel16");
+        jLabel58.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 110, 40));
 
-        jTextField93.setEditable(false);
-        jTextField93.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField93.setText("jTextField1");
-        jTextField93.setBorder(null);
-        panelSchedule.add(jTextField93, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 110, 40));
+        jLabel59.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel59.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel59.setText("jLabel16");
+        jLabel59.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 110, 40));
 
-        jTextField94.setEditable(false);
-        jTextField94.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField94.setText("jTextField1");
-        jTextField94.setBorder(null);
-        panelSchedule.add(jTextField94, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 110, 40));
+        jLabel60.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel60.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel60.setText("jLabel16");
+        jLabel60.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 110, 40));
 
-        jTextField95.setEditable(false);
-        jTextField95.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField95.setText("jTextField1");
-        jTextField95.setBorder(null);
-        panelSchedule.add(jTextField95, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 110, 40));
+        jLabel61.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel61.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel61.setText("jLabel16");
+        jLabel61.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, 110, 40));
 
-        jTextField96.setEditable(false);
-        jTextField96.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField96.setText("jTextField1");
-        jTextField96.setBorder(null);
-        panelSchedule.add(jTextField96, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 110, 40));
+        jLabel62.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel62.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel62.setText("jLabel16");
+        jLabel62.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 110, 40));
 
-        jTextField97.setEditable(false);
-        jTextField97.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField97.setText("jTextField1");
-        jTextField97.setBorder(null);
-        panelSchedule.add(jTextField97, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 110, 40));
+        jLabel63.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel63.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel63.setText("jLabel16");
+        jLabel63.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 110, 40));
 
-        jTextField98.setEditable(false);
-        jTextField98.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField98.setText("jTextField1");
-        jTextField98.setBorder(null);
-        panelSchedule.add(jTextField98, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, 110, 40));
+        jLabel64.setBackground(new java.awt.Color(204, 255, 255));
+        jLabel64.setForeground(new java.awt.Color(255, 204, 204));
+        jLabel64.setText("jLabel16");
+        jLabel64.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 110, 40));
 
-        jTextField99.setEditable(false);
-        jTextField99.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField99.setText("jTextField1");
-        jTextField99.setBorder(null);
-        panelSchedule.add(jTextField99, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 110, 40));
+        jLabel65.setText("jLabel16");
+        jLabel65.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        panelSchedule.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 110, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -493,64 +478,64 @@ public class StudentSchedule extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField51;
-    private javax.swing.JTextField jTextField52;
-    private javax.swing.JTextField jTextField53;
-    private javax.swing.JTextField jTextField54;
-    private javax.swing.JTextField jTextField55;
-    private javax.swing.JTextField jTextField56;
-    private javax.swing.JTextField jTextField57;
-    private javax.swing.JTextField jTextField58;
-    private javax.swing.JTextField jTextField59;
-    private javax.swing.JTextField jTextField60;
-    private javax.swing.JTextField jTextField61;
-    private javax.swing.JTextField jTextField62;
-    private javax.swing.JTextField jTextField63;
-    private javax.swing.JTextField jTextField64;
-    private javax.swing.JTextField jTextField65;
-    private javax.swing.JTextField jTextField66;
-    private javax.swing.JTextField jTextField67;
-    private javax.swing.JTextField jTextField68;
-    private javax.swing.JTextField jTextField69;
-    private javax.swing.JTextField jTextField70;
-    private javax.swing.JTextField jTextField71;
-    private javax.swing.JTextField jTextField72;
-    private javax.swing.JTextField jTextField73;
-    private javax.swing.JTextField jTextField74;
-    private javax.swing.JTextField jTextField75;
-    private javax.swing.JTextField jTextField76;
-    private javax.swing.JTextField jTextField77;
-    private javax.swing.JTextField jTextField78;
-    private javax.swing.JTextField jTextField79;
-    private javax.swing.JTextField jTextField80;
-    private javax.swing.JTextField jTextField81;
-    private javax.swing.JTextField jTextField82;
-    private javax.swing.JTextField jTextField83;
-    private javax.swing.JTextField jTextField84;
-    private javax.swing.JTextField jTextField85;
-    private javax.swing.JTextField jTextField86;
-    private javax.swing.JTextField jTextField87;
-    private javax.swing.JTextField jTextField88;
-    private javax.swing.JTextField jTextField89;
-    private javax.swing.JTextField jTextField90;
-    private javax.swing.JTextField jTextField91;
-    private javax.swing.JTextField jTextField92;
-    private javax.swing.JTextField jTextField93;
-    private javax.swing.JTextField jTextField94;
-    private javax.swing.JTextField jTextField95;
-    private javax.swing.JTextField jTextField96;
-    private javax.swing.JTextField jTextField97;
-    private javax.swing.JTextField jTextField98;
-    private javax.swing.JTextField jTextField99;
     private javax.swing.JPanel panelSchedule;
+    private javax.swing.JLabel txtMonday8_9;
     // End of variables declaration//GEN-END:variables
 }

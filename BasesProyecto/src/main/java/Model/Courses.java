@@ -1,5 +1,7 @@
 package Model;
 
+import java.sql.Date;
+
 /**
  *
  * @author wendy_6rrub
@@ -13,13 +15,13 @@ public class Courses {
     int amountStudents;
     String duration;
     String scheduleStd;
-    String endingDate;
-    String openingDate;
+    Date endingDate;
+    Date openingDate;
 
     public Courses() {
     }
 
-    public Courses(String initials, String courseName, String modality, String area, int amountStudents, String duration, String scheduleStd, String endingDate, String openingDate) {
+    public Courses(String initials, String courseName, String modality, String area, int amountStudents, String duration, String scheduleStd, Date endingDate, Date openingDate) {
         this.initials = initials;
         this.courseName = courseName;
         this.modality = modality;
@@ -87,19 +89,19 @@ public class Courses {
         this.scheduleStd = scheduleStd;
     }
 
-    public String getEndingDate() {
+    public Date getEndingDate() {
         return endingDate;
     }
 
-    public void setEndingDate(String endingDate) {
+    public void setEndingDate(Date endingDate) {
         this.endingDate = endingDate;
     }
 
-    public String getOpeningDate() {
+    public Date getOpeningDate() {
         return openingDate;
     }
 
-    public void setOpeningDate(String openingDate) {
+    public void setOpeningDate(Date openingDate) {
         this.openingDate = openingDate;
     }
     

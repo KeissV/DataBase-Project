@@ -29,7 +29,7 @@ public class StudentExpedient extends javax.swing.JPanel {
         panelExpedient = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableExpe = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
 
@@ -39,27 +39,30 @@ public class StudentExpedient extends javax.swing.JPanel {
         jLabel1.setText("Expedient");
         panelExpedient.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 20, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableExpe.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Curso", "Facilitador", "Modalidad", "Estado", "Fecha de finalización"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableExpe);
 
         panelExpedient.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 620, 250));
 
-        jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 18)); // NOI18N
         jLabel2.setText("Cursos aprobados");
         panelExpedient.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
-
-        jTextField1.setText("jTextField1");
-        panelExpedient.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 450, 40));
+        panelExpedient.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 450, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -80,8 +83,8 @@ public class StudentExpedient extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelExpedient;
+    public javax.swing.JTable tableExpe;
     // End of variables declaration//GEN-END:variables
 }

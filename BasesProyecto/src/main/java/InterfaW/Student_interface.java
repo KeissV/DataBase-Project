@@ -9,15 +9,24 @@ import java.awt.event.ActionEvent;
  * @author wendy_6rrub
  */
 public class Student_interface extends javax.swing.JFrame{
-    
+    controller controller = new controller();
     CurrentCourses cc = new CurrentCourses();
+    StudentExpedient se = new StudentExpedient();
     
     public Student_interface() {
         initComponents();
         
         setLocationRelativeTo(null); 
+        controller.list(cc.tableCurrent);
+        controller.listExpedient(se.tableExpe);
+        
         ShowPanel(cc);
-        controller controller = new controller(cc);
+        
+        String userName = controller.getUserName();
+
+        cc.lblStudentName.setText("¡Hola, " + userName + "!");
+        lblProfilepanel.setText(userName);
+        
     }
 
     // Método para alternar entre paneles
@@ -42,8 +51,7 @@ public class Student_interface extends javax.swing.JFrame{
         btnCurrentCourses = new javax.swing.JButton();
         btnSchedule = new javax.swing.JButton();
         btnExpedient = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblProfilepanel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -125,11 +133,14 @@ public class Student_interface extends javax.swing.JFrame{
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-user-48 (1).png"))); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(76, 30, 124));
-        jLabel3.setText("Nombre");
+        lblProfilepanel.setFont(new java.awt.Font("Leelawadee", 1, 14)); // NOI18N
+        lblProfilepanel.setForeground(new java.awt.Color(76, 30, 124));
+        lblProfilepanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-user-48 (1).png"))); // NOI18N
+        lblProfilepanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblProfilepanelMouseClicked(evt);
+            }
+        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/LOGOOO.png"))); // NOI18N
 
@@ -143,38 +154,30 @@ public class Student_interface extends javax.swing.JFrame{
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 18, Short.MAX_VALUE))
+                    .addComponent(btnExpedient, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCurrentCourses, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(jLabel4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)))
-                .addContainerGap(58, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnExpedient, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCurrentCourses, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSchedule, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(lblProfilepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel2)
-                        .addGap(33, 33, 33))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)
-                        .addGap(46, 46, 46)))
+                .addGap(30, 30, 30)
+                .addComponent(lblProfilepanel)
+                .addGap(33, 33, 33)
                 .addComponent(btnCurrentCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,14 +213,21 @@ public class Student_interface extends javax.swing.JFrame{
     }//GEN-LAST:event_btnScheduleMouseClicked
 
     private void btnExpedientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExpedientMouseClicked
-        StudentExpedient se = new StudentExpedient();
+        
         ShowPanel(se);
     }//GEN-LAST:event_btnExpedientMouseClicked
 
     private void btnCurrentCoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCurrentCoursesMouseClicked
-        
+
         ShowPanel(cc); 
     }//GEN-LAST:event_btnCurrentCoursesMouseClicked
+
+    private void lblProfilepanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblProfilepanelMouseClicked
+        Profile pr = new Profile();
+        pr.setVisible(true);
+        pr.setLocationRelativeTo(null); 
+        
+    }//GEN-LAST:event_lblProfilepanelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -226,12 +236,11 @@ public class Student_interface extends javax.swing.JFrame{
     private javax.swing.JButton btnExpedient;
     private javax.swing.JButton btnSchedule;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblProfilepanel;
     // End of variables declaration//GEN-END:variables
 
 
