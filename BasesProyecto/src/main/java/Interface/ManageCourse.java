@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package Interface;
 
 import java.awt.Color;
@@ -53,7 +50,6 @@ comboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
 
         jPanel1 = new javax.swing.JPanel();
         panelCourses = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -61,14 +57,12 @@ comboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         btnEditCourse = new javax.swing.JButton();
         btnDeleteCourse = new javax.swing.JButton();
         comboCourses = new javax.swing.JComboBox<>();
+        searchButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         panelCourses.setBackground(new java.awt.Color(255, 211, 255));
         panelCourses.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
-        panelCourses.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, -1, -1));
 
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setBorder(null);
@@ -77,20 +71,25 @@ comboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
                 jTextField1ActionPerformed(evt);
             }
         });
-        panelCourses.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 560, 40));
+        panelCourses.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 520, 40));
 
         jTable1.setForeground(new java.awt.Color(87, 73, 98));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Sigla", "Curso", "Modalidad", "Cant. estudiantes", "Area", "Horario", "Duración", "Fecha inicio", "Fecha fin"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable1.setSelectionBackground(new java.awt.Color(234, 203, 234));
         jTable1.setSelectionForeground(new java.awt.Color(87, 73, 98));
         jScrollPane1.setViewportView(jTable1);
@@ -98,26 +97,45 @@ comboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         panelCourses.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 590, 390));
 
         btnAddCourse.setText("Agregar");
+        btnAddCourse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddCourseMouseClicked(evt);
+            }
+        });
         btnAddCourse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddCourseActionPerformed(evt);
             }
         });
-        panelCourses.add(btnAddCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
+        panelCourses.add(btnAddCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 90, -1));
 
         btnEditCourse.setText("Editar");
-        panelCourses.add(btnEditCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 80, -1));
+        btnEditCourse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditCourseMouseClicked(evt);
+            }
+        });
+        panelCourses.add(btnEditCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 90, -1));
 
         btnDeleteCourse.setText("Eliminar");
-        panelCourses.add(btnDeleteCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, -1, -1));
+        panelCourses.add(btnDeleteCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 120, 90, -1));
 
-        comboCourses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboCourses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Arte", "Actividad física", "Salud y Bienestar", "Tecnología", "Medio ambiente" }));
         comboCourses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboCoursesActionPerformed(evt);
             }
         });
         panelCourses.add(comboCourses, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 120, -1));
+
+        searchButton1.setBackground(new java.awt.Color(204, 204, 255));
+        searchButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
+        searchButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButton1ActionPerformed(evt);
+            }
+        });
+        panelCourses.add(searchButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, -1, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -160,17 +178,31 @@ comboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboCoursesActionPerformed
 
+    private void btnAddCourseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddCourseMouseClicked
+        AddCourse ac = new AddCourse();
+        ac.setVisible(true);
+    }//GEN-LAST:event_btnAddCourseMouseClicked
+
+    private void btnEditCourseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditCourseMouseClicked
+        EditCourses ec = new EditCourses();
+        ec.setVisible(true);
+    }//GEN-LAST:event_btnEditCourseMouseClicked
+
+    private void searchButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCourse;
     private javax.swing.JButton btnDeleteCourse;
     private javax.swing.JButton btnEditCourse;
     private javax.swing.JComboBox<String> comboCourses;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelCourses;
+    private javax.swing.JButton searchButton1;
     // End of variables declaration//GEN-END:variables
 }

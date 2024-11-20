@@ -5,6 +5,7 @@
 
 package Interface;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 /**
@@ -40,6 +41,16 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
     }
 });
     }
+    
+        public void ShowPanel(javax.swing.JPanel p) {
+            p.setSize(320, 380); 
+            p.setLocation(0, 0);
+            Content4.removeAll();
+            Content4.add(p, BorderLayout.CENTER);
+            Content4.revalidate();
+            Content4.repaint();
+        }
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -55,12 +66,12 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
         Search2 = new javax.swing.JTextField();
         btnDeleteIns = new javax.swing.JButton();
         btnAddIns = new javax.swing.JButton();
         btnEditIns = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        Content4 = new javax.swing.JPanel();
+        searchButton3 = new javax.swing.JButton();
 
         Table1.setBackground(new java.awt.Color(255, 255, 255));
         Table1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -73,28 +84,36 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         jTable1.setForeground(new java.awt.Color(87, 73, 98));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Codigo", "Estudiante", "Curso", "Facilitador"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable1.setSelectionBackground(new java.awt.Color(234, 203, 234));
         jTable1.setSelectionForeground(new java.awt.Color(87, 73, 98));
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(8);
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(15);
+            jTable1.getColumnModel().getColumn(2).setPreferredWidth(15);
+            jTable1.getColumnModel().getColumn(3).setPreferredWidth(15);
+        }
 
-        TableView.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 170, 380));
+        TableView.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 270, 380));
 
         jComboBox2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(87, 73, 98));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        TableView.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 150, 30));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
-        TableView.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, -1, -1));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Estudiantes", "Facilitadores", "Cursos" }));
+        TableView.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 130, 30));
 
         Search2.setBackground(new java.awt.Color(255, 255, 255));
         Search2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
@@ -106,23 +125,44 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         TableView.add(btnDeleteIns, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 140, 50));
 
         btnAddIns.setText("Nueva Inscripción");
+        btnAddIns.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddInsMouseClicked(evt);
+            }
+        });
         TableView.add(btnAddIns, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 140, 50));
 
         btnEditIns.setText("Editar");
+        btnEditIns.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditInsMouseClicked(evt);
+            }
+        });
         TableView.add(btnEditIns, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 140, 50));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+        Content4.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout Content4Layout = new javax.swing.GroupLayout(Content4);
+        Content4.setLayout(Content4Layout);
+        Content4Layout.setHorizontalGroup(
+            Content4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 320, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Content4Layout.setVerticalGroup(
+            Content4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 380, Short.MAX_VALUE)
         );
 
-        TableView.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 410, 380));
+        TableView.add(Content4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 320, 380));
+
+        searchButton3.setBackground(new java.awt.Color(204, 204, 255));
+        searchButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
+        searchButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButton3ActionPerformed(evt);
+            }
+        });
+        TableView.add(searchButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
 
         Table1.add(TableView, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 660, 600));
 
@@ -138,8 +178,23 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void searchButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchButton3ActionPerformed
+
+    private void btnAddInsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddInsMouseClicked
+        AddInscription ai = new AddInscription();
+        ShowPanel(ai);
+    }//GEN-LAST:event_btnAddInsMouseClicked
+
+    private void btnEditInsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditInsMouseClicked
+        EditInscription ei = new EditInscription();
+        ShowPanel(ei);
+    }//GEN-LAST:event_btnEditInsMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Content4;
     private javax.swing.JTextField Search2;
     private javax.swing.JPanel Table1;
     private javax.swing.JPanel TableView;
@@ -147,10 +202,11 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
     private javax.swing.JButton btnDeleteIns;
     private javax.swing.JButton btnEditIns;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton searchButton1;
+    private javax.swing.JButton searchButton2;
+    private javax.swing.JButton searchButton3;
     // End of variables declaration//GEN-END:variables
 
 }

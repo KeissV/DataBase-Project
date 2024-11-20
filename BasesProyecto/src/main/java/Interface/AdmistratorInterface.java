@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Interface;
+import InterfaW.Profile;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -82,7 +80,7 @@ public class AdmistratorInterface extends javax.swing.JFrame {
         Panel = new javax.swing.JPanel();
         Content = new javax.swing.JPanel();
         Exit = new javax.swing.JLabel();
-        PerfilUser = new javax.swing.JLabel();
+        ProfileUser = new javax.swing.JLabel();
         NameUser = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         History = new javax.swing.JLabel();
@@ -121,10 +119,10 @@ public class AdmistratorInterface extends javax.swing.JFrame {
             }
         });
 
-        PerfilUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-user-48 (1).png"))); // NOI18N
-        PerfilUser.addMouseListener(new java.awt.event.MouseAdapter() {
+        ProfileUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-user-48 (1).png"))); // NOI18N
+        ProfileUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                PerfilUserMouseClicked(evt);
+                ProfileUserMouseClicked(evt);
             }
         });
 
@@ -197,7 +195,7 @@ public class AdmistratorInterface extends javax.swing.JFrame {
                                 .addComponent(jLabel1))
                             .addGroup(PanelLayout.createSequentialGroup()
                                 .addGap(40, 40, 40)
-                                .addComponent(PerfilUser))
+                                .addComponent(ProfileUser))
                             .addComponent(Exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(Courses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(People, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -212,7 +210,7 @@ public class AdmistratorInterface extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(PerfilUser)
+                .addComponent(ProfileUser)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NameUser)
                 .addGap(50, 50, 50)
@@ -243,9 +241,12 @@ public class AdmistratorInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ExitMouseClicked
 
-    private void PerfilUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PerfilUserMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PerfilUserMouseClicked
+    private void ProfileUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfileUserMouseClicked
+        Profile pro = new Profile();
+        pro.profilepanel.setBackground(new Color(252, 242, 252));
+        pro.setVisible(true);
+        
+    }//GEN-LAST:event_ProfileUserMouseClicked
 
     private void HistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HistoryMouseClicked
     ViewHistory vie = new ViewHistory();
@@ -322,7 +323,7 @@ public class AdmistratorInterface extends javax.swing.JFrame {
     private javax.swing.JLabel NameUser;
     private javax.swing.JPanel Panel;
     private javax.swing.JLabel People;
-    private javax.swing.JLabel PerfilUser;
+    private javax.swing.JLabel ProfileUser;
     private javax.swing.JLabel Staff;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
