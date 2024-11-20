@@ -24,10 +24,17 @@ public class ManageStaff extends javax.swing.JPanel {
 
         controller = new ControllerFacilitators(this);
 
-        // Configura los listeners de los botones
-        teachers.addActionListener(e -> controller.loadTeachersData(TeacStu));
-        students.addActionListener(e -> controller.loadStudentsData(TeacStu));
+        controller = new ControllerFacilitators(this);
 
+        teachers.addActionListener(e -> {
+            String searchTerm = Search1.getText().trim();
+            controller.loadTeachersData(TeacStu, searchTerm);
+        });
+
+        students.addActionListener(e -> {
+            String searchTerm = Search1.getText().trim();
+            controller.loadStudentsData(TeacStu, searchTerm);
+        });
         if (PanelMS != null) {
             //panel trasparente 
             PanelMS.setBackground(new Color(195, 152, 242, 47)); // Morado con 70 de opacidad 
@@ -46,14 +53,14 @@ public class ManageStaff extends javax.swing.JPanel {
 
         PanelM = new javax.swing.JPanel();
         PanelMS = new javax.swing.JPanel();
-        Search = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Search1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TeacStu = new javax.swing.JTable();
         Erase = new javax.swing.JLabel();
         Modify = new javax.swing.JLabel();
         teachers = new javax.swing.JButton();
         students = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -63,24 +70,16 @@ public class ManageStaff extends javax.swing.JPanel {
         PanelMS.setBackground(new java.awt.Color(195, 152, 242));
         PanelMS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
-        Search.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SearchMouseClicked(evt);
-            }
-        });
-        PanelMS.add(Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 30, -1));
-
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(87, 73, 98));
-        jTextField1.setBorder(null);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        Search1.setBackground(new java.awt.Color(255, 255, 255));
+        Search1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        Search1.setForeground(new java.awt.Color(87, 73, 98));
+        Search1.setBorder(null);
+        Search1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                Search1ActionPerformed(evt);
             }
         });
-        PanelMS.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 560, 40));
+        PanelMS.add(Search1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 580, 40));
 
         TeacStu.setBackground(new java.awt.Color(255, 255, 255));
         TeacStu.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 10)); // NOI18N
@@ -100,7 +99,7 @@ public class ManageStaff extends javax.swing.JPanel {
         TeacStu.setSelectionForeground(new java.awt.Color(87, 73, 98));
         jScrollPane1.setViewportView(TeacStu);
 
-        PanelMS.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 161, 630, 390));
+        PanelMS.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 131, 630, 400));
 
         Erase.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         Erase.setForeground(new java.awt.Color(87, 73, 98));
@@ -110,7 +109,7 @@ public class ManageStaff extends javax.swing.JPanel {
                 EraseMouseClicked(evt);
             }
         });
-        PanelMS.add(Erase, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 570, 60, 20));
+        PanelMS.add(Erase, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 60, 20));
 
         Modify.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         Modify.setForeground(new java.awt.Color(87, 73, 98));
@@ -120,9 +119,9 @@ public class ManageStaff extends javax.swing.JPanel {
                 ModifyMouseClicked(evt);
             }
         });
-        PanelMS.add(Modify, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 70, 20));
+        PanelMS.add(Modify, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 560, 70, 20));
 
-        teachers.setBackground(new java.awt.Color(204, 204, 255));
+        teachers.setBackground(new java.awt.Color(225, 225, 255));
         teachers.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         teachers.setText("Profesores");
         teachers.addActionListener(new java.awt.event.ActionListener() {
@@ -130,9 +129,9 @@ public class ManageStaff extends javax.swing.JPanel {
                 teachersActionPerformed(evt);
             }
         });
-        PanelMS.add(teachers, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 150, -1));
+        PanelMS.add(teachers, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 310, -1));
 
-        students.setBackground(new java.awt.Color(204, 204, 255));
+        students.setBackground(new java.awt.Color(225, 225, 255));
         students.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         students.setText("Estudiantes");
         students.addActionListener(new java.awt.event.ActionListener() {
@@ -140,20 +139,19 @@ public class ManageStaff extends javax.swing.JPanel {
                 studentsActionPerformed(evt);
             }
         });
-        PanelMS.add(students, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 100, 150, -1));
+        PanelMS.add(students, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 310, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
+        PanelMS.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, -1, -1));
 
         PanelM.add(PanelMS, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 670, 600));
 
         add(PanelM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 640));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void Search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void SearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SearchMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SearchMouseClicked
+    }//GEN-LAST:event_Search1ActionPerformed
 
     private void ModifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModifyMouseClicked
         // TODO add your handling code here:
@@ -177,10 +175,10 @@ public class ManageStaff extends javax.swing.JPanel {
     private javax.swing.JLabel Modify;
     private javax.swing.JPanel PanelM;
     private javax.swing.JPanel PanelMS;
-    private javax.swing.JLabel Search;
+    private javax.swing.JTextField Search1;
     public javax.swing.JTable TeacStu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton students;
     private javax.swing.JButton teachers;
     // End of variables declaration//GEN-END:variables

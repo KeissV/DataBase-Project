@@ -110,7 +110,7 @@ public class ViewHistory extends javax.swing.JPanel {
         TablaH.setSelectionForeground(new java.awt.Color(87, 73, 98));
         jScrollPane1.setViewportView(TablaH);
 
-        TableView.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 570, 380));
+        TableView.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 630, 380));
 
         ComboCourses.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         ComboCourses.setForeground(new java.awt.Color(87, 73, 98));
@@ -120,13 +120,13 @@ public class ViewHistory extends javax.swing.JPanel {
                 ComboCoursesActionPerformed(evt);
             }
         });
-        TableView.add(ComboCourses, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 230, -1));
+        TableView.add(ComboCourses, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 230, -1));
 
         Search2.setBackground(new java.awt.Color(255, 255, 255));
         Search2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         Search2.setForeground(new java.awt.Color(87, 73, 98));
         Search2.setBorder(null);
-        TableView.add(Search2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 540, 40));
+        TableView.add(Search2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 570, 40));
 
         searchButton1.setBackground(new java.awt.Color(204, 204, 255));
         searchButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
