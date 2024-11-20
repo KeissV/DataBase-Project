@@ -4,6 +4,8 @@
  */
 package Interface;
 
+import Controller.ControllerHistory;
+import Controller.controller;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.DefaultListCellRenderer;
@@ -14,12 +16,33 @@ import javax.swing.JList;
  * @author franc
  */
 public class ViewHistory extends javax.swing.JPanel {
-
+ private ControllerHistory controller;
     /**
      * Creates new form ViewHistory
      */
     public ViewHistory() {
         initComponents();
+        controller = new ControllerHistory(this);
+
+        // Listener para el botón de búsqueda
+        searchButton1.addActionListener(e -> {
+            String searchTerm = Search2.getText();
+            String course = (String) ComboCourses.getSelectedItem();
+            controller.loadHistoryData(TablaH, searchTerm, course);
+        });
+
+        // Listener para cambiar el filtro del curso
+        ComboCourses.addActionListener(e -> {
+            String searchTerm = Search2.getText();
+            String course = (String) ComboCourses.getSelectedItem();
+            controller.loadHistoryData(TablaH, searchTerm, course);
+        });
+
+        // Cargar datos iniciales (sin filtros)
+        controller.loadHistoryData(TablaH, null, null);
+
+        // Cargar cursos en el ComboBox
+        controller.loadCourses(ComboCourses);
     
       jComboBox1.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
     @Override
@@ -38,7 +61,7 @@ public class ViewHistory extends javax.swing.JPanel {
     }
 });
 
-jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+ComboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
     @Override
     public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent e) {
         TableView.getParent().repaint();
@@ -82,11 +105,12 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         Table1 = new javax.swing.JPanel();
         TableView = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        TablaH = new javax.swing.JTable();
+        ComboCourses = new javax.swing.JComboBox<>();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        searchButton = new javax.swing.JLabel();
         Search2 = new javax.swing.JTextField();
+        searchButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -96,10 +120,10 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         TableView.setBackground(new java.awt.Color(195, 152, 242));
         TableView.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(87, 73, 98));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaH.setBackground(new java.awt.Color(255, 255, 255));
+        TablaH.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 10)); // NOI18N
+        TablaH.setForeground(new java.awt.Color(87, 73, 98));
+        TablaH.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -110,35 +134,54 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setSelectionBackground(new java.awt.Color(234, 203, 234));
-        jTable1.setSelectionForeground(new java.awt.Color(87, 73, 98));
-        jScrollPane1.setViewportView(jTable1);
+        TablaH.setSelectionBackground(new java.awt.Color(234, 203, 234));
+        TablaH.setSelectionForeground(new java.awt.Color(87, 73, 98));
+        jScrollPane1.setViewportView(TablaH);
 
         TableView.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 570, 380));
 
-        jComboBox2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(87, 73, 98));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        ComboCourses.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        ComboCourses.setForeground(new java.awt.Color(87, 73, 98));
+        ComboCourses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboCourses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                ComboCoursesActionPerformed(evt);
             }
         });
-        TableView.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 230, -1));
+        TableView.add(ComboCourses, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 230, -1));
 
         jComboBox1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(87, 73, 98));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         TableView.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 220, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
-        TableView.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, -1, -1));
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
+        searchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchButtonMouseClicked(evt);
+            }
+        });
+        TableView.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, -1, -1));
 
         Search2.setBackground(new java.awt.Color(255, 255, 255));
         Search2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         Search2.setForeground(new java.awt.Color(87, 73, 98));
         Search2.setBorder(null);
         TableView.add(Search2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 540, 40));
+
+        searchButton1.setBackground(new java.awt.Color(204, 204, 255));
+        searchButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
+        searchButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButton1ActionPerformed(evt);
+            }
+        });
+        TableView.add(searchButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, -1, -1));
 
         Table1.add(TableView, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 670, 600));
 
@@ -160,21 +203,34 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void ComboCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboCoursesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_ComboCoursesActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void searchButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchButtonMouseClicked
+
+    private void searchButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchButton1ActionPerformed
 
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboCourses;
     private javax.swing.JTextField Search2;
+    public javax.swing.JTable TablaH;
     private javax.swing.JPanel Table1;
     private javax.swing.JPanel TableView;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel searchButton;
+    private javax.swing.JButton searchButton1;
     // End of variables declaration//GEN-END:variables
 }
