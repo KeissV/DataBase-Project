@@ -4,7 +4,9 @@
  */
 package Interface;
 
+import Controller.ControllerFacilitators;
 import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +20,19 @@ public class ManageStaff extends javax.swing.JPanel {
     public ManageStaff() {
         initComponents();
         
+        
+        DefaultTableModel model = new DefaultTableModel(
+    new String[] {
+        "ID Facilitador", "Identificación", "Nombre", "Apellido1", "Apellido2", 
+        "Teléfono", "Correo", "Especialización", "Cantidad Cursos", "Cursos"
+    }, 
+    0
+);
+    TeacStu.setModel(model);
+
+    // Vincula el controlador:
+    ControllerFacilitators controller = new ControllerFacilitators(this);
+ 
          if (PanelMS != null) {
         //panel trasparente 
         PanelMS.setBackground(new Color(195,152,242, 47)); // Morado con 70 de opacidad 
@@ -39,11 +54,11 @@ public class ManageStaff extends javax.swing.JPanel {
         Search = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TeacStu = new javax.swing.JTable();
         Erase = new javax.swing.JLabel();
         Modify = new javax.swing.JLabel();
-        Teachers = new javax.swing.JLabel();
-        Students = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -72,10 +87,10 @@ public class ManageStaff extends javax.swing.JPanel {
         });
         PanelMS.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 560, 40));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(87, 73, 98));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TeacStu.setBackground(new java.awt.Color(255, 255, 255));
+        TeacStu.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 10)); // NOI18N
+        TeacStu.setForeground(new java.awt.Color(87, 73, 98));
+        TeacStu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -86,11 +101,11 @@ public class ManageStaff extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setSelectionBackground(new java.awt.Color(234, 203, 234));
-        jTable1.setSelectionForeground(new java.awt.Color(87, 73, 98));
-        jScrollPane1.setViewportView(jTable1);
+        TeacStu.setSelectionBackground(new java.awt.Color(234, 203, 234));
+        TeacStu.setSelectionForeground(new java.awt.Color(87, 73, 98));
+        jScrollPane1.setViewportView(TeacStu);
 
-        PanelMS.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 111, 570, 440));
+        PanelMS.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 161, 570, 390));
 
         Erase.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         Erase.setForeground(new java.awt.Color(87, 73, 98));
@@ -112,25 +127,15 @@ public class ManageStaff extends javax.swing.JPanel {
         });
         PanelMS.add(Modify, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 70, 20));
 
-        Teachers.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        Teachers.setForeground(new java.awt.Color(87, 73, 98));
-        Teachers.setText("Profesores");
-        Teachers.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TeachersMouseClicked(evt);
-            }
-        });
-        PanelMS.add(Teachers, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, 20));
+        jButton1.setBackground(new java.awt.Color(204, 204, 255));
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        jButton1.setText("Profesores");
+        PanelMS.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 150, -1));
 
-        Students.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
-        Students.setForeground(new java.awt.Color(87, 73, 98));
-        Students.setText("Estudiantes");
-        Students.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                StudentsMouseClicked(evt);
-            }
-        });
-        PanelMS.add(Students, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, 20));
+        jButton2.setBackground(new java.awt.Color(204, 204, 255));
+        jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
+        jButton2.setText("Estudiantes");
+        PanelMS.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 100, 150, -1));
 
         PanelM.add(PanelMS, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 670, 600));
 
@@ -153,14 +158,6 @@ public class ManageStaff extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_EraseMouseClicked
 
-    private void TeachersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TeachersMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TeachersMouseClicked
-
-    private void StudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudentsMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_StudentsMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Erase;
@@ -168,10 +165,10 @@ public class ManageStaff extends javax.swing.JPanel {
     private javax.swing.JPanel PanelM;
     private javax.swing.JPanel PanelMS;
     private javax.swing.JLabel Search;
-    private javax.swing.JLabel Students;
-    private javax.swing.JLabel Teachers;
+    public javax.swing.JTable TeacStu;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

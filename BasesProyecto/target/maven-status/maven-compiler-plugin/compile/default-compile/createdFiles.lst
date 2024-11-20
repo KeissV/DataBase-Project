@@ -17,10 +17,10 @@ InterfaW\SaveProfile.class
 InterfaW\Student_interface$5.class
 Interface\AdmistratorInterface$3.class
 InterfaW\Student_interface.class
-Model\CourseWithInstructor.class
 InterfaW\Profile.class
 Interface\ViewHistory$3.class
 Interface\ManageCourse$1.class
+Model\UsersDAO.class
 InterfaW\Profile$3.class
 Interface\ManageCourse$4.class
 Interface\ManageStaff$4.class
@@ -31,6 +31,7 @@ Model\MainSQL.class
 Interface\ViewHistory$2.class
 InterfaW\CurrentCourses.class
 InterfaW\MainStudents.class
+InterfaW\Student_interface$6.class
 Interface\AdmistratorInterface$7.class
 Model\Courses.class
 InterfaW\Student_interface$2.class
@@ -44,7 +45,9 @@ InterfaW\CurrentCourses$1.class
 InterfaW\Profile$1.class
 Interface\ManageStaff$3.class
 Model\Users.class
+InterfaW\StudentExpedient$1.class
 Model\ConnectionSQLdb.class
+Model\CourseBonds.class
 InterfaW\StudentExpedient.class
 InterfaW\Student_interface$3.class
 Interface\AdmistratorInterface$5.class
