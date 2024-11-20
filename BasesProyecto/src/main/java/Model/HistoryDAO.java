@@ -23,24 +23,24 @@ public class HistoryDAO {
 
     public List<Object[]> getHistoryData(String searchTerm, String course) {
         List<Object[]> historyList = new ArrayList<>();
-        String sql = "SELECT " +
-                     "    e.ID_Estudiante, " +
-                     "    u.Identificacion, " +
-                     "    u.Nombre, " +
-                     "    u.Apellido1, " +
-                     "    u.Apellido2, " +
-                     "    e.Necesidad_Especial, " +
-                     "    i.Sigla, " +
-                     "    c.Nombre_Curso, " +
-                     "    c.Modalidad, " +
-                     "    c.Area_especializacion, " +
-                     "    STRING_AGG(c.Horario, ', ') AS Horarios, " +
-                     "    c.Fecha_inicio, " +
-                     "    c.Fecha_fin " +
-                     "FROM Estudiantes e " +
-                     "INNER JOIN Usuarios u ON e.Identificacion = u.Identificacion " +
-                     "LEFT JOIN Inscripciones i ON e.ID_Estudiante = i.ID_Estudiante " +
-                     "LEFT JOIN Cursos c ON i.Sigla = c.Sigla ";
+        String sql = "SELECT "
+                + "    e.ID_Estudiante, "
+                + "    u.Identificacion, "
+                + "    u.Nombre, "
+                + "    u.Apellido1, "
+                + "    u.Apellido2, "
+                + "    e.Necesidad_Especial, "
+                + "    i.Sigla, "
+                + "    c.Nombre_Curso, "
+                + "    c.Modalidad, "
+                + "    c.Area_especializacion, "
+                + "    STRING_AGG(c.Horario, ', ') AS Horarios, "
+                + "    c.Fecha_inicio, "
+                + "    c.Fecha_fin "
+                + "FROM Estudiantes e "
+                + "INNER JOIN Usuarios u ON e.Identificacion = u.Identificacion "
+                + "LEFT JOIN Inscripciones i ON e.ID_Estudiante = i.ID_Estudiante "
+                + "LEFT JOIN Cursos c ON i.Sigla = c.Sigla ";
 
         // Filtrar por términos de búsqueda y/o curso si se proporcionan
         boolean hasSearchTerm = searchTerm != null && !searchTerm.isEmpty();
@@ -55,13 +55,13 @@ public class HistoryDAO {
                 sql += "AND ";
             }
             if (hasCourse) {
-                sql += "c.Sigla = ? ";
+                sql += "c.Nombre_Curso = ? ";
             }
         }
 
-        sql += "GROUP BY e.ID_Estudiante, u.Identificacion, u.Nombre, u.Apellido1, u.Apellido2, " +
-               "e.Necesidad_Especial, i.Sigla, c.Nombre_Curso, c.Modalidad, c.Area_especializacion, " +
-               "c.Fecha_inicio, c.Fecha_fin";
+        sql += "GROUP BY e.ID_Estudiante, u.Identificacion, u.Nombre, u.Apellido1, u.Apellido2, "
+                + "e.Necesidad_Especial, i.Sigla, c.Nombre_Curso, c.Modalidad, c.Area_especializacion, "
+                + "c.Fecha_inicio, c.Fecha_fin";
 
         try {
             con = csdb.getConnection();
@@ -103,9 +103,15 @@ public class HistoryDAO {
             e.printStackTrace();
         } finally {
             try {
-                if (rs != null) rs.close();
-                if (ps != null) ps.close();
-                if (con != null) con.close();
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -130,9 +136,15 @@ public class HistoryDAO {
             e.printStackTrace();
         } finally {
             try {
-                if (rs != null) rs.close();
-                if (ps != null) ps.close();
-                if (con != null) con.close();
+                if (rs != null) {
+                    rs.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }

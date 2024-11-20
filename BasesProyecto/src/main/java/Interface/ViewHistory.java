@@ -5,18 +5,16 @@
 package Interface;
 
 import Controller.ControllerHistory;
-import Controller.controller;
 import java.awt.Color;
-import java.awt.Component;
-import javax.swing.DefaultListCellRenderer;
-import javax.swing.JList;
 
 /**
  *
  * @author franc
  */
 public class ViewHistory extends javax.swing.JPanel {
- private ControllerHistory controller;
+
+    private ControllerHistory controller;
+
     /**
      * Creates new form ViewHistory
      */
@@ -43,55 +41,31 @@ public class ViewHistory extends javax.swing.JPanel {
 
         // Cargar cursos en el ComboBox
         controller.loadCourses(ComboCourses);
-    
-      jComboBox1.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-    @Override
-    public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent e) {
-        TableView.getParent().repaint(); // Redibuja todo el contenedor
-    }
 
-    @Override
-    public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent e) {
-        TableView.getParent().repaint();
-    }
+        ComboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            @Override
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent e) {
+                TableView.getParent().repaint();
+            }
 
-    @Override
-    public void popupMenuCanceled(javax.swing.event.PopupMenuEvent e) {
-        TableView.getParent().repaint();
-    }
-});
+            @Override
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent e) {
+                TableView.getParent().repaint();
+            }
 
-ComboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-    @Override
-    public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent e) {
-        TableView.getParent().repaint();
-    }
-
-    @Override
-    public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent e) {
-        TableView.getParent().repaint();
-    }
-
-    @Override
-    public void popupMenuCanceled(javax.swing.event.PopupMenuEvent e) {
-        TableView.getParent().repaint();
-    }
-});
+            @Override
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent e) {
+                TableView.getParent().repaint();
+            }
+        });
 
         // Asegurarse de que los paneles se mantengan transparentes
         if (TableView != null) {
             TableView.setBackground(new Color(195, 152, 242, 47));
             TableView.setOpaque(true);
         }
-    
-     
 
-    
     }
-    
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -107,8 +81,6 @@ ComboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaH = new javax.swing.JTable();
         ComboCourses = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        searchButton = new javax.swing.JLabel();
         Search2 = new javax.swing.JTextField();
         searchButton1 = new javax.swing.JButton();
 
@@ -150,24 +122,6 @@ ComboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         });
         TableView.add(ComboCourses, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 230, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(87, 73, 98));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        TableView.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 220, -1));
-
-        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
-        searchButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                searchButtonMouseClicked(evt);
-            }
-        });
-        TableView.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, -1, -1));
-
         Search2.setBackground(new java.awt.Color(255, 255, 255));
         Search2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         Search2.setForeground(new java.awt.Color(87, 73, 98));
@@ -207,20 +161,10 @@ ComboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboCoursesActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void searchButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButtonMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchButtonMouseClicked
-
     private void searchButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchButton1ActionPerformed
 
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboCourses;
@@ -228,9 +172,7 @@ ComboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
     public javax.swing.JTable TablaH;
     private javax.swing.JPanel Table1;
     private javax.swing.JPanel TableView;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel searchButton;
     private javax.swing.JButton searchButton1;
     // End of variables declaration//GEN-END:variables
 }
