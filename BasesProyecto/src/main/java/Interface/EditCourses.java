@@ -4,6 +4,11 @@
  */
 package Interface;
 
+import Controller.controller;
+import java.awt.Color;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -34,24 +39,24 @@ public class EditCourses extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnEditCourse = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtIni = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtName = new javax.swing.JTextField();
+        cmbMod = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbArea = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cmbDur = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtSch = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtEnd = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtOpe = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        cmbQuan = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,11 +69,17 @@ public class EditCourses extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
         btnEditCourse.setText("Editar");
+        btnEditCourse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditCourseMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnEditCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 435, 96, -1));
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 91, 103, -1));
+        txtIni.setEditable(false);
+        txtIni.setBackground(new java.awt.Color(204, 204, 204));
+        txtIni.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(txtIni, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 91, 103, -1));
 
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Sigla");
@@ -78,11 +89,11 @@ public class EditCourses extends javax.swing.JFrame {
         jLabel3.setText("Nombre del curso");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, 20));
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 210, -1));
+        txtName.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 210, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presencial", "Bimodal", "Virtual" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 110, -1));
+        cmbMod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presencial", "Bimodal", "Virtual" }));
+        jPanel1.add(cmbMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 110, -1));
 
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Modalidad");
@@ -92,43 +103,59 @@ public class EditCourses extends javax.swing.JFrame {
         jLabel5.setText("Area de especialización");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arte", "Actividad física", "Salud y Bienestar", "Tecnología", "Medio ambiente" }));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 120, -1));
+        cmbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arte", "Actividad física", "Salud y Bienestar", "Tecnología", "Medio ambiente" }));
+        jPanel1.add(cmbArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 120, -1));
 
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel6.setText("Duración (en meses)");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, -1, -1));
+        jLabel6.setText("Duración ");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, -1, -1));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8" }));
-        jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, -1, -1));
+        cmbDur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 mes", "2 meses", "3 meses", "4 meses", "5 meses", "6 meses", "7 meses", "8 meses" }));
+        jPanel1.add(cmbDur, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, -1, -1));
 
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Horario [Días - horas]");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 360, -1));
+        txtSch.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(txtSch, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 360, -1));
 
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setText("Fecha de inicio");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, -1));
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 130, -1));
+        txtEnd.setBackground(new java.awt.Color(255, 255, 255));
+        txtEnd.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEndFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEndFocusLost(evt);
+            }
+        });
+        jPanel1.add(txtEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 130, -1));
 
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Fecha finalización");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, -1, -1));
 
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 130, -1));
+        txtOpe.setBackground(new java.awt.Color(255, 255, 255));
+        txtOpe.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtOpeFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtOpeFocusLost(evt);
+            }
+        });
+        jPanel1.add(txtOpe, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 130, -1));
 
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("Cantidad estudiantes");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "12", "14", "16", "18", "20", "22", "24", "26", "28", "30" }));
-        jPanel1.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
+        cmbQuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "12", "14", "16", "18", "20", "22", "24", "26", "28", "30" }));
+        jPanel1.add(cmbQuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,13 +181,74 @@ public class EditCourses extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtOpeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtOpeFocusGained
+        if (txtOpe.getText().equals("yyyy-MM-dd")){
+            txtOpe.setText("");
+            txtOpe.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtOpeFocusGained
+
+    private void txtOpeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtOpeFocusLost
+        if (txtOpe.getText().equals("")) {
+            txtOpe.setText("yyyy-MM-dd");
+            txtOpe.setForeground(new Color(204, 204, 204));
+        }
+    }//GEN-LAST:event_txtOpeFocusLost
+
+    private void txtEndFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEndFocusGained
+        if (txtEnd.getText().equals("yyyy-MM-dd")){
+            txtEnd.setText("");
+            txtEnd.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_txtEndFocusGained
+
+    private void txtEndFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEndFocusLost
+        if (txtEnd.getText().equals("")) {
+            txtEnd.setText("yyyy-MM-dd");
+            txtEnd.setForeground(new Color(204, 204, 204));
+        }
+    }//GEN-LAST:event_txtEndFocusLost
+
+    private void btnEditCourseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditCourseMouseClicked
+        controller control = new controller();
+            String ini =txtIni.getText();
+            String name = txtName.getText();
+            String mod = (String) cmbMod.getSelectedItem();
+            String area = (String) cmbArea.getSelectedItem();
+            String quan = (String) cmbQuan.getSelectedItem();
+            int qua = Integer.parseInt(quan);
+            String sch = txtSch.getText();
+            String ope = txtOpe.getText();
+            String end = txtEnd.getText();
+            String dur = (String) cmbDur.getSelectedItem(); 
+
+        try {
+            control.editCourse(ini, name, mod, area, qua, sch, dur, ope, end);
+        } catch (ParseException ex) {
+            Logger.getLogger(AddCourse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEditCourseMouseClicked
+
+public void loadCourseDataToForm(String sigla, String name, String mo, String area, int quan, String sch, String dur, String startDate, String endDate) {
+    txtIni.setText(sigla); // Sigla no editable
+    txtIni.setEditable(false);
+
+    txtName.setText(name);
+    cmbMod.setSelectedItem(mo);
+    cmbArea.setSelectedItem(area);
+    cmbQuan.setSelectedItem(quan);
+    txtSch.setText(sch);
+    txtOpe.setText(startDate);
+    txtEnd.setText(endDate);
+    cmbDur.setSelectedItem(dur); 
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditCourse;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> cmbArea;
+    private javax.swing.JComboBox<String> cmbDur;
+    private javax.swing.JComboBox<String> cmbMod;
+    private javax.swing.JComboBox<String> cmbQuan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -172,10 +260,10 @@ public class EditCourses extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField txtEnd;
+    private javax.swing.JTextField txtIni;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtOpe;
+    private javax.swing.JTextField txtSch;
     // End of variables declaration//GEN-END:variables
 }

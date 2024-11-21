@@ -13,6 +13,7 @@ public class Student_interface extends javax.swing.JFrame{
     CurrentCourses cc = new CurrentCourses();
     StudentExpedient se = new StudentExpedient();
     
+    
     public Student_interface() {
         initComponents();
         

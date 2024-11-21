@@ -1,5 +1,6 @@
 
 package Interface;
+import Controller.controller;
 import InterfaW.Profile;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,6 +15,8 @@ import javax.swing.JLabel;
 public class AdmistratorInterface extends javax.swing.JFrame {
 
     private JLabel selectedLabel = null;
+    controller controller = new controller();
+    ManageCourse mc = new ManageCourse();
     /**
      * Creates new form AdmistratorInterface
      */
@@ -53,7 +56,7 @@ public class AdmistratorInterface extends javax.swing.JFrame {
         Panel.setBackground(new Color(255, 255, 255, 100)); // Blanco con 100 de opacidad 
         Panel.setOpaque(true); 
        
-       
+       controller.loadCoursesData(mc.tableCourses, null, null);
     }   
     }
 
@@ -254,7 +257,7 @@ public class AdmistratorInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_HistoryMouseClicked
 
     private void CoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CoursesMouseClicked
-        ManageCourse mc = new ManageCourse();
+
         ShowPanel(mc);
     }//GEN-LAST:event_CoursesMouseClicked
 
