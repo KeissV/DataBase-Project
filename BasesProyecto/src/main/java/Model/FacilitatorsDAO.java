@@ -4,8 +4,7 @@
  */
 package Model;
 
-import Model.ConnectionSQLdb;
-import Model.ConnectionSQLdb;
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -98,5 +97,79 @@ public class FacilitatorsDAO {
         }
 
         return facilitatorsList;
+    }
+
+    public boolean deleteFacilitator(int facilitatorId) {
+        String sqlDeleteAdminFacilitadores = "DELETE FROM Administradores_Facilitadores WHERE ID_Facilitador = ?";
+        String sqlDeleteAdminInscripciones = "DELETE FROM Administradores_Inscripciones WHERE Codigo_inscripcion IN (SELECT Codigo_inscripcion FROM Inscripciones WHERE ID_Facilitador = ?)";
+        String sqlDeleteInscripciones = "DELETE FROM Inscripciones WHERE ID_Facilitador = ?";
+        String sqlDeleteCursosFacilitadores = "DELETE FROM Cursos_Facilitadores WHERE ID_Facilitador = ?";
+        String sqlDeleteFacilitador = "DELETE FROM Facilitadores WHERE ID_Facilitador = ?";
+        String sqlDeleteUsuario = "DELETE FROM Usuarios WHERE Identificacion = (SELECT Identificacion FROM Facilitadores WHERE ID_Facilitador = ?)";
+
+        try {
+            con = csdb.getConnection();
+            con.setAutoCommit(false); // Inicia la transacción
+
+            // Eliminar relaciones en Administradores_Facilitadores
+            ps = con.prepareStatement(sqlDeleteAdminFacilitadores);
+            ps.setInt(1, facilitatorId);
+            ps.executeUpdate();
+            System.out.println("Relaciones en Administradores_Facilitadores eliminadas.");
+
+            // Eliminar relaciones en Administradores_Inscripciones
+            ps = con.prepareStatement(sqlDeleteAdminInscripciones);
+            ps.setInt(1, facilitatorId);
+            ps.executeUpdate();
+            System.out.println("Relaciones en Administradores_Inscripciones eliminadas.");
+
+            // Eliminar inscripciones
+            ps = con.prepareStatement(sqlDeleteInscripciones);
+            ps.setInt(1, facilitatorId);
+            ps.executeUpdate();
+            System.out.println("Inscripciones eliminadas.");
+
+            // Eliminar relaciones en Cursos_Facilitadores
+            ps = con.prepareStatement(sqlDeleteCursosFacilitadores);
+            ps.setInt(1, facilitatorId);
+            ps.executeUpdate();
+            System.out.println("Relaciones en Cursos_Facilitadores eliminadas.");
+
+            // Eliminar facilitador
+            ps = con.prepareStatement(sqlDeleteFacilitador);
+            ps.setInt(1, facilitatorId);
+            ps.executeUpdate();
+            System.out.println("Facilitador eliminado.");
+
+            // Eliminar usuario
+            ps = con.prepareStatement(sqlDeleteUsuario);
+            ps.setInt(1, facilitatorId);
+            ps.executeUpdate();
+            System.out.println("Usuario eliminado.");
+
+            con.commit(); // Confirma la transacción
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            Component view = null;
+            javax.swing.JOptionPane.showMessageDialog(view, "Ocurrió un error al eliminar el registro: " + e.getMessage());
+            try {
+                con.rollback(); // Revertir en caso de error
+            } catch (Exception rollbackEx) {
+                rollbackEx.printStackTrace();
+            }
+            return false;
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }

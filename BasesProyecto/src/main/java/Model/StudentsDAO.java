@@ -4,6 +4,7 @@
  */
 package Model;
 
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -99,5 +100,67 @@ public class StudentsDAO {
         }
 
         return studentsList;
+    }
+
+    public boolean deleteStudent(int studentId) {
+        String sqlDeleteAdminInscripciones = "DELETE FROM Administradores_Inscripciones WHERE Codigo_inscripcion IN (SELECT Codigo_inscripcion FROM Inscripciones WHERE ID_Estudiante = ?)";
+        String sqlDeleteInscripciones = "DELETE FROM Inscripciones WHERE ID_Estudiante = ?";
+        String sqlDeleteAdminEstudiantes = "DELETE FROM Administradores_Estudiantes WHERE ID_Estudiante = ?";
+        String sqlDeleteEstudiante = "DELETE FROM Estudiantes WHERE ID_Estudiante = ?";
+        String sqlDeleteUsuario = "DELETE FROM Usuarios WHERE Identificacion = (SELECT Identificacion FROM Estudiantes WHERE ID_Estudiante = ?)";
+
+        try {
+            con = csdb.getConnection();
+            con.setAutoCommit(false); // Inicia la transacción
+
+            // Eliminar relaciones en Administradores_Inscripciones
+            ps = con.prepareStatement(sqlDeleteAdminInscripciones);
+            ps.setInt(1, studentId);
+            ps.executeUpdate();
+
+            // Eliminar inscripciones
+            ps = con.prepareStatement(sqlDeleteInscripciones);
+            ps.setInt(1, studentId);
+            ps.executeUpdate();
+
+            // Eliminar relaciones en Administradores_Estudiantes
+            ps = con.prepareStatement(sqlDeleteAdminEstudiantes);
+            ps.setInt(1, studentId);
+            ps.executeUpdate();
+
+            // Eliminar estudiante
+            ps = con.prepareStatement(sqlDeleteEstudiante);
+            ps.setInt(1, studentId);
+            ps.executeUpdate();
+
+            // Eliminar usuario
+            ps = con.prepareStatement(sqlDeleteUsuario);
+            ps.setInt(1, studentId);
+            ps.executeUpdate();
+
+            con.commit(); // Confirma la transacción
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            Component view = null;
+            javax.swing.JOptionPane.showMessageDialog(view, "Ocurrió un error al eliminar el registro: " + e.getMessage());
+            try {
+                con.rollback(); // Revertir en caso de error
+            } catch (Exception rollbackEx) {
+                rollbackEx.printStackTrace();
+            }
+            return false;
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }

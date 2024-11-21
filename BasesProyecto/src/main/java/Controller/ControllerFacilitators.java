@@ -62,4 +62,27 @@ public final class ControllerFacilitators {
         }
 
     }
+
+    public void deleteRecord(String id, JTable table) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        String tableType = model.getColumnName(0).equals("ID Estudiante") ? "Estudiante" : "Facilitador";
+
+        boolean success;
+        if (tableType.equals("Estudiante")) {
+            success = studentsDAO.deleteStudent(Integer.parseInt(id));
+        } else {
+            success = facilitatorsDAO.deleteFacilitator(Integer.parseInt(id));
+        }
+
+        if (success) {
+            javax.swing.JOptionPane.showMessageDialog(view, "El registro se eliminó con éxito.");
+            if (tableType.equals("Estudiante")) {
+                loadStudentsData(table, "");
+            } else {
+                loadTeachersData(table, "");
+            }
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(view, "Ocurrió un error al eliminar el registro. Verifique las dependencias.");
+        }
+    }
 }

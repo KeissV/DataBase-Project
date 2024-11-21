@@ -6,7 +6,6 @@ package Interface;
 
 import Controller.ControllerFacilitators;
 import java.awt.Color;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -158,7 +157,22 @@ public class ManageStaff extends javax.swing.JPanel {
     }//GEN-LAST:event_ModifyMouseClicked
 
     private void EraseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EraseMouseClicked
-        // TODO add your handling code here:
+        int selectedRow = TeacStu.getSelectedRow();
+        if (selectedRow == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Seleccione una fila primero.");
+            return;
+        }
+
+        String id = TeacStu.getValueAt(selectedRow, 0).toString();
+        String nombre = TeacStu.getValueAt(selectedRow, 2).toString();
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(this,
+                "¿Está seguro de que desea eliminar a " + nombre + " (ID: " + id + ")?",
+                "Confirmar eliminación",
+                javax.swing.JOptionPane.YES_NO_OPTION);
+
+        if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+            controller.deleteRecord(id, TeacStu);
+        }
     }//GEN-LAST:event_EraseMouseClicked
 
     private void teachersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teachersActionPerformed
