@@ -226,10 +226,8 @@ public class CoursesDAO {
         ps.setDate(8, c.getOpeningDate());
         ps.setDate(9, c.getEndingDate());
 
-        // Ejecutar la consulta y capturar el número de filas afectadas
         rowsAffected = ps.executeUpdate();
     } catch (SQLException e) {
-        // Registrar el error para depuración
         System.err.println("Error al agregar el curso: " + e.getMessage());
     } 
 
@@ -272,20 +270,19 @@ public class CoursesDAO {
             String query = "DELETE FROM Cursos WHERE Sigla = ?";  
             
             PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setString(1, initi);  // Establece el ID que se pasa como parámetro
+            stmt.setString(1, initi);  
 
             int rowAffected = stmt.executeUpdate();  
-            return rowAffected > 0;  // Retorna true si se eliminó algún registro, false si no
+            return rowAffected > 0;  
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;  // Si ocurre un error, retorna false
+            return false; 
         }
     }
 
-    //borra también los registros de los cursos en Administradores_Cursos
     public boolean deleteAdminCourses(String init) {
        String query = "DELETE FROM Administradores_Cursos WHERE Sigla = ?";
-       try (Connection con = csdb.getConnection(); // La conexión se incluye aquí
+       try (Connection con = csdb.getConnection(); 
             PreparedStatement stmt = con.prepareStatement(query)) {
 
            stmt.setString(1, init);  

@@ -2,8 +2,6 @@
 package Interface;
 
 import Controller.controller;
-import Model.Courses;
-import Model.CoursesDAO;
 import java.awt.Color;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -124,15 +122,15 @@ public class AddCourse extends javax.swing.JFrame {
     public String[] getCourseDetails() {
         String[] details = new String[9];
         
-        details[0] = getTxtCoursename().getText();  // Nombre del curso
-        details[1] = getTxtInitials().getText();    // Iniciales
-        details[2] = getTxtSchedule().getText();    // Horario
-        details[3] = getTxtDateO().getText();       // Fecha de inicio
-        details[4] = getTxtDateE().getText();       // Fecha de fin
-        details[5] = (String) getComoMod().getSelectedItem();  // Modo
-        details[6] = (String) getComboArea().getSelectedItem(); // Área
-        details[7] = getComboAmount().getSelectedItem().toString(); // Cantidad
-        details[8] = (String) getComboDuration().getSelectedItem(); // Duración
+        details[0] = getTxtCoursename().getText();  
+        details[1] = getTxtInitials().getText();    
+        details[2] = getTxtSchedule().getText();   
+        details[3] = getTxtDateO().getText();       
+        details[4] = getTxtDateE().getText();       
+        details[5] = (String) getComoMod().getSelectedItem();  
+        details[6] = (String) getComboArea().getSelectedItem(); 
+        details[7] = getComboAmount().getSelectedItem().toString(); 
+        details[8] = (String) getComboDuration().getSelectedItem(); 
 
         return details;
     }

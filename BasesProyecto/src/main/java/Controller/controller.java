@@ -97,44 +97,8 @@ public class controller implements ActionListener{
         mc.tableCourses.setModel(mod);
     }
     
-//    public void filterCourses() {
-//        String previousSelectedArea = "";
-//        String selectedArea = mc.selectedArea; // Asumimos que este atributo contiene el área seleccionada.
-//
-//        if (!selectedArea.equals(previousSelectedArea)) {
-//            previousSelectedArea = selectedArea; 
-//        }
-//        // Filtrar cursos según el área seleccionada
-//        List<Courses> courses;
-//        if (selectedArea.equals("Todos")) {
-//            courses = cdao.listCourses();  // Obtener todos los cursos
-//        } else {
-//            courses = cdao.listCoursesByArea(selectedArea);  // Obtener cursos por área
-//        }
-
-        // Actualizar la tabla con los cursos obtenidos
-//        DefaultTableModel model = (DefaultTableModel) mc.tableCourses.getModel();
-//        model.setRowCount(0); // Limpiar la tabla
-//
-//        Object[] obj = new Object[9];
-//        for (Courses course : courses) {
-//            obj[0] = course.getInitials();
-//            obj[1] = course.getCourseName();
-//            obj[2] = course.getModality();
-//            obj[3] = course.getArea();
-//            obj[4] = course.getAmountStudents();
-//            obj[5] = course.getScheduleStd();
-//            obj[6] = course.getDuration();
-//            obj[7] = course.getOpeningDate();
-//            obj[8] = course.getEndingDate();
-//            model.addRow(obj); // Añadir la fila a la tabla
-//        }
-//    }
-
-    
 
 public void loadCoursesData(JTable table, String search, String area) {
-    // Crear el modelo para la tabla
     DefaultTableModel model = new DefaultTableModel(
         new String[] {
             "Sigla", "Nombre Curso", "Modalidad", "Área", 
@@ -145,10 +109,8 @@ public void loadCoursesData(JTable table, String search, String area) {
     );
     table.setModel(model);
 
-    // Realizar la consulta para obtener los datos filtrados
     List<Courses> courses = cdao.listCoursesFiltered(search, area);
 
-    // Agregar los datos al modelo de la tabla
     for (Courses course : courses) {
         Object[] row = new Object[9];
         row[0] = course.getInitials();
@@ -206,7 +168,7 @@ public void loadCoursesData(JTable table, String search, String area) {
             JOptionPane.showMessageDialog(ac, "Las fechas de inicio y finalización son obligatorias.");
             return;
         }
-        co.setOpeningDate(new java.sql.Date(date1.getTime()));  // Esto obtiene solo la fecha (sin la hora)
+        co.setOpeningDate(new java.sql.Date(date1.getTime())); 
         co.setEndingDate(new java.sql.Date(date2.getTime()));
         co.setModality(moda);
         co.setArea(area);
@@ -217,7 +179,7 @@ public void loadCoursesData(JTable table, String search, String area) {
         int r = cdao.addCourse(co);
         if (name.isEmpty() || ini.isEmpty() || sch.isEmpty() || ope.isEmpty() || end.isEmpty()) {
             JOptionPane.showMessageDialog(ac, "Por favor, complete todos los campos.");
-            return;  // No continuar si hay campos vacíos
+            return;  
         }
         if (r==1){
             boolean adminCourseAdded = cdao.addCourseToAdmin(ini);  
@@ -239,9 +201,7 @@ public void loadCoursesData(JTable table, String search, String area) {
             // Solicitar contraseña
             String pass = JOptionPane.showInputDialog(null, "Ingresa tu contraseña para confirmar:");
 
-            // Validación de la contraseña (ejemplo simple)
             if (validatePass(pass)) {
-                // Llamamos al modelo para eliminar el curso
                     boolean adminDeleted = cdao.deleteAdminCourses(initials);
 
                 if (adminDeleted) {
@@ -250,20 +210,7 @@ public void loadCoursesData(JTable table, String search, String area) {
                     if (deleted) {
                         JOptionPane.showMessageDialog(null, "El curso y sus registros asociados fueron eliminados exitosamente.");
                         List<Courses> curs = cdao.listCoursesFiltered(null, null); 
-                            for (Courses course : curs) {
-                            Object[] row = new Object[9];
-                            row[0] = course.getInitials();
-                            row[1] = course.getCourseName();
-                            row[2] = course.getModality();
-                            row[3] = course.getArea();
-                            row[4] = course.getAmountStudents();
-                            row[5] = course.getScheduleStd();
-                            row[6] = course.getDuration();
-                            row[7] = course.getOpeningDate();
-                            row[8] = course.getEndingDate();
-
-                            model.addRow(row);  
-                        }
+                          
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al eliminar el curso.");
@@ -311,10 +258,9 @@ public void loadCoursesData(JTable table, String search, String area) {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == ac.btnAddCourse) {
             try {
-                // Obtener los detalles del curso desde la vista AddCourse
                 String[] courseDetails = ac.getCourseDetails();
 
-                // Pasar los detalles a la función addCourses en el controlador
+                
                 addCourses(courseDetails[0], courseDetails[1], courseDetails[2], courseDetails[3], courseDetails[4],
                             courseDetails[5], courseDetails[6], Integer.parseInt(courseDetails[7]), courseDetails[8]);
             } catch (ParseException ex) {
@@ -327,12 +273,12 @@ public void loadCoursesData(JTable table, String search, String area) {
     }
 
     private boolean validatePass(String passw) {
-        String rightPass = "admin123";  // Contraseña fija como ejemplo
+        String rightPass = "admin123"; 
         return passw != null && passw.equals(rightPass);
     }
     
     public boolean isSiglaValid(String sigla) {
-        String regex = "^[a-zA-Z]{2}-\\d{4}$";  // Dos letras, un guión y cuatro números
+        String regex = "^[a-zA-Z]{2}-\\d{4}$";  
         return sigla.matches(regex);
     }
 
@@ -340,10 +286,10 @@ public void loadCoursesData(JTable table, String search, String area) {
     public boolean isValidDate(String dateStr) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         try {
-            LocalDate.parse(dateStr, formatter); // Intenta convertir la fecha
+            LocalDate.parse(dateStr, formatter); 
             return true;
         } catch (DateTimeParseException e) {
-            return false; // Retorna falso si no cumple el formato
+            return false; 
         }
     }
     

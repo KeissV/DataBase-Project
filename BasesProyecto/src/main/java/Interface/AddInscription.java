@@ -4,6 +4,12 @@
  */
 package Interface;
 
+import Controller.ControllerInscriptions;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author wendy_6rrub
@@ -28,11 +34,11 @@ public class AddInscription extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        txtCodeI = new javax.swing.JTextField();
+        txtIdF = new javax.swing.JTextField();
+        txtIdS = new javax.swing.JTextField();
+        txtSigla = new javax.swing.JTextField();
+        txtDate = new javax.swing.JTextField();
         btnAddInscrip = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -49,19 +55,32 @@ public class AddInscription extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Nueva Inscripción");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 134, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtCodeI.setEditable(false);
+        txtCodeI.setBackground(new java.awt.Color(204, 255, 255));
+        txtCodeI.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(txtCodeI, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 134, -1));
+
+        txtIdF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtIdFActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 134, -1));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 166, 134, -1));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 216, 134, -1));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 266, 134, -1));
+        jPanel1.add(txtIdF, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 134, -1));
+        jPanel1.add(txtIdS, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 166, 134, -1));
+        jPanel1.add(txtSigla, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 216, 134, -1));
+
+        txtDate.setEditable(false);
+        txtDate.setBackground(new java.awt.Color(204, 255, 255));
+        txtDate.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 266, 134, -1));
 
         btnAddInscrip.setText("Agregar");
+        btnAddInscrip.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddInscripMouseClicked(evt);
+            }
+        });
         btnAddInscrip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddInscripActionPerformed(evt);
@@ -96,13 +115,37 @@ public class AddInscription extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddInscripActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtIdFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtIdFActionPerformed
+
+    private void btnAddInscripMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddInscripMouseClicked
+        ControllerInscriptions cin = new ControllerInscriptions();
+        
+        String idCour= txtSigla.getText();
+        String idIns= txtCodeI.getText();
+        String idStd= txtIdS.getText();
+        String idFac= txtIdF.getText();
+        String date = txtDate.getText();
+        
+        if(idCour == null || idIns == null || idStd == null || idFac == null || date == null){
+            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos obligatorios.");
+            return;
+        }
+        
+        int idS = Integer.parseInt(idStd);
+        int idF = Integer.parseInt(idFac);
+        
+        try {
+            cin.addInscriptions(idIns, idCour, idS, idF, date);
+        } catch (ParseException ex) {
+            Logger.getLogger(AddInscription.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAddInscripMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddInscrip;
+    public javax.swing.JButton btnAddInscrip;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -110,10 +153,10 @@ public class AddInscription extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    public javax.swing.JTextField txtCodeI;
+    public javax.swing.JTextField txtDate;
+    public javax.swing.JTextField txtIdF;
+    public javax.swing.JTextField txtIdS;
+    public javax.swing.JTextField txtSigla;
     // End of variables declaration//GEN-END:variables
 }

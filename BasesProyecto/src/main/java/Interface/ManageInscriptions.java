@@ -1,18 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 
 package Interface;
 
+import Controller.ControllerInscriptions;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author wendy_6rrub
  */
 public class ManageInscriptions extends javax.swing.JPanel {
+    ControllerInscriptions con = new ControllerInscriptions();
 
     /** Creates new form ManageInscriptions */
     public ManageInscriptions() {
@@ -23,25 +27,7 @@ public class ManageInscriptions extends javax.swing.JPanel {
             TableView.setOpaque(true);
         }
         
-        
-jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-    @Override
-    public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent e) {
-        TableView.getParent().repaint();
     }
-
-    @Override
-    public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent e) {
-        TableView.getParent().repaint();
-    }
-
-    @Override
-    public void popupMenuCanceled(javax.swing.event.PopupMenuEvent e) {
-        TableView.getParent().repaint();
-    }
-});
-    }
-    
         public void ShowPanel(javax.swing.JPanel p) {
             p.setSize(320, 380); 
             p.setLocation(0, 0);
@@ -64,14 +50,12 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         Table1 = new javax.swing.JPanel();
         TableView = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        tableIns = new javax.swing.JTable();
         Search2 = new javax.swing.JTextField();
         btnDeleteIns = new javax.swing.JButton();
         btnAddIns = new javax.swing.JButton();
-        btnEditIns = new javax.swing.JButton();
         Content4 = new javax.swing.JPanel();
-        searchButton3 = new javax.swing.JButton();
+        lblSearch = new javax.swing.JButton();
 
         Table1.setBackground(new java.awt.Color(255, 255, 255));
         Table1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -79,10 +63,10 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         TableView.setBackground(new java.awt.Color(248, 222, 255));
         TableView.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(87, 73, 98));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableIns.setBackground(new java.awt.Color(255, 255, 255));
+        tableIns.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        tableIns.setForeground(new java.awt.Color(87, 73, 98));
+        tableIns.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -98,30 +82,30 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setSelectionBackground(new java.awt.Color(234, 203, 234));
-        jTable1.setSelectionForeground(new java.awt.Color(87, 73, 98));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(8);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(15);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(15);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(15);
+        tableIns.setSelectionBackground(new java.awt.Color(234, 203, 234));
+        tableIns.setSelectionForeground(new java.awt.Color(87, 73, 98));
+        jScrollPane1.setViewportView(tableIns);
+        if (tableIns.getColumnModel().getColumnCount() > 0) {
+            tableIns.getColumnModel().getColumn(0).setPreferredWidth(8);
+            tableIns.getColumnModel().getColumn(1).setPreferredWidth(15);
+            tableIns.getColumnModel().getColumn(2).setPreferredWidth(15);
+            tableIns.getColumnModel().getColumn(3).setPreferredWidth(15);
         }
 
         TableView.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 270, 380));
-
-        jComboBox2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(87, 73, 98));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Estudiantes", "Facilitadores", "Cursos" }));
-        TableView.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 130, 30));
 
         Search2.setBackground(new java.awt.Color(255, 255, 255));
         Search2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         Search2.setForeground(new java.awt.Color(87, 73, 98));
         Search2.setBorder(null);
-        TableView.add(Search2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 370, 40));
+        TableView.add(Search2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 510, 40));
 
         btnDeleteIns.setText("Eliminar");
+        btnDeleteIns.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteInsMouseClicked(evt);
+            }
+        });
         TableView.add(btnDeleteIns, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 140, 50));
 
         btnAddIns.setText("Nueva Inscripción");
@@ -131,14 +115,6 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             }
         });
         TableView.add(btnAddIns, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 140, 50));
-
-        btnEditIns.setText("Editar");
-        btnEditIns.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEditInsMouseClicked(evt);
-            }
-        });
-        TableView.add(btnEditIns, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 140, 50));
 
         Content4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -155,14 +131,19 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
 
         TableView.add(Content4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 320, 380));
 
-        searchButton3.setBackground(new java.awt.Color(204, 204, 255));
-        searchButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
-        searchButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButton3ActionPerformed(evt);
+        lblSearch.setBackground(new java.awt.Color(204, 204, 255));
+        lblSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-search-more-24.png"))); // NOI18N
+        lblSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSearchMouseClicked(evt);
             }
         });
-        TableView.add(searchButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
+        lblSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblSearchActionPerformed(evt);
+            }
+        });
+        TableView.add(lblSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, -1, -1));
 
         Table1.add(TableView, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 660, 600));
 
@@ -178,35 +159,55 @@ jComboBox2.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void searchButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton3ActionPerformed
+    private void lblSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_searchButton3ActionPerformed
+    }//GEN-LAST:event_lblSearchActionPerformed
 
     private void btnAddInsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddInsMouseClicked
         AddInscription ai = new AddInscription();
         ShowPanel(ai);
+        
+        String id=con.getNextInscriptionId();
+        ai.txtCodeI.setText(id);
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate currentDate = LocalDate.now(); 
+        String dateString = currentDate.format(formatter);
+        ai.txtDate.setText(dateString);
     }//GEN-LAST:event_btnAddInsMouseClicked
 
-    private void btnEditInsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditInsMouseClicked
-        EditInscription ei = new EditInscription();
-        ShowPanel(ei);
-    }//GEN-LAST:event_btnEditInsMouseClicked
+    private void lblSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSearchMouseClicked
+        try {
+            con.loadInscripData(tableIns, Search2.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(ManageInscriptions.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_lblSearchMouseClicked
+
+    private void btnDeleteInsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteInsMouseClicked
+            int selectedRow = tableIns.getSelectedRow(); 
+    
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(null, "Por favor, seleccione un curso.");
+        return;
+    }else{
+        
+        String code = (String) tableIns.getValueAt(selectedRow, 0);
+        con.deleteInscrip(code);
+        }
+    }//GEN-LAST:event_btnDeleteInsMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Content4;
-    private javax.swing.JTextField Search2;
+    public javax.swing.JPanel Content4;
+    public javax.swing.JTextField Search2;
     private javax.swing.JPanel Table1;
     private javax.swing.JPanel TableView;
-    private javax.swing.JButton btnAddIns;
-    private javax.swing.JButton btnDeleteIns;
-    private javax.swing.JButton btnEditIns;
-    private javax.swing.JComboBox<String> jComboBox2;
+    public javax.swing.JButton btnAddIns;
+    public javax.swing.JButton btnDeleteIns;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JButton searchButton1;
-    private javax.swing.JButton searchButton2;
-    private javax.swing.JButton searchButton3;
+    public javax.swing.JButton lblSearch;
+    public javax.swing.JTable tableIns;
     // End of variables declaration//GEN-END:variables
 
 }
