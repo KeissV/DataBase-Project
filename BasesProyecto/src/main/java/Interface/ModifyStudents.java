@@ -12,14 +12,26 @@ import javax.swing.JOptionPane;
  * @author franc
  */
 public class ModifyStudents extends javax.swing.JPanel {
+private javax.swing.JDialog dialog;
+    private ManageStaff manageStaff;
 
     /**
      * Creates new form Modify
      */
-    public ModifyStudents() {
+    public ModifyStudents(ManageStaff manageStaff) {
+        this.manageStaff = manageStaff;
+        this.dialog = dialog;
         initComponents();
+        loadMaritalStatusOptions();
+        Save.addActionListener(this::SaveActionPerformed);
 
-       
+    }
+
+    private void loadMaritalStatusOptions() {
+        maritalStatus.addItem("Soltero");
+        maritalStatus.addItem("Casado");
+        maritalStatus.addItem("Divorciado");
+        maritalStatus.addItem("Viudo");
     }
 
    
@@ -38,7 +50,6 @@ public class ModifyStudents extends javax.swing.JPanel {
         province = new javax.swing.JTextField();
         phone2 = new javax.swing.JTextField();
         specialNeed = new javax.swing.JTextField();
-        yearBirth = new javax.swing.JTextField();
         gender = new javax.swing.JTextField();
         phone1 = new javax.swing.JTextField();
         maritalStatus = new javax.swing.JComboBox<>();
@@ -46,9 +57,7 @@ public class ModifyStudents extends javax.swing.JPanel {
         Lastname1 = new javax.swing.JTextField();
         Name = new javax.swing.JTextField();
         Save = new javax.swing.JButton();
-        cancel = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -94,17 +103,11 @@ public class ModifyStudents extends javax.swing.JPanel {
         specialNeed.setBorder(null);
         add(specialNeed, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 270, 70));
 
-        yearBirth.setBackground(new java.awt.Color(255, 255, 255));
-        yearBirth.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        yearBirth.setForeground(new java.awt.Color(87, 73, 98));
-        yearBirth.setBorder(null);
-        add(yearBirth, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 100, -1));
-
         gender.setBackground(new java.awt.Color(255, 255, 255));
         gender.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         gender.setForeground(new java.awt.Color(87, 73, 98));
         gender.setBorder(null);
-        add(gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 100, -1));
+        add(gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 100, -1));
 
         phone1.setBackground(new java.awt.Color(255, 255, 255));
         phone1.setForeground(new java.awt.Color(87, 73, 98));
@@ -115,7 +118,7 @@ public class ModifyStudents extends javax.swing.JPanel {
         maritalStatus.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         maritalStatus.setForeground(new java.awt.Color(87, 73, 98));
         maritalStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(maritalStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 140, -1));
+        add(maritalStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 140, -1));
 
         Lastname2.setBackground(new java.awt.Color(255, 255, 255));
         Lastname2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
@@ -138,21 +141,15 @@ public class ModifyStudents extends javax.swing.JPanel {
         Save.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         Save.setForeground(new java.awt.Color(87, 73, 98));
         Save.setText("Guardar");
-        add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 90, -1));
-
-        cancel.setBackground(new java.awt.Color(255, 255, 255));
-        cancel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        cancel.setForeground(new java.awt.Color(87, 73, 98));
-        cancel.setText("Cancelar");
-        add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 90, -1));
+        Save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveActionPerformed(evt);
+            }
+        });
+        add(Save, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 200, 40));
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/LOGOOO.png"))); // NOI18N
         add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(87, 73, 98));
-        jLabel12.setText("Año Nacimiento:");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(87, 73, 98));
@@ -167,12 +164,12 @@ public class ModifyStudents extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(87, 73, 98));
         jLabel14.setText("Estado Civil:");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, -1, -1));
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(87, 73, 98));
         jLabel13.setText("Genero:");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, -1, -1));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(87, 73, 98));
@@ -220,20 +217,33 @@ public class ModifyStudents extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 600, 520));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
+       int idEstudiante = manageStaff.getSelectedPersonId();
+        if (idEstudiante == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Por favor, seleccione un estudiante de la tabla.");
+            return;
+        }
+
+        // Llamar al controlador para actualizar los datos
+        ControllerFacilitators controller = new ControllerFacilitators(manageStaff);
+        controller.updateStudentData(idEstudiante, Name.getText(), Lastname1.getText(),
+                Lastname2.getText(), phone1.getText(), phone2.getText(), province.getText(),
+                canton.getText(), district.getText(), gender.getText(),
+                specialNeed.getText(), maritalStatus.getSelectedItem().toString());
+    }//GEN-LAST:event_SaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Lastname1;
     private javax.swing.JTextField Lastname2;
     private javax.swing.JTextField Name;
     private javax.swing.JButton Save;
-    private javax.swing.JButton cancel;
     private javax.swing.JTextField canton;
     private javax.swing.JTextField district;
     private javax.swing.JTextField gender;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -250,7 +260,6 @@ public class ModifyStudents extends javax.swing.JPanel {
     private javax.swing.JTextField phone2;
     private javax.swing.JTextField province;
     private javax.swing.JTextField specialNeed;
-    private javax.swing.JTextField yearBirth;
     // End of variables declaration//GEN-END:variables
 
 }

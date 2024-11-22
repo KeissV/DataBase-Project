@@ -6,7 +6,7 @@ package Interface;
 
 import Controller.ControllerFacilitators;
 import java.awt.Color;
-
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author franc
@@ -39,6 +39,13 @@ public class ManageStaff extends javax.swing.JPanel {
             PanelMS.setBackground(new Color(195, 152, 242, 47)); // Morado con 70 de opacidad 
             PanelMS.setOpaque(true);
         }
+    }
+      public int getSelectedPersonId() {
+        int selectedRow = TeacStu.getSelectedRow();
+        if (selectedRow != -1) {
+            return (int) TeacStu.getValueAt(selectedRow, 0); // Asumiendo que el ID está en la primera columna
+        }
+        return -1; // No hay fila seleccionada
     }
 
     /**
@@ -153,9 +160,33 @@ public class ManageStaff extends javax.swing.JPanel {
     }//GEN-LAST:event_Search1ActionPerformed
 
     private void ModifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModifyMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ModifyMouseClicked
+         int selectedRow = TeacStu.getSelectedRow();
+        if (selectedRow == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Seleccione una fila primero.");
+            return;
+        }
 
+        DefaultTableModel model = (DefaultTableModel) TeacStu.getModel();
+
+        // Determinar el tipo de persona según el contenido de la tabla
+        String tableType = model.getColumnName(0).equals("ID Estudiante") ? "Estudiante" : "Facilitador";
+
+        // Abrir la ventana correspondiente sin cargar datos
+        if (tableType.equals("Estudiante")) {
+            ModifyStudents modifyStudentsDialog = new ModifyStudents(this);
+            showAsDialog(modifyStudentsDialog, "Modificar Estudiante");
+        } 
+    }//GEN-LAST:event_ModifyMouseClicked
+    private void showAsDialog(javax.swing.JPanel panel, String title) {
+    javax.swing.JDialog dialog = new javax.swing.JDialog();
+    dialog.setTitle(title);
+    dialog.setModal(true); // Hacerlo modal
+    dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
+    dialog.getContentPane().add(panel);
+    dialog.pack();
+    dialog.setLocationRelativeTo(this); // Centrar la ventana respecto al panel principal
+    dialog.setVisible(true);
+}
     private void EraseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EraseMouseClicked
         int selectedRow = TeacStu.getSelectedRow();
         if (selectedRow == -1) {
