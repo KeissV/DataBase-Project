@@ -27,17 +27,12 @@ public class StudentExpedient extends javax.swing.JPanel {
     private void initComponents() {
 
         panelExpedient = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableExpe = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
 
         panelExpedient.setBackground(new java.awt.Color(255, 255, 255));
         panelExpedient.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setText("Expedient");
-        panelExpedient.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 20, -1, -1));
 
         tableExpe.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,12 +52,11 @@ public class StudentExpedient extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tableExpe);
 
-        panelExpedient.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 620, 250));
+        panelExpedient.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 620, 360));
 
-        jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 24)); // NOI18N
         jLabel2.setText("Cursos aprobados");
-        panelExpedient.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
-        panelExpedient.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 450, 40));
+        panelExpedient.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -80,10 +74,8 @@ public class StudentExpedient extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelExpedient;
     public javax.swing.JTable tableExpe;
     // End of variables declaration//GEN-END:variables
