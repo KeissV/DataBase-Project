@@ -5,6 +5,7 @@
 package InterM;
 
 import java.awt.BorderLayout;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class InterFacilitators extends JPanel {
@@ -39,7 +40,6 @@ public class InterFacilitators extends JPanel {
         jLabel1 = new javax.swing.JLabel();
         Cursos = new javax.swing.JLabel();
         HorCursos = new javax.swing.JLabel();
-        Calendario = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 204, 255));
 
@@ -102,15 +102,6 @@ public class InterFacilitators extends JPanel {
             }
         });
 
-        Calendario.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
-        Calendario.setForeground(new java.awt.Color(87, 73, 98));
-        Calendario.setText("Calendario");
-        Calendario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CalendarioMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
         Panel.setLayout(PanelLayout);
         PanelLayout.setHorizontalGroup(
@@ -118,7 +109,6 @@ public class InterFacilitators extends JPanel {
             .addGroup(PanelLayout.createSequentialGroup()
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Cursos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Calendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(PanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,9 +138,7 @@ public class InterFacilitators extends JPanel {
                 .addComponent(Cursos, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(HorCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 259, Short.MAX_VALUE)
                 .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
             .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -179,7 +167,12 @@ public class InterFacilitators extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
-        // TODO add your handling code here:
+        JFrame loginFrame = new Login();
+    loginFrame.setLocationRelativeTo(null); // Centrar la ventana
+    loginFrame.setVisible(true); // Mostrar el Login
+
+    // Cerrar la ventana actual que contiene este panel
+    ((JFrame) javax.swing.SwingUtilities.getWindowAncestor(this)).dispose();
     }//GEN-LAST:event_ExitMouseClicked
 
     private void ProfileUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfileUserMouseClicked
@@ -203,13 +196,8 @@ public class InterFacilitators extends JPanel {
   
     }//GEN-LAST:event_HorCursosMouseClicked
 
-    private void CalendarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CalendarioMouseClicked
-
-    }//GEN-LAST:event_CalendarioMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Calendario;
     private javax.swing.JPanel Content;
     private javax.swing.JLabel Cursos;
     private javax.swing.JLabel Exit;

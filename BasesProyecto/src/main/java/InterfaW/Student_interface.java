@@ -2,7 +2,9 @@
 package InterfaW;
 
 import Controller.controller;
+import InterM.Login;
 import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
 
 /**
  *
@@ -89,7 +91,6 @@ public class Student_interface extends javax.swing.JFrame{
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
-        btnCurrentCourses.setBackground(new java.awt.Color(255, 255, 255));
         btnCurrentCourses.setFont(new java.awt.Font("Leelawadee", 1, 18)); // NOI18N
         btnCurrentCourses.setForeground(new java.awt.Color(0, 102, 0));
         btnCurrentCourses.setText("Cursando");
@@ -106,7 +107,6 @@ public class Student_interface extends javax.swing.JFrame{
             }
         });
 
-        btnSchedule.setBackground(new java.awt.Color(255, 255, 255));
         btnSchedule.setFont(new java.awt.Font("Leelawadee", 1, 18)); // NOI18N
         btnSchedule.setForeground(new java.awt.Color(0, 102, 0));
         btnSchedule.setText("Horario");
@@ -122,7 +122,6 @@ public class Student_interface extends javax.swing.JFrame{
             }
         });
 
-        btnExpedient.setBackground(new java.awt.Color(255, 255, 255));
         btnExpedient.setFont(new java.awt.Font("Leelawadee", 1, 18)); // NOI18N
         btnExpedient.setForeground(new java.awt.Color(0, 102, 0));
         btnExpedient.setText("Historial");
@@ -149,6 +148,11 @@ public class Student_interface extends javax.swing.JFrame{
         jLabel5.setForeground(new java.awt.Color(0, 102, 0));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-logout-24.png"))); // NOI18N
         jLabel5.setText("Cerrar Sesión");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -229,6 +233,15 @@ public class Student_interface extends javax.swing.JFrame{
         pr.setLocationRelativeTo(null); 
         
     }//GEN-LAST:event_lblProfilepanelMouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+    JFrame loginFrame = new Login();
+    loginFrame.setLocationRelativeTo(null); // Centrar la ventana
+    loginFrame.setVisible(true); // Mostrar el Login
+
+    // Cerrar la ventana actual
+    this.dispose();
+    }//GEN-LAST:event_jLabel5MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,12 +1,14 @@
 
 package Interface;
 import Controller.controller;
+import InterM.Login;
 import InterfaW.Profile;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 /**
  *
@@ -241,7 +243,12 @@ public class AdmistratorInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
-        // TODO add your handling code here:
+  JFrame loginFrame = new Login();
+    loginFrame.setLocationRelativeTo(null); // Centrar la ventana
+    loginFrame.setVisible(true); // Mostrar el Login
+
+    // Cerrar la ventana actual
+    this.dispose();
     }//GEN-LAST:event_ExitMouseClicked
 
     private void ProfileUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfileUserMouseClicked
