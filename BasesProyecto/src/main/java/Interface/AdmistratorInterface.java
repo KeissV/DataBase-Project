@@ -243,12 +243,12 @@ public class AdmistratorInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
-   JFrame loginFrame = new Login();
-    loginFrame.setLocationRelativeTo(null); // Centrar la ventana
-    loginFrame.setVisible(true); // Mostrar el Login
+    JFrame loginFrame = new Login();
+    loginFrame.setLocationRelativeTo(null); 
+    loginFrame.setVisible(true); 
 
-    // Cerrar la ventana actual
-    this.dispose();                               
+  
+    this.dispose();                              
 
     }//GEN-LAST:event_ExitMouseClicked
 
