@@ -86,7 +86,6 @@ public class AdmistratorInterface extends javax.swing.JFrame {
         Content = new javax.swing.JPanel();
         Exit = new javax.swing.JLabel();
         ProfileUser = new javax.swing.JLabel();
-        NameUser = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         History = new javax.swing.JLabel();
         Courses = new javax.swing.JLabel();
@@ -130,11 +129,6 @@ public class AdmistratorInterface extends javax.swing.JFrame {
                 ProfileUserMouseClicked(evt);
             }
         });
-
-        NameUser.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        NameUser.setForeground(new java.awt.Color(87, 73, 98));
-        NameUser.setText("     Nombre Usuario");
-        NameUser.setToolTipText("");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/LOGOOO.png"))); // NOI18N
 
@@ -194,7 +188,6 @@ public class AdmistratorInterface extends javax.swing.JFrame {
                     .addGroup(PanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NameUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(PanelLayout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addComponent(jLabel1))
@@ -216,9 +209,7 @@ public class AdmistratorInterface extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(ProfileUser)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NameUser)
-                .addGap(50, 50, 50)
+                .addGap(72, 72, 72)
                 .addComponent(History, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Courses, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,7 +326,6 @@ public class AdmistratorInterface extends javax.swing.JFrame {
     private javax.swing.JLabel Exit;
     private javax.swing.JLabel History;
     private javax.swing.JLabel Inscriptions;
-    private javax.swing.JLabel NameUser;
     private javax.swing.JPanel Panel;
     private javax.swing.JLabel People;
     private javax.swing.JLabel ProfileUser;
