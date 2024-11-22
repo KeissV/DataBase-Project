@@ -1,6 +1,5 @@
 
 package Interface;
-import Controller.ControllerInscriptions;
 import Controller.controller;
 import InterM.Login;
 import InterfaW.Profile;
@@ -8,7 +7,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,12 +19,10 @@ public class AdmistratorInterface extends javax.swing.JFrame {
     private JLabel selectedLabel = null;
     controller controller = new controller();
     ManageCourse mc = new ManageCourse();
-    ControllerInscriptions ci = new ControllerInscriptions();
-    ManageInscriptions mi = new ManageInscriptions();
     /**
      * Creates new form AdmistratorInterface
      */
-    public AdmistratorInterface() throws SQLException {
+    public AdmistratorInterface() {
         initComponents();
          
          ArrayList<JLabel> labels = new ArrayList<>();
@@ -63,7 +59,6 @@ public class AdmistratorInterface extends javax.swing.JFrame {
         Panel.setOpaque(true); 
        
        controller.loadCoursesData(mc.tableCourses, null, null);
-       ci.loadInscripData(mi.tableIns, mi.Search2.getText());
     }   
     }
 
@@ -248,12 +243,13 @@ public class AdmistratorInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
-  JFrame loginFrame = new Login();
+   JFrame loginFrame = new Login();
     loginFrame.setLocationRelativeTo(null); // Centrar la ventana
     loginFrame.setVisible(true); // Mostrar el Login
 
     // Cerrar la ventana actual
-    this.dispose();
+    this.dispose();                               
+
     }//GEN-LAST:event_ExitMouseClicked
 
     private void ProfileUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProfileUserMouseClicked
@@ -279,12 +275,57 @@ public class AdmistratorInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_StaffMouseClicked
 
     private void InscriptionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InscriptionsMouseClicked
+        ManageInscriptions mi = new ManageInscriptions();
         ShowPanel(mi);
     }//GEN-LAST:event_InscriptionsMouseClicked
 
     private void PeopleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PeopleMouseClicked
-        // TODO add your handling code here:
+        ManageRegister MReg = new ManageRegister();
+    ShowPanel(MReg);
     }//GEN-LAST:event_PeopleMouseClicked
+
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AdmistratorInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AdmistratorInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AdmistratorInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AdmistratorInterface.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AdmistratorInterface().setVisible(true);
+            }
+        });
+    }
 
 
 
