@@ -36,6 +36,7 @@ Interface\ManageStaff$1.class
 Controller\ControllerHistory.class
 Interface\AdmistratorInterface$4.class
 Model\MainSQL.class
+InterM\FacilitatorsSchedule.class
 Interface\ManageRegister$5.class
 Interface\AddCourse.class
 Interface\AddInscription$2.class
@@ -65,6 +66,7 @@ InterfaW\StudentExpedient.class
 Interface\AddInscription.class
 InterM\Login$4.class
 Interface\AdmistratorInterface$5.class
+Interface\ModifyStudents$1.class
 Interface\Register$15.class
 InterM\RestPass$4.class
 Interface\Register$9.class
@@ -88,6 +90,7 @@ Interface\Register$13.class
 InterfaW\Student_interface$5.class
 Interface\AdmistratorInterface$3.class
 InterfaW\Student_interface.class
+InterM\FacilitatorsSchedule$1.class
 Interface\Register$1.class
 InterfaW\Profile.class
 InterM\InterFacilitators$2.class
@@ -104,7 +107,6 @@ Interface\AddCourse$3.class
 Controller\ControllerInscriptions.class
 Interface\EditRegister$3.class
 InterM\Login.class
-Interface\ModifyTeachers.class
 InterM\Courses.class
 Model\HistoryDAO.class
 Interface\Register$4.class

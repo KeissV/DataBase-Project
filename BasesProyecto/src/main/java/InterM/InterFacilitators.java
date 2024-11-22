@@ -37,7 +37,7 @@ public class InterFacilitators extends JPanel {
 
         setBackground(new java.awt.Color(153, 204, 255));
 
-        Panel.setBackground(new java.awt.Color(255, 255, 255));
+        Panel.setBackground(new java.awt.Color(181, 215, 249));
 
         Content.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -134,7 +134,7 @@ public class InterFacilitators extends JPanel {
                 .addComponent(HorCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(35, 35, 35))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -179,16 +179,33 @@ public class InterFacilitators extends JPanel {
                               
        Courses coursesPanel = new Courses();
     
-    // Reemplazar el contenido del panel Content
     Content.removeAll();
-    Content.setLayout(new BorderLayout()); // Asegurar que se use un BorderLayout
+
+    // Usar BorderLayout para agregar el nuevo panel
+    Content.setLayout(new BorderLayout());
     Content.add(coursesPanel, BorderLayout.CENTER);
-    Content.revalidate(); // Actualizar el contenido
-    Content.repaint(); // Refrescar el diseño
+
+    // Actualizar y repintar el panel Content
+    Content.revalidate();
+    Content.repaint();
     }//GEN-LAST:event_CursosMouseClicked
 
     private void HorCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HorCursosMouseClicked
-  
+                                   
+    // Crear instancia de FacilitatorsSchedule
+    FacilitatorsSchedule schedulePanel = new FacilitatorsSchedule();
+
+    // Eliminar cualquier contenido previo en el panel Content
+    Content.removeAll();
+
+    // Usar BorderLayout para agregar el nuevo panel
+    Content.setLayout(new BorderLayout());
+    Content.add(schedulePanel, BorderLayout.CENTER);
+
+    // Actualizar y repintar el panel Content
+    Content.revalidate();
+    Content.repaint();
+
     }//GEN-LAST:event_HorCursosMouseClicked
 
 

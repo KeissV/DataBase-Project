@@ -234,9 +234,6 @@ public class Login extends javax.swing.JFrame {
                             Student_interface studentInterface = new Student_interface();
                             studentInterface.setVisible(true); // Mostrar ventana
                             dispose(); // Cerrar ventana de login
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Login exitoso como " + dbRol);
-                            // Manejar otros roles si es necesario
                         }
                     } else {
                         JOptionPane.showMessageDialog(this, "Contraseña incorrecta");
