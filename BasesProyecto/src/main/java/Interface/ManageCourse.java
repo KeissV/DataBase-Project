@@ -20,8 +20,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ManageCourse extends javax.swing.JPanel {
     public String selectedArea;
-//        controller controller = new controller();
-// private boolean isSearching = false;  // Variable de control
+//    controller controller = new controller();
+// private boolean isSearching = false; 
 
     public ManageCourse() {
         initComponents();
@@ -224,80 +224,33 @@ public class ManageCourse extends javax.swing.JPanel {
 
     private void btnDeleteCourseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteCourseMouseClicked
                                                                                         
-    int selectedRow = tableCourses.getSelectedRow();
-
-    if (selectedRow != -1) {
-        String sigla = (String) tableCourses.getValueAt(selectedRow, 0);
-
-        int confirm = JOptionPane.showConfirmDialog(this, 
-            "¿Está seguro de que desea eliminar este curso con Sigla: " + sigla + "?", 
-            "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
-
-        if (confirm == JOptionPane.YES_OPTION) {
-            try (Connection conn = new ConnectionSQLdb().getConnection();
-                 PreparedStatement stmt = conn.prepareStatement("DELETE FROM Cursos WHERE Sigla = ?")) {
-
-                stmt.setString(1, sigla);
-
-                int rowsAffected = stmt.executeUpdate();
-
-                if (rowsAffected > 0) {
-                    JOptionPane.showMessageDialog(this, "Curso eliminado correctamente.");
-                    
-                  loadCoursesData();
-                } else {
-                    JOptionPane.showMessageDialog(this, "No se pudo eliminar el curso.", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Error al eliminar el curso: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    } else {
-        JOptionPane.showMessageDialog(this, "Seleccione una fila para eliminar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
-    }
-
-    }//GEN-LAST:event_btnDeleteCourseMouseClicked
-
-    public void loadCoursesData() {
-    DefaultTableModel model = (DefaultTableModel) tableCourses.getModel();
-    model.setRowCount(0); 
-
-    String query = "SELECT Sigla, Nombre_curso, Modalidad, Area_especializacion, Cant_estudiantes, Horario, Duracion, Fecha_inicio, Fecha_fin FROM Cursos";
-
-    try (Connection conn = new ConnectionSQLdb().getConnection();
-         PreparedStatement stmt = conn.prepareStatement(query);
-         ResultSet rs = stmt.executeQuery()) {
-
-        while (rs.next()) {
-            model.addRow(new Object[]{
-                rs.getString("Sigla"),
-                rs.getString("Nombre_curso"),
-                rs.getString("Modalidad"),
-                rs.getString("Area_especializacion"),
-                rs.getInt("Cant_estudiantes"),
-                rs.getString("Horario"),
-                rs.getString("Duracion"),
-                rs.getDate("Fecha_inicio"),
-                rs.getDate("Fecha_fin")
-            });
-        }
-
-    } catch (Exception e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Error al cargar los datos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-    }
-}
-
+    controller cont = new controller();
+            int selectedRow = tableCourses.getSelectedRow(); 
     
-    private void btnDeleteCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCourseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDeleteCourseActionPerformed
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(null, "Por favor, seleccione un curso.");
+        return;
+    }
+
+    // Obtenemos el ID del curso desde la primera columna (índice 0)
+    String courseId = (String) tableCourses.getValueAt(selectedRow, 0);
+        cont.deleteCourse(courseId);
+    
+    }                                            
+
+        //convierte las fechas en string para poder manejarlas
         public String formatDateToString(Date date) {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
             return sdf.format(date);
-        }
+    }//GEN-LAST:event_btnDeleteCourseMouseClicked
+
+    private void btnDeleteCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCourseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteCourseActionPerformed
+//        public String formatDateToString(Date date) {
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
+//            return sdf.format(date);
+//        }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAddCourses;
     public javax.swing.JButton btnDeleteCourse;

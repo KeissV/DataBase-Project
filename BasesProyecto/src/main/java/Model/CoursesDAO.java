@@ -288,6 +288,7 @@ public class CoursesDAO {
            return false;
        }
    }
+    
  
     public boolean updateCourse(String sigla, String name, String modality, String area, int capacity, String schedule, String duration, Date startDate, Date endDate) {
     String query = "UPDATE Cursos set Nombre_curso = ?, Modalidad = ?, Area_especializacion = ?, Cantidad_estudiantes = ?, Horario = ?, Duracion = ?, Fecha_inicio = ?, Fecha_fin = ? where Sigla = ?";
