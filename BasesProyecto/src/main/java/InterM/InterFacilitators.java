@@ -5,16 +5,58 @@
 package InterM;
 
 
+import Controller.controller;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
 public class InterFacilitators extends JPanel {
-
+    private JLabel selectedLabel = null;
+      controller controller = new controller();
+      
  public InterFacilitators(String username) {
         initComponents();
-        NameUser.setText(username); // Mostrar el nombre del usuario en el panel
+        NameUser.setText(username); 
+       
+        ArrayList<JLabel> labels = new ArrayList<>();
+        labels.add(Cursos);
+        labels.add(HorCursos);
+      
+        
+        // Añadir un MouseListener a cada JLabel
+        for (JLabel label : labels) {
+            label.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    
+                    if (selectedLabel != null) {
+                        selectedLabel.setBackground(null); // Color original (por defecto)
+                        selectedLabel.setOpaque(false);
+                    }
+                    
+                  
+                    selectedLabel = label;
+                    selectedLabel.setBackground(new Color(255, 255, 255)); 
+                    selectedLabel.setOpaque(true);
+                    
+                    // Repintar la interfaz
+                    repaint();
+                }
+            });
+        }
+        if (Panel != null) {
+        //panel trasparente 
+        Panel.setBackground(new Color(255, 255, 255, 100)); // Blanco con 100 de opacidad 
+        Panel.setOpaque(true); 
+       
+    }   
+        
     }
 
     /**
@@ -34,10 +76,12 @@ public class InterFacilitators extends JPanel {
         jLabel1 = new javax.swing.JLabel();
         Cursos = new javax.swing.JLabel();
         HorCursos = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 204, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Panel.setBackground(new java.awt.Color(181, 215, 249));
+        Panel.setBackground(new java.awt.Color(157, 202, 248));
 
         Content.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -80,7 +124,7 @@ public class InterFacilitators extends JPanel {
         Cursos.setBackground(new java.awt.Color(255, 255, 255));
         Cursos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         Cursos.setForeground(new java.awt.Color(87, 73, 98));
-        Cursos.setText("Cursos");
+        Cursos.setText(" Cursos");
         Cursos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CursosMouseClicked(evt);
@@ -89,7 +133,7 @@ public class InterFacilitators extends JPanel {
 
         HorCursos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
         HorCursos.setForeground(new java.awt.Color(87, 73, 98));
-        HorCursos.setText("Horario de Cursos");
+        HorCursos.setText(" Horario de Cursos");
         HorCursos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HorCursosMouseClicked(evt);
@@ -140,26 +184,10 @@ public class InterFacilitators extends JPanel {
                 .addComponent(Content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 990, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(84, Short.MAX_VALUE)
-                    .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 809, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(97, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(81, Short.MAX_VALUE)
-                    .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(148, Short.MAX_VALUE)))
-        );
+        add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 81, 809, 531));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/datachef_gradation (1)Mar.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 730));
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
@@ -218,5 +246,6 @@ public class InterFacilitators extends JPanel {
     private javax.swing.JPanel Panel;
     private javax.swing.JLabel ProfileUser;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

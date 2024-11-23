@@ -67,7 +67,7 @@ public void loadScheduleData() {
         panelCourses.setBackground(new java.awt.Color(220, 241, 253));
         panelCourses.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TblSchedule.setForeground(new java.awt.Color(87, 73, 98));
+        TblSchedule.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 10)); // NOI18N
         TblSchedule.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -84,30 +84,30 @@ public void loadScheduleData() {
                 return canEdit [columnIndex];
             }
         });
-        TblSchedule.setSelectionBackground(new java.awt.Color(234, 203, 234));
-        TblSchedule.setSelectionForeground(new java.awt.Color(87, 73, 98));
+        TblSchedule.setSelectionBackground(new java.awt.Color(153, 204, 255));
         jScrollPane1.setViewportView(TblSchedule);
 
         panelCourses.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 520, 350));
 
-        jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         jLabel2.setText("Horario");
-        panelCourses.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
+        panelCourses.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(panelCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(panelCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 19, Short.MAX_VALUE)
-                .addComponent(panelCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(panelCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -79,6 +79,7 @@ public Courses() {
         panelExpedient.setPreferredSize(new java.awt.Dimension(570, 450));
         panelExpedient.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        TblCursos.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 10)); // NOI18N
         TblCursos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -95,6 +96,7 @@ public Courses() {
                 return canEdit [columnIndex];
             }
         });
+        TblCursos.setSelectionBackground(new java.awt.Color(153, 204, 255));
         TblCursos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TblCursosMouseClicked(evt);
@@ -104,24 +106,25 @@ public Courses() {
 
         panelExpedient.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 530, 360));
 
-        jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         jLabel2.setText("Cursos Impartidos");
-        panelExpedient.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        panelExpedient.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(panelExpedient, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(panelExpedient, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 25, Short.MAX_VALUE)
-                .addComponent(panelExpedient, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(panelExpedient, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
     }// </editor-fold>//GEN-END:initComponents
 
