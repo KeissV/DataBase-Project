@@ -4,6 +4,8 @@
  */
 package InterfaW;
 
+import java.awt.Color;
+
 /**
  *
  * @author wendy_6rrub
@@ -15,6 +17,12 @@ public class StudentExpedient extends javax.swing.JPanel {
      */
     public StudentExpedient() {
         initComponents();
+        
+        if (panelExpedient != null) {
+            //panel trasparente 
+            panelExpedient.setBackground(new Color(84, 155, 226, 100)); // Blanco con 100 de opacidad 
+            panelExpedient.setOpaque(true);}
+        
     }
 
     /**
@@ -34,6 +42,7 @@ public class StudentExpedient extends javax.swing.JPanel {
         panelExpedient.setBackground(new java.awt.Color(255, 255, 255));
         panelExpedient.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tableExpe.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         tableExpe.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -50,13 +59,14 @@ public class StudentExpedient extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tableExpe.setSelectionBackground(new java.awt.Color(130, 150, 187));
         jScrollPane1.setViewportView(tableExpe);
 
         panelExpedient.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 620, 360));
 
-        jLabel2.setFont(new java.awt.Font("Leelawadee", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 24)); // NOI18N
         jLabel2.setText("Cursos aprobados");
-        panelExpedient.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
+        panelExpedient.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

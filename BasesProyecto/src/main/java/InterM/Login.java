@@ -78,7 +78,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        btnEntrar.setBackground(new java.awt.Color(255, 255, 255));
         btnEntrar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         btnEntrar.setForeground(new java.awt.Color(87, 73, 98));
         btnEntrar.setText("Entrar");
@@ -160,7 +159,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel2.add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 540, 430));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/gradient_1000_750 (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/gradient_1000_700.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 630));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

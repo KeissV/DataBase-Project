@@ -170,11 +170,12 @@ public class AddCourse extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(252, 232, 252));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Agregar Curso");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 19, -1, -1));
 
+        btnAddCourse.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         btnAddCourse.setText("Agregar");
         btnAddCourse.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -186,10 +187,12 @@ public class AddCourse extends javax.swing.JFrame {
         txtInitials.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtInitials, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 91, 103, -1));
 
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Sigla");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 95, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Nombre del curso");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, 20));
@@ -200,10 +203,12 @@ public class AddCourse extends javax.swing.JFrame {
         comoMod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presencial", "Bimodal", "Virtual" }));
         jPanel1.add(comoMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 110, -1));
 
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Modalidad");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Area de especialización");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
@@ -211,6 +216,7 @@ public class AddCourse extends javax.swing.JFrame {
         comboArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arte", "Actividad física", "Salud y Bienestar", "Tecnología", "Medio ambiente" }));
         jPanel1.add(comboArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 120, -1));
 
+        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Duración (en meses)");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, -1, -1));
@@ -218,6 +224,7 @@ public class AddCourse extends javax.swing.JFrame {
         comboDuration.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 mes", "2 meses", "3 meses", "4 meses", "5 meses", "6 meses", "7 meses", "8 meses" }));
         jPanel1.add(comboDuration, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Horario [Días - horas]");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
@@ -225,6 +232,7 @@ public class AddCourse extends javax.swing.JFrame {
         txtSchedule.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtSchedule, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 360, -1));
 
+        jLabel8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setText("Fecha de inicio");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, -1));
@@ -240,6 +248,7 @@ public class AddCourse extends javax.swing.JFrame {
         });
         jPanel1.add(txtDateE, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 130, -1));
 
+        jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Fecha finalización");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, -1, -1));
@@ -255,6 +264,7 @@ public class AddCourse extends javax.swing.JFrame {
         });
         jPanel1.add(txtDateO, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 130, -1));
 
+        jLabel10.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("Cantidad estudiantes");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));

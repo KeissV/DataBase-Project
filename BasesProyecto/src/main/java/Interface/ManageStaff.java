@@ -119,13 +119,13 @@ public class ManageStaff extends javax.swing.JPanel {
 
         Modify.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
         Modify.setForeground(new java.awt.Color(87, 73, 98));
-        Modify.setText("Modificar");
+        Modify.setText("Modificar Estudiante");
         Modify.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ModifyMouseClicked(evt);
             }
         });
-        PanelMS.add(Modify, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 560, 70, 20));
+        PanelMS.add(Modify, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 560, 150, 20));
 
         teachers.setBackground(new java.awt.Color(225, 225, 255));
         teachers.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N

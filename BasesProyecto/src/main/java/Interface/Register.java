@@ -85,7 +85,6 @@ public class Register extends javax.swing.JPanel {
         Lastname2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         UserName = new javax.swing.JTextField();
-        Content4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -116,16 +115,17 @@ public class Register extends javax.swing.JPanel {
         Birthdate = new javax.swing.JTextField();
         BtnRegister = new javax.swing.JButton();
 
-        profilepanel.setBackground(new java.awt.Color(195, 152, 242));
+        profilepanel.setBackground(new java.awt.Color(255, 242, 255));
         profilepanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Leelawadee", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 51));
         jLabel1.setText("Registro");
-        profilepanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 120, -1));
+        profilepanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 120, -1));
 
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel3.setText("APELLIDO2:");
-        profilepanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        profilepanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
 
         Lastname2.setEditable(false);
         Lastname2.setBackground(new java.awt.Color(255, 255, 255));
@@ -135,10 +135,11 @@ public class Register extends javax.swing.JPanel {
                 Lastname2ActionPerformed(evt);
             }
         });
-        profilepanel.add(Lastname2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 100, 30));
+        profilepanel.add(Lastname2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 100, 30));
 
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel4.setText("NOMBRE USUARIO:");
-        profilepanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, -1));
+        profilepanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, -1, -1));
 
         UserName.setEditable(false);
         UserName.setBackground(new java.awt.Color(255, 255, 255));
@@ -148,31 +149,19 @@ public class Register extends javax.swing.JPanel {
                 UserNameActionPerformed(evt);
             }
         });
-        profilepanel.add(UserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 170, 30));
+        profilepanel.add(UserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 170, 30));
 
-        Content4.setBackground(new java.awt.Color(195, 152, 242));
-
-        javax.swing.GroupLayout Content4Layout = new javax.swing.GroupLayout(Content4);
-        Content4.setLayout(Content4Layout);
-        Content4Layout.setHorizontalGroup(
-            Content4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
-        );
-        Content4Layout.setVerticalGroup(
-            Content4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
-        );
-
-        profilepanel.add(Content4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 660, 60));
-
+        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel5.setText("IDENTIFICACIÓN:");
-        profilepanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
+        profilepanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel6.setText("GÉNERO:");
-        profilepanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, -1, -1));
+        profilepanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel7.setText("FECHA DE NACIMIENTO:");
-        profilepanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, -1, -1));
+        profilepanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, -1, -1));
 
         Email.setEditable(false);
         Email.setBackground(new java.awt.Color(255, 255, 255));
@@ -182,7 +171,7 @@ public class Register extends javax.swing.JPanel {
                 EmailActionPerformed(evt);
             }
         });
-        profilepanel.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 170, 30));
+        profilepanel.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 220, 170, 30));
 
         Gender.setEditable(false);
         Gender.setBackground(new java.awt.Color(255, 255, 255));
@@ -192,13 +181,15 @@ public class Register extends javax.swing.JPanel {
                 GenderActionPerformed(evt);
             }
         });
-        profilepanel.add(Gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 100, 30));
+        profilepanel.add(Gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 100, 30));
 
+        jLabel8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel8.setText("TELEFONO 1:");
-        profilepanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
+        profilepanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel9.setText("TELEFONO 2:");
-        profilepanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, -1, -1));
+        profilepanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, -1));
 
         Tel2.setEditable(false);
         Tel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -208,7 +199,7 @@ public class Register extends javax.swing.JPanel {
                 Tel2ActionPerformed(evt);
             }
         });
-        profilepanel.add(Tel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 100, 30));
+        profilepanel.add(Tel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 100, 30));
 
         Tel1.setEditable(false);
         Tel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -218,7 +209,7 @@ public class Register extends javax.swing.JPanel {
                 Tel1ActionPerformed(evt);
             }
         });
-        profilepanel.add(Tel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 170, 30));
+        profilepanel.add(Tel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 170, 30));
 
         Age.setEditable(false);
         Age.setBackground(new java.awt.Color(255, 255, 255));
@@ -228,10 +219,11 @@ public class Register extends javax.swing.JPanel {
                 AgeActionPerformed(evt);
             }
         });
-        profilepanel.add(Age, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 170, 30));
+        profilepanel.add(Age, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, 170, 30));
 
+        jLabel10.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel10.setText("CORREO:");
-        profilepanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, -1, -1));
+        profilepanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, -1, -1));
 
         Password.setEditable(false);
         Password.setBackground(new java.awt.Color(255, 255, 255));
@@ -241,19 +233,23 @@ public class Register extends javax.swing.JPanel {
                 PasswordActionPerformed(evt);
             }
         });
-        profilepanel.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 170, 30));
+        profilepanel.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 170, 30));
 
+        jLabel11.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel11.setText("EDAD:");
-        profilepanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, -1, -1));
+        profilepanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, -1, -1));
 
+        jLabel12.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel12.setText("DISTRITO:");
-        profilepanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, -1, -1));
+        profilepanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, -1));
 
+        jLabel13.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel13.setText("PROVINCIA:");
-        profilepanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+        profilepanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
 
+        jLabel14.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel14.setText("CANTÓN:");
-        profilepanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
+        profilepanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, -1));
 
         District.setEditable(false);
         District.setBackground(new java.awt.Color(255, 255, 255));
@@ -263,7 +259,7 @@ public class Register extends javax.swing.JPanel {
                 DistrictActionPerformed(evt);
             }
         });
-        profilepanel.add(District, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 100, 30));
+        profilepanel.add(District, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 100, 30));
 
         Province.setEditable(false);
         Province.setBackground(new java.awt.Color(255, 255, 255));
@@ -273,7 +269,7 @@ public class Register extends javax.swing.JPanel {
                 ProvinceActionPerformed(evt);
             }
         });
-        profilepanel.add(Province, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 100, 30));
+        profilepanel.add(Province, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 100, 30));
 
         Canton.setEditable(false);
         Canton.setBackground(new java.awt.Color(255, 255, 255));
@@ -283,10 +279,11 @@ public class Register extends javax.swing.JPanel {
                 CantonActionPerformed(evt);
             }
         });
-        profilepanel.add(Canton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 170, 30));
+        profilepanel.add(Canton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 170, 30));
 
+        jLabel16.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel16.setText("CONTRASEÑA");
-        profilepanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, -1, -1));
+        profilepanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, -1, -1));
 
         Id.setEditable(false);
         Id.setBackground(new java.awt.Color(255, 255, 255));
@@ -296,10 +293,11 @@ public class Register extends javax.swing.JPanel {
                 IdActionPerformed(evt);
             }
         });
-        profilepanel.add(Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 170, 30));
+        profilepanel.add(Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 170, 30));
 
+        jLabel15.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel15.setText("NOMBRE:");
-        profilepanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        profilepanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         Name.setEditable(false);
         Name.setBackground(new java.awt.Color(255, 255, 255));
@@ -309,10 +307,11 @@ public class Register extends javax.swing.JPanel {
                 NameActionPerformed(evt);
             }
         });
-        profilepanel.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 100, 30));
+        profilepanel.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 100, 30));
 
+        jLabel17.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel17.setText("APELLIDO:");
-        profilepanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
+        profilepanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
         Lastname1.setEditable(false);
         Lastname1.setBackground(new java.awt.Color(255, 255, 255));
@@ -322,10 +321,11 @@ public class Register extends javax.swing.JPanel {
                 Lastname1ActionPerformed(evt);
             }
         });
-        profilepanel.add(Lastname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 100, 30));
+        profilepanel.add(Lastname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 100, 30));
 
+        jLabel18.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel18.setText("ROL:");
-        profilepanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, -1, -1));
+        profilepanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, -1));
 
         Rol.setEditable(false);
         Rol.setBackground(new java.awt.Color(255, 255, 255));
@@ -335,7 +335,7 @@ public class Register extends javax.swing.JPanel {
                 RolActionPerformed(evt);
             }
         });
-        profilepanel.add(Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 100, 30));
+        profilepanel.add(Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 100, 30));
 
         Birthdate.setEditable(false);
         Birthdate.setBackground(new java.awt.Color(255, 255, 255));
@@ -345,8 +345,9 @@ public class Register extends javax.swing.JPanel {
                 BirthdateActionPerformed(evt);
             }
         });
-        profilepanel.add(Birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 170, 30));
+        profilepanel.add(Birthdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 170, 30));
 
+        BtnRegister.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         BtnRegister.setText("Registrar");
         BtnRegister.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BtnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -354,17 +355,19 @@ public class Register extends javax.swing.JPanel {
                 BtnRegisterActionPerformed(evt);
             }
         });
-        profilepanel.add(BtnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 420, 70, 30));
+        profilepanel.add(BtnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 210, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(profilepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 658, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(profilepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(profilepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(profilepanel, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -540,7 +543,6 @@ public class Register extends javax.swing.JPanel {
     private javax.swing.JTextField Birthdate;
     private javax.swing.JButton BtnRegister;
     private javax.swing.JTextField Canton;
-    private javax.swing.JPanel Content4;
     private javax.swing.JTextField District;
     private javax.swing.JTextField Email;
     private javax.swing.JTextField Gender;
@@ -571,6 +573,6 @@ public class Register extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel profilepanel;
+    public javax.swing.JPanel profilepanel;
     // End of variables declaration//GEN-END:variables
 }

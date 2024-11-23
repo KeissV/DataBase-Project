@@ -3,6 +3,7 @@ package InterfaW;
 
 import Controller.controller;
 import InterM.Login;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 
@@ -30,6 +31,13 @@ public class Student_interface extends javax.swing.JFrame{
         cc.lblStudentName.setText("¡Hola, " + userName + "!");
         lblProfilepanel.setText(userName);
         
+         if (Panel != null) {
+        //panel trasparente 
+        Panel.setBackground(new Color(255, 255, 255, 100)); // Blanco con 100 de opacidad 
+        Panel.setOpaque(true); 
+       
+    }   
+        
     }
 
     // Método para alternar entre paneles
@@ -50,7 +58,7 @@ public class Student_interface extends javax.swing.JFrame{
 
         jPanel3 = new javax.swing.JPanel();
         Content3 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        Panel = new javax.swing.JPanel();
         btnCurrentCourses = new javax.swing.JButton();
         btnExpedient = new javax.swing.JButton();
         lblProfilepanel = new javax.swing.JLabel();
@@ -88,7 +96,7 @@ public class Student_interface extends javax.swing.JFrame{
 
         getContentPane().add(Content3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 660, 510));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        Panel.setBackground(new java.awt.Color(204, 255, 204));
 
         btnCurrentCourses.setFont(new java.awt.Font("Leelawadee", 1, 18)); // NOI18N
         btnCurrentCourses.setForeground(new java.awt.Color(0, 102, 0));
@@ -138,48 +146,43 @@ public class Student_interface extends javax.swing.JFrame{
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 18, Short.MAX_VALUE))
+        javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
+        Panel.setLayout(PanelLayout);
+        PanelLayout.setHorizontalGroup(
+            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnExpedient, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCurrentCourses, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lblProfilepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCurrentCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(PanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblProfilepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 18, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(lblProfilepanel)
-                .addGap(33, 33, 33)
-                .addComponent(btnCurrentCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnExpedient, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+        PanelLayout.setVerticalGroup(
+            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelLayout.createSequentialGroup()
+                .addGap(8, 8, 8)
                 .addComponent(jLabel4)
-                .addGap(43, 43, 43)
+                .addGap(18, 18, 18)
+                .addComponent(lblProfilepanel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(btnCurrentCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(btnExpedient, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 200, 510));
+        getContentPane().add(Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 200, 510));
 
         jLabel1.setBackground(new java.awt.Color(204, 255, 204));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/green.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/datachef_gradation (2).png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 590));
 
         pack();
@@ -218,12 +221,12 @@ public class Student_interface extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Content3;
+    private javax.swing.JPanel Panel;
     private javax.swing.JButton btnCurrentCourses;
     private javax.swing.JButton btnExpedient;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblProfilepanel;
     // End of variables declaration//GEN-END:variables

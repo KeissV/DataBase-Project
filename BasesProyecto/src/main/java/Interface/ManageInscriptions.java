@@ -64,7 +64,7 @@ public class ManageInscriptions extends javax.swing.JPanel {
         TableView.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tableIns.setBackground(new java.awt.Color(255, 255, 255));
-        tableIns.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 14)); // NOI18N
+        tableIns.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 10)); // NOI18N
         tableIns.setForeground(new java.awt.Color(87, 73, 98));
         tableIns.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,6 +100,7 @@ public class ManageInscriptions extends javax.swing.JPanel {
         Search2.setBorder(null);
         TableView.add(Search2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 510, 40));
 
+        btnDeleteIns.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         btnDeleteIns.setText("Eliminar");
         btnDeleteIns.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -108,6 +109,7 @@ public class ManageInscriptions extends javax.swing.JPanel {
         });
         TableView.add(btnDeleteIns, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 140, 50));
 
+        btnAddIns.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         btnAddIns.setText("Nueva Inscripción");
         btnAddIns.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -117,6 +119,7 @@ public class ManageInscriptions extends javax.swing.JPanel {
         TableView.add(btnAddIns, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 140, 50));
 
         Content4.setBackground(new java.awt.Color(255, 255, 255));
+        Content4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout Content4Layout = new javax.swing.GroupLayout(Content4);
         Content4.setLayout(Content4Layout);

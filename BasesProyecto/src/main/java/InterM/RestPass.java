@@ -105,7 +105,7 @@ public class RestPass extends javax.swing.JPanel {
         add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 230, -1));
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/gradient_1000_750 (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/gradient_1000_700.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 350));
     }// </editor-fold>//GEN-END:initComponents
 

@@ -26,6 +26,7 @@ public class ManageCourse extends javax.swing.JPanel {
             panelCourses.setBackground(new Color(234, 203, 234, 75));
             panelCourses.setOpaque(true);
         }
+        
 
     }
     
@@ -64,6 +65,7 @@ public class ManageCourse extends javax.swing.JPanel {
         });
         panelCourses.add(searchC, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 520, 40));
 
+        tableCourses.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 10)); // NOI18N
         tableCourses.setForeground(new java.awt.Color(87, 73, 98));
         tableCourses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,6 +89,7 @@ public class ManageCourse extends javax.swing.JPanel {
 
         panelCourses.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 590, 390));
 
+        btnAddCourses.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         btnAddCourses.setText("Agregar");
         btnAddCourses.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -100,6 +103,7 @@ public class ManageCourse extends javax.swing.JPanel {
         });
         panelCourses.add(btnAddCourses, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 90, -1));
 
+        btnEditCourse.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         btnEditCourse.setText("Editar");
         btnEditCourse.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -108,6 +112,7 @@ public class ManageCourse extends javax.swing.JPanel {
         });
         panelCourses.add(btnEditCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 90, -1));
 
+        btnDeleteCourse.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         btnDeleteCourse.setText("Eliminar");
         btnDeleteCourse.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -116,6 +121,7 @@ public class ManageCourse extends javax.swing.JPanel {
         });
         panelCourses.add(btnDeleteCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 120, 90, -1));
 
+        comboCourses.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         comboCourses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Arte", "Actividad física", "Salud y Bienestar", "Tecnología", "Medio ambiente" }));
         comboCourses.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

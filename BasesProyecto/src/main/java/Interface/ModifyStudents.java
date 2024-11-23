@@ -117,7 +117,6 @@ private javax.swing.JDialog dialog;
         maritalStatus.setBackground(new java.awt.Color(255, 255, 255));
         maritalStatus.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         maritalStatus.setForeground(new java.awt.Color(87, 73, 98));
-        maritalStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(maritalStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 140, -1));
 
         Lastname2.setBackground(new java.awt.Color(255, 255, 255));

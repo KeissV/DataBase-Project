@@ -68,6 +68,7 @@ public class EditCourses extends javax.swing.JFrame {
         jLabel1.setText("Editar Curso");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
+        btnEditCourse.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         btnEditCourse.setText("Editar");
         btnEditCourse.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -81,10 +82,12 @@ public class EditCourses extends javax.swing.JFrame {
         txtIni.setForeground(new java.awt.Color(102, 102, 102));
         jPanel1.add(txtIni, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 91, 103, -1));
 
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Sigla");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 95, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Nombre del curso");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, -1, 20));
@@ -92,27 +95,34 @@ public class EditCourses extends javax.swing.JFrame {
         txtName.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 210, -1));
 
+        cmbMod.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         cmbMod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presencial", "Bimodal", "Virtual" }));
         jPanel1.add(cmbMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 110, -1));
 
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Modalidad");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Area de especialización");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
 
+        cmbArea.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         cmbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arte", "Actividad física", "Salud y Bienestar", "Tecnología", "Medio ambiente" }));
         jPanel1.add(cmbArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 120, -1));
 
+        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Duración ");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, -1, -1));
 
+        cmbDur.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         cmbDur.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 mes", "2 meses", "3 meses", "4 meses", "5 meses", "6 meses", "7 meses", "8 meses" }));
         jPanel1.add(cmbDur, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
         jLabel7.setText("Horario [Días - horas]");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
@@ -120,6 +130,7 @@ public class EditCourses extends javax.swing.JFrame {
         txtSch.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.add(txtSch, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 360, -1));
 
+        jLabel8.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(102, 102, 102));
         jLabel8.setText("Fecha de inicio");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, -1));
@@ -135,6 +146,7 @@ public class EditCourses extends javax.swing.JFrame {
         });
         jPanel1.add(txtEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 130, -1));
 
+        jLabel9.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Fecha finalización");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, -1, -1));
@@ -150,10 +162,12 @@ public class EditCourses extends javax.swing.JFrame {
         });
         jPanel1.add(txtOpe, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 130, -1));
 
+        jLabel10.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("Cantidad estudiantes");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
+        cmbQuan.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         cmbQuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "12", "14", "16", "18", "20", "22", "24", "26", "28", "30" }));
         jPanel1.add(cmbQuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
 

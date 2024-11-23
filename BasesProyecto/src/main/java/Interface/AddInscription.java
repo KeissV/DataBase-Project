@@ -58,23 +58,31 @@ public class AddInscription extends javax.swing.JPanel {
 
         txtCodeI.setEditable(false);
         txtCodeI.setBackground(new java.awt.Color(204, 255, 255));
+        txtCodeI.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         txtCodeI.setForeground(new java.awt.Color(102, 102, 102));
         jPanel1.add(txtCodeI, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 134, -1));
 
+        txtIdF.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         txtIdF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdFActionPerformed(evt);
             }
         });
         jPanel1.add(txtIdF, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 134, -1));
+
+        txtIdS.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jPanel1.add(txtIdS, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 166, 134, -1));
+
+        txtSigla.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jPanel1.add(txtSigla, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 216, 134, -1));
 
         txtDate.setEditable(false);
         txtDate.setBackground(new java.awt.Color(204, 255, 255));
+        txtDate.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         txtDate.setForeground(new java.awt.Color(102, 102, 102));
         jPanel1.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 266, 134, -1));
 
+        btnAddInscrip.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         btnAddInscrip.setText("Agregar");
         btnAddInscrip.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -88,25 +96,30 @@ public class AddInscription extends javax.swing.JPanel {
         });
         jPanel1.add(btnAddInscrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 327, 109, -1));
 
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Código:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("ID Facilitador:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, 20));
 
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("ID Estudiante:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, 10));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, 20));
 
+        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Sigla curso:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, 10));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, 20));
 
+        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Fecha matrícula:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, 10));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 380));
     }// </editor-fold>//GEN-END:initComponents
