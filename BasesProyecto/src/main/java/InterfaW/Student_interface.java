@@ -33,14 +33,14 @@ public class Student_interface extends javax.swing.JFrame{
         
          if (Panel != null) {
         //panel trasparente 
-        Panel.setBackground(new Color(255, 255, 255, 100)); // Blanco con 100 de opacidad 
+        Panel.setBackground(new Color(255, 255, 255, 100)); 
         Panel.setOpaque(true); 
        
     }   
         
     }
 
-    // Método para alternar entre paneles
+    
     public void ShowPanel(javax.swing.JPanel p) {
         p.setSize(Content3.getWidth(), Content3.getHeight()); 
         p.setLocation(0, 0); 
@@ -211,10 +211,10 @@ public class Student_interface extends javax.swing.JFrame{
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
     JFrame loginFrame = new Login();
-    loginFrame.setLocationRelativeTo(null); // Centrar la ventana
-    loginFrame.setVisible(true); // Mostrar el Login
+    loginFrame.setLocationRelativeTo(null); 
+    loginFrame.setVisible(true); 
 
-    // Cerrar la ventana actual
+
     this.dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
 

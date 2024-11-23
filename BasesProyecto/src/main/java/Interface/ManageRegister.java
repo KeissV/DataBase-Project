@@ -24,15 +24,15 @@ public class ManageRegister extends javax.swing.JPanel {
      * Creates new form ManageRegister
      */
 public ManageRegister() {
-    initComponents(); // Inicializa los componentes del panel
-    loadRolesToComboBox(); // Cargar los roles en el ComboBox
+    initComponents(); 
+    loadRolesToComboBox(); 
     loadCoursesData(null, null);
     if (panelCourses != null) {
         panelCourses.setBackground(new Color(234, 203, 234, 75));
         panelCourses.setOpaque(true);
     }
     
-    loadCoursesData(); // Cargar los datos en la tabla al inicializar
+    loadCoursesData(); 
     
 
 }
@@ -42,11 +42,11 @@ public ManageRegister() {
     
         public void loadCoursesData() {
     DefaultTableModel model = (DefaultTableModel) tableCourses.getModel();
-    model.setRowCount(0); // Limpiar la tabla antes de cargar los datos
+    model.setRowCount(0); 
 
     String query = "SELECT Identificacion, Nombre, Apellido1, Apellido2, Rol, Nombre_usuario, " +
                    "Telefono_principal, Teléfono_secundario, Correo, Contrasena, Provincia, " +
-                   "Canton, Distrito, Genero, Fecha_nacimiento, Edad FROM Usuarios"; // Ajusta el nombre de la tabla si es necesario
+                   "Canton, Distrito, Genero, Fecha_nacimiento, Edad FROM Usuarios"; 
 
     try (Connection conn = new ConnectionSQLdb().getConnection();
          PreparedStatement stmt = conn.prepareStatement(query);
@@ -68,7 +68,7 @@ public ManageRegister() {
                 rs.getString("Canton"),
                 rs.getString("Distrito"),
                 rs.getString("Genero"),
-                rs.getDate("Fecha_nacimiento"), // Si es de tipo DATE en la base de datos
+                rs.getDate("Fecha_nacimiento"), 
                 rs.getInt("Edad")
             });
         }
@@ -214,29 +214,26 @@ public ManageRegister() {
     private void tableCoursesMouseClicked(java.awt.event.MouseEvent evt) {                                         
     int selectedRow = tableCourses.getSelectedRow();
     if (selectedRow != -1) {
-        // Obtener los valores de la fila seleccionada
-        String id = (String) tableCourses.getValueAt(selectedRow, 0); // Identificación
-        String name = (String) tableCourses.getValueAt(selectedRow, 1); // Nombre
-        String lastName1 = (String) tableCourses.getValueAt(selectedRow, 2); // Apellido1
-        String lastName2 = (String) tableCourses.getValueAt(selectedRow, 3); // Apellido2
-        String role = (String) tableCourses.getValueAt(selectedRow, 4); // Rol
-        String username = (String) tableCourses.getValueAt(selectedRow, 5); // Nombre_usuario
-        String tel1 = (String) tableCourses.getValueAt(selectedRow, 6); // Teléfono_principal
-        String tel2 = (String) tableCourses.getValueAt(selectedRow, 7); // Teléfono_secundario
-        String email = (String) tableCourses.getValueAt(selectedRow, 8); // Correo
-        String password = (String) tableCourses.getValueAt(selectedRow, 9); // Contraseña
-        String province = (String) tableCourses.getValueAt(selectedRow, 10); // Provincia
-        String canton = (String) tableCourses.getValueAt(selectedRow, 11); // Cantón
-        String district = (String) tableCourses.getValueAt(selectedRow, 12); // Distrito
-        String gender = (String) tableCourses.getValueAt(selectedRow, 13); // Género
-        String birthdate = tableCourses.getValueAt(selectedRow, 14).toString(); // Fecha de nacimiento
-        String age = tableCourses.getValueAt(selectedRow, 15).toString(); // Edad
+        String id = (String) tableCourses.getValueAt(selectedRow, 0); 
+        String name = (String) tableCourses.getValueAt(selectedRow, 1); 
+        String lastName1 = (String) tableCourses.getValueAt(selectedRow, 2); 
+        String lastName2 = (String) tableCourses.getValueAt(selectedRow, 3);
+        String role = (String) tableCourses.getValueAt(selectedRow, 4); 
+        String username = (String) tableCourses.getValueAt(selectedRow, 5); 
+        String tel1 = (String) tableCourses.getValueAt(selectedRow, 6); 
+        String tel2 = (String) tableCourses.getValueAt(selectedRow, 7); 
+        String email = (String) tableCourses.getValueAt(selectedRow, 8); 
+        String password = (String) tableCourses.getValueAt(selectedRow, 9); 
+        String province = (String) tableCourses.getValueAt(selectedRow, 10); 
+        String canton = (String) tableCourses.getValueAt(selectedRow, 11); 
+        String district = (String) tableCourses.getValueAt(selectedRow, 12); 
+        String gender = (String) tableCourses.getValueAt(selectedRow, 13); 
+        String birthdate = tableCourses.getValueAt(selectedRow, 14).toString(); 
+        String age = tableCourses.getValueAt(selectedRow, 15).toString(); 
 
-        // Crear una instancia del panel EditRegister y cargar los datos
         EditRegister editPanel = new EditRegister();
         editPanel.loadCourseDataToForm(name, age, birthdate, canton, district, email, gender, id, lastName1, lastName2, password, province, role, tel1, tel2, username);
 
-        // Reemplazar el contenido del panel principal con el panel de edición
         this.removeAll();
         this.setLayout(new BorderLayout());
         this.add(editPanel, BorderLayout.CENTER);
@@ -255,35 +252,32 @@ public ManageRegister() {
     private void btnEditCourseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditCourseMouseClicked
    int selectedRow = tableCourses.getSelectedRow();
     if (selectedRow != -1) {
-        // Crear una instancia del panel de edición
         EditRegister editRegisterPanel = new EditRegister();
 
-        // Pasar los datos de la fila seleccionada al panel de edición
         editRegisterPanel.loadCourseDataToForm(
-            tableCourses.getValueAt(selectedRow, 1).toString(),  // Nombre
-            tableCourses.getValueAt(selectedRow, 15).toString(), // Edad
-            tableCourses.getValueAt(selectedRow, 14).toString(), // Fecha de nacimiento
-            tableCourses.getValueAt(selectedRow, 11).toString(), // Cantón
-            tableCourses.getValueAt(selectedRow, 12).toString(), // Distrito
-            tableCourses.getValueAt(selectedRow, 8).toString(),  // Correo
-            tableCourses.getValueAt(selectedRow, 13).toString(), // Género
-            tableCourses.getValueAt(selectedRow, 0).toString(),  // Identificación
-            tableCourses.getValueAt(selectedRow, 2).toString(),  // Apellido1
-            tableCourses.getValueAt(selectedRow, 3).toString(),  // Apellido2
-            tableCourses.getValueAt(selectedRow, 9).toString(),  // Contraseña
-            tableCourses.getValueAt(selectedRow, 10).toString(), // Provincia
-            tableCourses.getValueAt(selectedRow, 4).toString(),  // Rol
-            tableCourses.getValueAt(selectedRow, 6).toString(),  // Teléfono principal
-            tableCourses.getValueAt(selectedRow, 7).toString(),  // Teléfono secundario
-            tableCourses.getValueAt(selectedRow, 5).toString()   // Nombre de usuario
+            tableCourses.getValueAt(selectedRow, 1).toString(),  
+            tableCourses.getValueAt(selectedRow, 15).toString(), 
+            tableCourses.getValueAt(selectedRow, 14).toString(), 
+            tableCourses.getValueAt(selectedRow, 11).toString(), 
+            tableCourses.getValueAt(selectedRow, 12).toString(), 
+            tableCourses.getValueAt(selectedRow, 8).toString(),  
+            tableCourses.getValueAt(selectedRow, 13).toString(), 
+            tableCourses.getValueAt(selectedRow, 0).toString(),  
+            tableCourses.getValueAt(selectedRow, 2).toString(),  
+            tableCourses.getValueAt(selectedRow, 3).toString(),  
+            tableCourses.getValueAt(selectedRow, 9).toString(),  
+            tableCourses.getValueAt(selectedRow, 10).toString(), 
+            tableCourses.getValueAt(selectedRow, 4).toString(),  
+            tableCourses.getValueAt(selectedRow, 6).toString(),  
+            tableCourses.getValueAt(selectedRow, 7).toString(),  
+            tableCourses.getValueAt(selectedRow, 5).toString()   
         );
 
-        // Mostrar el panel de edición en un JFrame
         JFrame editFrame = new JFrame("Editar Registro");
         editFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         editFrame.add(editRegisterPanel);
-        editFrame.setSize(700, 600); // Ajustar tamaño según sea necesario
-        editFrame.setLocationRelativeTo(null); // Centrar ventana
+        editFrame.setSize(700, 600);
+        editFrame.setLocationRelativeTo(null); 
         editFrame.setVisible(true);
     } else {
         JOptionPane.showMessageDialog(this, "Seleccione una fila para editar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
@@ -296,10 +290,9 @@ public ManageRegister() {
 
     private void comboCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCoursesActionPerformed
                                              
-    String searchTerm = searchC.getText(); // Obtener el texto del campo de búsqueda
-    String courseFilter = (String) comboCourses.getSelectedItem(); // Obtener el filtro del ComboBox
+    String searchTerm = searchC.getText(); 
+    String courseFilter = (String) comboCourses.getSelectedItem(); 
 
-    // Cargar los datos filtrados
     loadCoursesData(searchTerm, courseFilter);
     }//GEN-LAST:event_comboCoursesActionPerformed
 
@@ -309,14 +302,11 @@ public ManageRegister() {
 
     private void btnDeleteCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCourseActionPerformed
                                                
-    // Obtener la fila seleccionada
     int selectedRow = tableCourses.getSelectedRow();
 
     if (selectedRow != -1) {
-        // Obtener el valor de la columna "Identificacion" de la fila seleccionada
         String identificacion = (String) tableCourses.getValueAt(selectedRow, 0);
 
-        // Confirmar la eliminación con el usuario
         int confirm = JOptionPane.showConfirmDialog(this, 
             "¿Está seguro de que desea eliminar este registro?", 
             "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
@@ -325,16 +315,13 @@ public ManageRegister() {
             try (Connection conn = new ConnectionSQLdb().getConnection();
                  PreparedStatement stmt = conn.prepareStatement("DELETE FROM Usuarios WHERE Identificacion = ?")) {
 
-                // Configurar el identificador para la eliminación
                 stmt.setString(1, identificacion);
 
-                // Ejecutar el DELETE
                 int rowsAffected = stmt.executeUpdate();
 
                 if (rowsAffected > 0) {
                     JOptionPane.showMessageDialog(this, "Registro eliminado correctamente.");
                     
-                    // Recargar los datos en la tabla
                     loadCoursesData();
                 } else {
                     JOptionPane.showMessageDialog(this, "No se pudo eliminar el registro.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -360,8 +347,8 @@ public ManageRegister() {
     JFrame editFrame = new JFrame("Editar Registro");
         editFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         editFrame.add(registerPanel);
-        editFrame.setSize(700, 600); // Ajustar tamaño según sea necesario
-        editFrame.setLocationRelativeTo(null); // Centrar ventana
+        editFrame.setSize(700, 600);
+        editFrame.setLocationRelativeTo(null); 
         editFrame.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -370,18 +357,17 @@ public ManageRegister() {
     }//GEN-LAST:event_btnEditCourseActionPerformed
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
-           String searchTerm = searchC.getText(); // Obtener el texto del campo de búsqueda
-    String courseFilter = (String) comboCourses.getSelectedItem(); // Obtener el filtro del ComboBox
+           String searchTerm = searchC.getText(); 
+    String courseFilter = (String) comboCourses.getSelectedItem(); 
 
-    // Cargar los datos filtrados
     loadCoursesData(searchTerm, courseFilter);
     }//GEN-LAST:event_btnSearchMouseClicked
 
     
     
    private void loadRolesToComboBox() {
-    comboCourses.removeAllItems(); // Limpiar el ComboBox
-    comboCourses.addItem("Todos"); // Agregar opción predeterminada
+    comboCourses.removeAllItems(); 
+    comboCourses.addItem("Todos"); 
 
     String query = "SELECT DISTINCT Rol FROM Usuarios";
 
@@ -402,9 +388,8 @@ public ManageRegister() {
     
     public void loadCoursesData(String searchTerm, String courseFilter) {
     DefaultTableModel model = (DefaultTableModel) tableCourses.getModel();
-    model.setRowCount(0); // Limpiar la tabla antes de cargar los datos
+    model.setRowCount(0); 
 
-    // Construir la consulta con parámetros opcionales
     StringBuilder queryBuilder = new StringBuilder(
         "SELECT Identificacion, Nombre, Apellido1, Apellido2, Rol, Nombre_usuario, " +
         "Telefono_principal, Teléfono_secundario, Correo, Contrasena, Provincia, " +
@@ -428,14 +413,12 @@ public ManageRegister() {
 
         int paramIndex = 1;
 
-        // Agregar parámetros de búsqueda
         if (searchTerm != null && !searchTerm.isEmpty()) {
             stmt.setString(paramIndex++, "%" + searchTerm + "%");
             stmt.setString(paramIndex++, "%" + searchTerm + "%");
             stmt.setString(paramIndex++, "%" + searchTerm + "%");
         }
 
-        // Agregar parámetros de filtro de curso
         if (courseFilter != null && !courseFilter.equalsIgnoreCase("Todos")) {
             stmt.setString(paramIndex++, courseFilter);
         }

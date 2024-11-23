@@ -22,13 +22,13 @@ public class FacilitatorsSchedule extends javax.swing.JPanel {
      */
 public FacilitatorsSchedule() {
     initComponents();
-    loadScheduleData(); // Cargar los datos en la tabla al inicializar
+    loadScheduleData(); 
 }
 public void loadScheduleData() {
     DefaultTableModel model = (DefaultTableModel) TblSchedule.getModel();
-    model.setRowCount(0); // Limpiar la tabla antes de cargar los datos
+    model.setRowCount(0); 
 
-    String query = "SELECT Horario, Nombre_curso, Sigla FROM Cursos"; // Ajusta el nombre de la tabla si es necesario
+    String query = "SELECT Horario, Nombre_curso, Sigla FROM Cursos"; 
 
     try (Connection conn = new ConnectionSQLdb().getConnection();
          PreparedStatement stmt = conn.prepareStatement(query);

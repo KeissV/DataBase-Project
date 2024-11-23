@@ -35,17 +35,16 @@ public class ManageStaff extends javax.swing.JPanel {
             controller.loadStudentsData(TeacStu, searchTerm);
         });
         if (PanelMS != null) {
-            //panel trasparente 
-            PanelMS.setBackground(new Color(195, 152, 242, 47)); // Morado con 70 de opacidad 
+            PanelMS.setBackground(new Color(195, 152, 242, 47)); 
             PanelMS.setOpaque(true);
         }
     }
       public int getSelectedPersonId() {
         int selectedRow = TeacStu.getSelectedRow();
         if (selectedRow != -1) {
-            return (int) TeacStu.getValueAt(selectedRow, 0); // Asumiendo que el ID está en la primera columna
+            return (int) TeacStu.getValueAt(selectedRow, 0); 
         }
-        return -1; // No hay fila seleccionada
+        return -1; 
     }
 
     /**
@@ -168,10 +167,8 @@ public class ManageStaff extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) TeacStu.getModel();
 
-        // Determinar el tipo de persona según el contenido de la tabla
         String tableType = model.getColumnName(0).equals("ID Estudiante") ? "Estudiante" : "Facilitador";
 
-        // Abrir la ventana correspondiente sin cargar datos
         if (tableType.equals("Estudiante")) {
             ModifyStudents modifyStudentsDialog = new ModifyStudents(this);
             showAsDialog(modifyStudentsDialog, "Modificar Estudiante");
@@ -180,11 +177,11 @@ public class ManageStaff extends javax.swing.JPanel {
     private void showAsDialog(javax.swing.JPanel panel, String title) {
     javax.swing.JDialog dialog = new javax.swing.JDialog();
     dialog.setTitle(title);
-    dialog.setModal(true); // Hacerlo modal
+    dialog.setModal(true); 
     dialog.setDefaultCloseOperation(javax.swing.JDialog.DISPOSE_ON_CLOSE);
     dialog.getContentPane().add(panel);
     dialog.pack();
-    dialog.setLocationRelativeTo(this); // Centrar la ventana respecto al panel principal
+    dialog.setLocationRelativeTo(this); 
     dialog.setVisible(true);
 }
     private void EraseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EraseMouseClicked

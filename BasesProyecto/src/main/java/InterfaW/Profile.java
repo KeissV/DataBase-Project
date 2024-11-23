@@ -66,7 +66,6 @@ public class Profile extends javax.swing.JFrame {
         txtDistrict = new javax.swing.JTextField();
         txtProvince = new javax.swing.JTextField();
         txtCanton = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
 
@@ -202,9 +201,6 @@ public class Profile extends javax.swing.JFrame {
         txtCanton.setBorder(null);
         profilepanel.add(txtCanton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, 220, 20));
 
-        jLabel15.setText("@usuario");
-        profilepanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
-
         jLabel16.setText("CAMPO ESPECIAL:");
         profilepanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 130, -1, -1));
 
@@ -251,7 +247,6 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

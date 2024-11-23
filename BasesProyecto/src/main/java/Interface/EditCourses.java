@@ -244,7 +244,7 @@ public class EditCourses extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditCourseMouseClicked
 
 public void loadCourseDataToForm(String sigla, String name, String mo, String area, int quan, String sch, String dur, String startDate, String endDate) {
-    txtIni.setText(sigla); // Sigla no editable
+    txtIni.setText(sigla); 
     txtIni.setEditable(false);
 
     txtName.setText(name);

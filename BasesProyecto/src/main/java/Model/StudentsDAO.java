@@ -41,7 +41,6 @@ public class StudentsDAO {
                 + "LEFT JOIN Inscripciones i ON e.ID_Estudiante = i.ID_Estudiante "
                 + "LEFT JOIN Cursos c ON i.Sigla = c.Sigla ";
 
-        // Condiciones de filtro dinámico
         boolean hasSearchTerm = searchTerm != null && !searchTerm.trim().isEmpty();
         if (hasSearchTerm) {
             sql += "WHERE (e.ID_Estudiante LIKE ? OR u.Identificacion LIKE ? OR u.Nombre LIKE ? OR u.Apellido1 LIKE ? OR u.Apellido2 LIKE ?) ";
@@ -54,7 +53,6 @@ public class StudentsDAO {
             con = csdb.getConnection();
             ps = con.prepareStatement(sql);
 
-            // Configurar parámetros
             if (hasSearchTerm) {
                 String searchPattern = "%" + searchTerm.trim() + "%";
                 ps.setString(1, searchPattern);
@@ -111,41 +109,36 @@ public class StudentsDAO {
 
         try {
             con = csdb.getConnection();
-            con.setAutoCommit(false); // Inicia la transacción
+            con.setAutoCommit(false); 
 
-            // Eliminar relaciones en Administradores_Inscripciones
             ps = con.prepareStatement(sqlDeleteAdminInscripciones);
             ps.setInt(1, studentId);
             ps.executeUpdate();
 
-            // Eliminar inscripciones
             ps = con.prepareStatement(sqlDeleteInscripciones);
             ps.setInt(1, studentId);
             ps.executeUpdate();
 
-            // Eliminar relaciones en Administradores_Estudiantes
             ps = con.prepareStatement(sqlDeleteAdminEstudiantes);
             ps.setInt(1, studentId);
             ps.executeUpdate();
 
-            // Eliminar estudiante
             ps = con.prepareStatement(sqlDeleteEstudiante);
             ps.setInt(1, studentId);
             ps.executeUpdate();
 
-            // Eliminar usuario
             ps = con.prepareStatement(sqlDeleteUsuario);
             ps.setInt(1, studentId);
             ps.executeUpdate();
 
-            con.commit(); // Confirma la transacción
+            con.commit(); 
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             Component view = null;
             javax.swing.JOptionPane.showMessageDialog(view, "Ocurrió un error al eliminar el registro: " + e.getMessage());
             try {
-                con.rollback(); // Revertir en caso de error
+                con.rollback(); 
             } catch (Exception rollbackEx) {
                 rollbackEx.printStackTrace();
             }

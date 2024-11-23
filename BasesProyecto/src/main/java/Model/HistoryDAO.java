@@ -42,7 +42,6 @@ public class HistoryDAO {
                 + "LEFT JOIN Inscripciones i ON e.ID_Estudiante = i.ID_Estudiante "
                 + "LEFT JOIN Cursos c ON i.Sigla = c.Sigla ";
 
-        // Filtrar por términos de búsqueda y/o curso si se proporcionan
         boolean hasSearchTerm = searchTerm != null && !searchTerm.isEmpty();
         boolean hasCourse = course != null && !course.isEmpty() && !course.equals("Todos");
 

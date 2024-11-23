@@ -26,8 +26,8 @@ public class CurrentCourses extends javax.swing.JPanel {
         txtInfoCurrent.setVerticalAlignment(SwingConstants.TOP);
 
         if (Panel != null) {
-            //panel trasparente 
-            Panel.setBackground(new Color(84, 155, 226, 100)); // Blanco con 100 de opacidad 
+
+            Panel.setBackground(new Color(84, 155, 226, 100));  
             Panel.setOpaque(true);
 
             txtInfoCurrent.setOpaque(true);

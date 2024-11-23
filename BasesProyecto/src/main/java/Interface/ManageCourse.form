@@ -67,9 +67,6 @@
           <SubComponents>
             <Component class="javax.swing.JTextField" name="searchC">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -109,7 +106,7 @@
                         <Column editable="false" title="Curso" type="java.lang.Object"/>
                         <Column editable="false" title="Modalidad" type="java.lang.Object"/>
                         <Column editable="false" title="Area" type="java.lang.Object"/>
-                        <Column editable="false" title="Cant. estudiantes" type="java.lang.Object"/>
+                        <Column editable="false" title="Cant_estudiantes" type="java.lang.Object"/>
                         <Column editable="false" title="Horario" type="java.lang.Object"/>
                         <Column editable="false" title="Duraci&#xf3;n" type="java.lang.Object"/>
                         <Column editable="false" title="Fecha inicio" type="java.lang.Object"/>
@@ -229,6 +226,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnDeleteCourseMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteCourseActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

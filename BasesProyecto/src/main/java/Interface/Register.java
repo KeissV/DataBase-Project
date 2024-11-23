@@ -23,7 +23,6 @@ public class Register extends javax.swing.JPanel {
  public Register() {
     initComponents();
 
-    // Habilitar todos los campos para edición
     Name.setEditable(true);
     Lastname1.setEditable(true);
     Lastname2.setEditable(true);
@@ -41,7 +40,6 @@ public class Register extends javax.swing.JPanel {
     Birthdate.setEditable(true);
     Age.setEditable(true);
     
-        // Validación de campos específicos
     Email.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
         @Override
         public void insertUpdate(javax.swing.event.DocumentEvent e) {
@@ -60,9 +58,9 @@ public class Register extends javax.swing.JPanel {
 
         private void validateEmail() {
             if (!Email.getText().contains("@")) {
-                Email.setBackground(Color.PINK); // Indicar error
+                Email.setBackground(Color.PINK);
             } else {
-                Email.setBackground(Color.WHITE); // Validación correcta
+                Email.setBackground(Color.WHITE); 
             }
         }
     });
@@ -373,7 +371,6 @@ public class Register extends javax.swing.JPanel {
 
     private void BtnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegisterActionPerformed
                                             
-    // Validar cada campo
     if (Id.getText().length() != 9) {
         JOptionPane.showMessageDialog(this, "La identificación debe tener exactamente 9 caracteres.");
         return;
@@ -410,7 +407,6 @@ public class Register extends javax.swing.JPanel {
         return;
     }
 
-    // Si todas las validaciones pasan, proceder a guardar los datos
     guardarDatos();
  SwingUtilities.getWindowAncestor(this).dispose();
     }//GEN-LAST:event_BtnRegisterActionPerformed
@@ -442,7 +438,6 @@ public class Register extends javax.swing.JPanel {
 
         stmt.executeUpdate();
 
-        // Mostrar mensaje de éxito y limpiar los campos
         JOptionPane.showMessageDialog(this, "Registro exitoso.");
         limpiarCampos();
 

@@ -29,14 +29,13 @@ public class InterFacilitators extends JPanel {
         labels.add(HorCursos);
       
         
-        // Añadir un MouseListener a cada JLabel
         for (JLabel label : labels) {
             label.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     
                     if (selectedLabel != null) {
-                        selectedLabel.setBackground(null); // Color original (por defecto)
+                        selectedLabel.setBackground(null); 
                         selectedLabel.setOpaque(false);
                     }
                     
@@ -45,14 +44,12 @@ public class InterFacilitators extends JPanel {
                     selectedLabel.setBackground(new Color(255, 255, 255)); 
                     selectedLabel.setOpaque(true);
                     
-                    // Repintar la interfaz
                     repaint();
                 }
             });
         }
         if (Panel != null) {
-        //panel trasparente 
-        Panel.setBackground(new Color(255, 255, 255, 100)); // Blanco con 100 de opacidad 
+        Panel.setBackground(new Color(255, 255, 255, 100)); 
         Panel.setOpaque(true); 
        
     }   
@@ -192,10 +189,9 @@ public class InterFacilitators extends JPanel {
 
     private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
         JFrame loginFrame = new Login();
-    loginFrame.setLocationRelativeTo(null); // Centrar la ventana
-    loginFrame.setVisible(true); // Mostrar el Login
+    loginFrame.setLocationRelativeTo(null); 
+    loginFrame.setVisible(true); 
 
-    // Cerrar la ventana actual que contiene este panel
     ((JFrame) javax.swing.SwingUtilities.getWindowAncestor(this)).dispose();
     }//GEN-LAST:event_ExitMouseClicked
 
@@ -209,28 +205,22 @@ public class InterFacilitators extends JPanel {
     
     Content.removeAll();
 
-    // Usar BorderLayout para agregar el nuevo panel
     Content.setLayout(new BorderLayout());
     Content.add(coursesPanel, BorderLayout.CENTER);
 
-    // Actualizar y repintar el panel Content
     Content.revalidate();
     Content.repaint();
     }//GEN-LAST:event_CursosMouseClicked
 
     private void HorCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HorCursosMouseClicked
                                    
-    // Crear instancia de FacilitatorsSchedule
     FacilitatorsSchedule schedulePanel = new FacilitatorsSchedule();
 
-    // Eliminar cualquier contenido previo en el panel Content
     Content.removeAll();
 
-    // Usar BorderLayout para agregar el nuevo panel
     Content.setLayout(new BorderLayout());
     Content.add(schedulePanel, BorderLayout.CENTER);
 
-    // Actualizar y repintar el panel Content
     Content.revalidate();
     Content.repaint();
 

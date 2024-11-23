@@ -30,8 +30,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         
           if (Panel != null) {
-        //panel trasparente 
-        Panel.setBackground(new Color(255, 255, 255, 100)); // Blanco con 100 de opacidad 
+        Panel.setBackground(new Color(255, 255, 255, 100));
         Panel.setOpaque(true); }
        
       
@@ -220,19 +219,17 @@ public class Login extends javax.swing.JFrame {
                         if ("Administrador".equalsIgnoreCase(dbRol)) {
                             JOptionPane.showMessageDialog(this, "Login exitoso como Administrador");
 
-                                // Crear y mostrar directamente la interfaz de administrador
                                 AdmistratorInterface adminInterface = new AdmistratorInterface();
                                 adminInterface.setVisible(true);
 
-                                dispose(); // Cerrar la ventana de login
-
+                                dispose(); 
+                                
                         } else if ("Estudiante".equalsIgnoreCase(dbRol)) {
                             JOptionPane.showMessageDialog(this, "Login exitoso como Estudiante");
 
-                            // Redirigir directamente a Student_interface
                             Student_interface studentInterface = new Student_interface();
-                            studentInterface.setVisible(true); // Mostrar ventana
-                            dispose(); // Cerrar ventana de login
+                            studentInterface.setVisible(true); 
+                            dispose(); 
                         }
                     } else {
                         JOptionPane.showMessageDialog(this, "Contraseña incorrecta");

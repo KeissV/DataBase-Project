@@ -21,11 +21,11 @@ public class Courses extends javax.swing.JPanel {
      * Creates new form Cursos
      */
 public void loadTableData() {
-    // Configuración del modelo
-    DefaultTableModel model = (DefaultTableModel) TblCursos.getModel();
-    model.setRowCount(0); // Limpia los datos previos en la tabla
 
-    // Consulta SQL: Verifica que los nombres coincidan con los de la base de datos
+    DefaultTableModel model = (DefaultTableModel) TblCursos.getModel();
+    model.setRowCount(0); 
+
+    
     String query = "SELECT Sigla, Nombre_curso, Modalidad, Area_especializacion, Cantidad_estudiantes FROM Cursos";
 
     try (Connection conn = new ConnectionSQLdb().getConnection();
@@ -33,14 +33,12 @@ public void loadTableData() {
          ResultSet rs = stmt.executeQuery()) {
 
         while (rs.next()) {
-            // Extrae los datos de cada fila de la consulta
             String sigla = rs.getString("Sigla");
             String nombreCurso = rs.getString("Nombre_curso");
             String modalidad = rs.getString("Modalidad");
             String areaEspecializacion = rs.getString("Area_especializacion");
             int cantidadEstudiantes = rs.getInt("Cantidad_estudiantes");
 
-            // Agrega una nueva fila al modelo de la tabla
             model.addRow(new Object[]{sigla, nombreCurso, modalidad, areaEspecializacion, cantidadEstudiantes});
         }
 
@@ -52,7 +50,7 @@ public void loadTableData() {
 
 public Courses() {
     initComponents();
-    loadTableData(); // Llenar la tabla al inicializar
+    loadTableData(); 
 }
 
     /**

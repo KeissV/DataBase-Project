@@ -140,27 +140,23 @@ public class CoursesDAO {
     
     
     public List<Courses> listCoursesFiltered(String search, String area) {
-    String quer = "SELECT * FROM Cursos c ";  // Consulta base
+    String quer = "SELECT * FROM Cursos c ";  
     List<Courses> listC = new ArrayList<>();
 
     boolean hasSearchTerm = search != null && !search.isEmpty();
     boolean hasCourse = area != null && !area.isEmpty() && !area.equals("Todos");
 
-    // Agregar condiciones WHERE y AND de manera correcta
     if (hasSearchTerm || hasCourse) {
-        quer += "WHERE ";  // Solo una vez
+        quer += "WHERE ";  
 
-        // Si hay término de búsqueda, agregamos la condición
         if (hasSearchTerm) {
             quer += "(c.Nombre_curso LIKE ? OR c.Modalidad LIKE ? OR c.Sigla LIKE ? OR c.Horario LIKE ?) ";
         }
 
-        // Si tenemos tanto búsqueda como área, usamos AND
         if (hasSearchTerm && hasCourse) {
             quer += "AND ";
         }
 
-        // Si hay filtro de área, agregamos la condición
         if (hasCourse) {
             quer += "c.Area_especializacion = ? ";
         }
@@ -208,14 +204,12 @@ public class CoursesDAO {
     public int addCourse(Courses c) {
     String sql = "INSERT INTO Cursos(Sigla, Nombre_curso, Modalidad, Area_especializacion, Cantidad_estudiantes, Horario, Duracion, Fecha_inicio, Fecha_fin) " +
                  "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    int rowsAffected = 0; // Para almacenar el resultado
+    int rowsAffected = 0; 
 
     try {
-        // Obtener conexión
         con = csdb.getConnection();
         ps = con.prepareStatement(sql);
 
-        // Configurar parámetros
         ps.setString(1, c.getInitials());
         ps.setString(2, c.getCourseName());
         ps.setString(3, c.getModality());
@@ -231,12 +225,12 @@ public class CoursesDAO {
         System.err.println("Error al agregar el curso: " + e.getMessage());
     } 
 
-    return rowsAffected; // Retorna 1 si se agregó correctamente, 0 si no
+    return rowsAffected; 
 }
     
     public boolean addCourseToAdmin(String sigla) {
         
-        int idadmin = 10017; // Este es un ID fijo, puedes cambiarlo si lo deseas
+        int idadmin = 10017; 
 
     String query = "insert into Administradores_Cursos(ID_Administrador,Sigla)\n" +
                     "values(?, ?)";
@@ -248,15 +242,15 @@ public class CoursesDAO {
         stmt.setString(2, sigla); 
         
         int rowAffected = stmt.executeUpdate();  
-        return rowAffected > 0;  // Retorna true si se agregó correctamente
+        return rowAffected > 0;  
     } catch (SQLException e) {
         System.out.println("Error al agregar el curso a Administradores_Cursos: " + e.getMessage());
         return false;
     } finally {
-        // Cerrar recursos para evitar fugas
+      
         try {
             if (ps != null) ps.close();
-            if (con != null && !con.isClosed()) con.close();  // Verificamos si la conexión está cerrada antes de cerrarla
+            if (con != null && !con.isClosed()) con.close();  
         } catch (SQLException e) {
             System.err.println("Error al cerrar recursos: " + e.getMessage());
         }

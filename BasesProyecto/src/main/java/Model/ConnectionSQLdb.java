@@ -24,7 +24,6 @@ public class ConnectionSQLdb {
         try{
             String cadena = "jdbc:sqlserver://"+ip+":"+port+";databaseName="+db+";user="+user+";password="+pass+";encrypt=true;trustServerCertificate=true";
             connection = DriverManager.getConnection(cadena);
-            //JOptionPane.showMessageDialog(null, "Conexion Exitosa a la base de Datos");
         
         }catch (Exception e){
         JOptionPane.showMessageDialog(null, "Error: " +e.toString());

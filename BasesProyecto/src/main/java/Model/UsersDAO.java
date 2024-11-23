@@ -27,7 +27,7 @@ public class UsersDAO {
         try (Connection con = csdb.getConnection();
              PreparedStatement ps = con.prepareStatement(query)) {
 
-           // ps.setInt(1, userId);  // Set the user ID in the query
+           // ps.setInt(1, userId);  
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {

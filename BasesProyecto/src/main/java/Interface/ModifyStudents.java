@@ -223,7 +223,6 @@ private javax.swing.JDialog dialog;
             return;
         }
 
-        // Llamar al controlador para actualizar los datos
         ControllerFacilitators controller = new ControllerFacilitators(manageStaff);
         controller.updateStudentData(idEstudiante, Name.getText(), Lastname1.getText(),
                 Lastname2.getText(), phone1.getText(), phone2.getText(), province.getText(),

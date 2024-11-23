@@ -145,7 +145,6 @@ String username = jTextField1.getText().trim();
         if (rowsAffected > 0) {
             JOptionPane.showMessageDialog(this, "Contraseña actualizada correctamente.");
 
-            // Cerrar el panel actual
             ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
 
         } else {

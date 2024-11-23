@@ -32,14 +32,13 @@ public class AdmistratorInterface extends javax.swing.JFrame {
         labels.add(Inscriptions);
         labels.add(People);
         
-        // Añadir un MouseListener a cada JLabel
         for (JLabel label : labels) {
             label.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     
                     if (selectedLabel != null) {
-                        selectedLabel.setBackground(null); // Color original (por defecto)
+                        selectedLabel.setBackground(null); 
                         selectedLabel.setOpaque(false);
                     }
                     
@@ -48,14 +47,12 @@ public class AdmistratorInterface extends javax.swing.JFrame {
                     selectedLabel.setBackground(new Color(255, 255, 255)); 
                     selectedLabel.setOpaque(true);
                     
-                    // Repintar la interfaz
                     repaint();
                 }
             });
         }
         if (Panel != null) {
-        //panel trasparente 
-        Panel.setBackground(new Color(255, 255, 255, 100)); // Blanco con 100 de opacidad 
+        Panel.setBackground(new Color(255, 255, 255, 100)); 
         Panel.setOpaque(true); 
        
        controller.loadCoursesData(mc.tableCourses, null, null);
@@ -63,7 +60,6 @@ public class AdmistratorInterface extends javax.swing.JFrame {
     }
 
      
-    //metodo para poder mostrar las clases dentro del panel
    public void ShowPanel(javax.swing.JPanel p) {
     p.setSize(709, 640); 
     p.setLocation(0, 0);

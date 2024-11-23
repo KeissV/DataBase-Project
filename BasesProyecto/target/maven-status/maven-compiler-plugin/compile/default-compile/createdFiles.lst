@@ -70,11 +70,10 @@ Interface\ModifyStudents$1.class
 Interface\Register$15.class
 InterM\RestPass$4.class
 Interface\Register$9.class
+Interface\ManageCourse$9.class
 InterM\RestPass$3.class
 Interface\ManageStaff$2.class
-Controller\nn.class
 Interface\AdmistratorInterface$6.class
-Interface\Main.class
 InterM\Login$5.class
 Interface\ManageCourse.class
 Model\FacilitatorsDAO.class
@@ -83,7 +82,6 @@ Interface\AddInscription$3.class
 InterM\RestPass.class
 Interface\ManageStaff$5.class
 Interface\AdmistratorInterface$9.class
-InterM\CourseStudent.class
 Interface\ViewHistory$1.class
 InterfaW\SaveProfile.class
 Interface\Register$13.class
@@ -104,6 +102,7 @@ InterM\Login$2.class
 Model\InscriptionsDAO.class
 Interface\ManageRegister$8.class
 Interface\AddCourse$3.class
+InterM\InterFacilitators$5.class
 Controller\ControllerInscriptions.class
 Interface\EditRegister$3.class
 InterM\Login.class

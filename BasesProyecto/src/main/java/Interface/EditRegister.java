@@ -32,7 +32,6 @@ public class EditRegister extends javax.swing.JPanel {
 public EditRegister() {
     initComponents();
 
-    // Configurar campos como no editables inicialmente
     Name.setEditable(true);
     Age.setEditable(true);
     Birthdate.setEditable(false);
@@ -338,7 +337,6 @@ public EditRegister() {
 
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
     try {
-        // Obtener los valores del formulario
         String na = Name.getText();
         String age = Age.getText();
         String bir = Birthdate.getText();
@@ -356,7 +354,6 @@ public EditRegister() {
         String t2 = Tel2.getText();
         String un = UserName.getText();
 
-        // Conectar a la base de datos y ejecutar la actualización
         String updateQuery = "UPDATE Usuarios SET Nombre = ?, Apellido1 = ?, Apellido2 = ?, Rol = ?, " +
                 "Nombre_usuario = ?, Telefono_principal = ?, Teléfono_secundario = ?, Correo = ?, " +
                 "Contrasena = ?, Provincia = ?, Canton = ?, Distrito = ?, Genero = ?, Fecha_nacimiento = ?, Edad = ? " +
@@ -365,7 +362,6 @@ public EditRegister() {
         try (Connection conn = new ConnectionSQLdb().getConnection();
              PreparedStatement stmt = conn.prepareStatement(updateQuery)) {
 
-            // Establecer los valores en el PreparedStatement
             stmt.setString(1, na);
             stmt.setString(2, ln1);
             stmt.setString(3, ln2);
@@ -379,11 +375,10 @@ public EditRegister() {
             stmt.setString(11, can);
             stmt.setString(12, dis);
             stmt.setString(13, gen);
-            stmt.setString(14, bir); // Asegúrate de que el formato sea correcto (yyyy-MM-dd)
+            stmt.setString(14, bir); 
             stmt.setInt(15, Integer.parseInt(age));
             stmt.setString(16, id);
 
-            // Ejecutar la actualización
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(this, "Registro actualizado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);

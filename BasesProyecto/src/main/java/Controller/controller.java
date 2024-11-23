@@ -198,7 +198,7 @@ public void loadCoursesData(JTable table, String search, String area) {
                                                     "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
 
         if (confirm == JOptionPane.YES_OPTION) {
-            // Solicitar contraseña
+
             String pass = JOptionPane.showInputDialog(null, "Ingresa tu contraseña para confirmar:");
 
             if (validatePass(pass)) {

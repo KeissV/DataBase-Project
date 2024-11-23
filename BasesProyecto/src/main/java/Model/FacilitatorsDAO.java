@@ -52,7 +52,6 @@ public class FacilitatorsDAO {
             con = csdb.getConnection();
             ps = con.prepareStatement(sql);
 
-            // Configurar parámetros
             if (hasSearchTerm) {
                 String searchPattern = "%" + searchTerm.trim() + "%";
                 ps.setString(1, searchPattern);
@@ -109,52 +108,46 @@ public class FacilitatorsDAO {
 
         try {
             con = csdb.getConnection();
-            con.setAutoCommit(false); // Inicia la transacción
+            con.setAutoCommit(false); 
 
-            // Eliminar relaciones en Administradores_Facilitadores
             ps = con.prepareStatement(sqlDeleteAdminFacilitadores);
             ps.setInt(1, facilitatorId);
             ps.executeUpdate();
             System.out.println("Relaciones en Administradores_Facilitadores eliminadas.");
 
-            // Eliminar relaciones en Administradores_Inscripciones
             ps = con.prepareStatement(sqlDeleteAdminInscripciones);
             ps.setInt(1, facilitatorId);
             ps.executeUpdate();
             System.out.println("Relaciones en Administradores_Inscripciones eliminadas.");
 
-            // Eliminar inscripciones
             ps = con.prepareStatement(sqlDeleteInscripciones);
             ps.setInt(1, facilitatorId);
             ps.executeUpdate();
             System.out.println("Inscripciones eliminadas.");
 
-            // Eliminar relaciones en Cursos_Facilitadores
             ps = con.prepareStatement(sqlDeleteCursosFacilitadores);
             ps.setInt(1, facilitatorId);
             ps.executeUpdate();
             System.out.println("Relaciones en Cursos_Facilitadores eliminadas.");
 
-            // Eliminar facilitador
             ps = con.prepareStatement(sqlDeleteFacilitador);
             ps.setInt(1, facilitatorId);
             ps.executeUpdate();
             System.out.println("Facilitador eliminado.");
 
-            // Eliminar usuario
             ps = con.prepareStatement(sqlDeleteUsuario);
             ps.setInt(1, facilitatorId);
             ps.executeUpdate();
             System.out.println("Usuario eliminado.");
 
-            con.commit(); // Confirma la transacción
+            con.commit(); 
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             Component view = null;
             javax.swing.JOptionPane.showMessageDialog(view, "Ocurrió un error al eliminar el registro: " + e.getMessage());
             try {
-                con.rollback(); // Revertir en caso de error
+                con.rollback(); 
             } catch (Exception rollbackEx) {
                 rollbackEx.printStackTrace();
             }

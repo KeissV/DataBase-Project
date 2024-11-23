@@ -22,24 +22,20 @@ public class ViewHistory extends javax.swing.JPanel {
         initComponents();
         controller = new ControllerHistory(this);
 
-        // Listener para el botón de búsqueda
         searchButton1.addActionListener(e -> {
             String searchTerm = Search2.getText();
             String course = (String) ComboCourses.getSelectedItem();
             controller.loadHistoryData(TablaH, searchTerm, course);
         });
 
-        // Listener para cambiar el filtro del curso
         ComboCourses.addActionListener(e -> {
             String searchTerm = Search2.getText();
             String course = (String) ComboCourses.getSelectedItem();
             controller.loadHistoryData(TablaH, searchTerm, course);
         });
 
-        // Cargar datos iniciales (sin filtros)
         controller.loadHistoryData(TablaH, null, null);
 
-        // Cargar cursos en el ComboBox
         controller.loadCourses(ComboCourses);
 
         ComboCourses.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
@@ -59,7 +55,6 @@ public class ViewHistory extends javax.swing.JPanel {
             }
         });
 
-        // Asegurarse de que los paneles se mantengan transparentes
         if (TableView != null) {
             TableView.setBackground(new Color(195, 152, 242, 47));
             TableView.setOpaque(true);

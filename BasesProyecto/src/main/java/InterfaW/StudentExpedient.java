@@ -20,7 +20,7 @@ public class StudentExpedient extends javax.swing.JPanel {
         
         if (panelExpedient != null) {
             //panel trasparente 
-            panelExpedient.setBackground(new Color(84, 155, 226, 100)); // Blanco con 100 de opacidad 
+            panelExpedient.setBackground(new Color(84, 155, 226, 100));
             panelExpedient.setOpaque(true);}
         
     }

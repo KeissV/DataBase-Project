@@ -92,7 +92,7 @@ public final class ControllerFacilitators {
     public void updateStudentData(int idEstudiante, String nombre, String apellido1, String apellido2,
             String telefono1, String telefono2, String provincia, String canton,
             String distrito, String genero, String necesidadEspecial, String estadoCivil) {
-        // Validar entrada
+
         if (!validateInputs(nombre, apellido1, apellido2, telefono1, telefono2, provincia, canton, distrito, genero, "")) {
             return;
         }
@@ -104,7 +104,7 @@ public final class ControllerFacilitators {
         try {
             con = csdb.getConnection();
 
-            // Actualizar los datos del usuario
+
             String sqlUsuario = "UPDATE Usuarios SET Nombre = ?, Apellido1 = ?, Apellido2 = ?, "
                     + "Telefono_principal = ?, Teléfono_secundario = ?, Provincia = ?, "
                     + "Canton = ?, Distrito = ?, Genero = ? "
@@ -122,7 +122,7 @@ public final class ControllerFacilitators {
             ps.setInt(10, idEstudiante);
             ps.executeUpdate();
 
-            // Actualizar los datos específicos del estudiante
+
             String sqlEstudiante = "UPDATE Estudiantes SET Necesidad_Especial = ?, Estado_Civil = ? WHERE ID_Estudiante = ?";
             ps = con.prepareStatement(sqlEstudiante);
             ps.setString(1, necesidadEspecial);
@@ -162,7 +162,7 @@ public final class ControllerFacilitators {
     }
 
     public void updateStudentData(int idEstudiante, String text, String text0, String text1, String text2, String text3, String text4, String text5, String text6, String text7, String text8, String text9, String toString, int edad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 }
 

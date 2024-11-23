@@ -2,13 +2,11 @@ C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\sr
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\Controller\ControllerFacilitators.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\Controller\ControllerHistory.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\Controller\ControllerInscriptions.java
-C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\Controller\nn.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\Interface\AddCourse.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\Interface\AddInscription.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\Interface\AdmistratorInterface.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\Interface\EditCourses.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\Interface\EditRegister.java
-C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\Interface\Main.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\Interface\ManageCourse.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\Interface\ManageInscriptions.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\Interface\ManageRegister.java
@@ -23,7 +21,6 @@ C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\sr
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\InterfaW\Student_interface.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\InterfaW\StudentExpedient.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\InterM\Courses.java
-C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\InterM\CourseStudent.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\InterM\FacilitatorsSchedule.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\InterM\InterFacilitators.java
 C:\Users\Marcelle F\Documents\NetBeansProjects\DataBase-Project\BasesProyecto\src\main\java\InterM\Login.java
