@@ -101,6 +101,7 @@ public ManageRegister() {
         panelCourses.setBackground(new java.awt.Color(255, 211, 255));
         panelCourses.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        searchC.setBackground(new java.awt.Color(255, 255, 255));
         searchC.setBorder(null);
         searchC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +132,7 @@ public ManageRegister() {
         tableCourses.setSelectionForeground(new java.awt.Color(87, 73, 98));
         jScrollPane1.setViewportView(tableCourses);
 
-        panelCourses.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 630, 400));
+        panelCourses.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 630, 400));
 
         btnEditCourse.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
         btnEditCourse.setText("Editar");
@@ -202,17 +203,11 @@ public ManageRegister() {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(panelCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panelCourses, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(panelCourses, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panelCourses, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
